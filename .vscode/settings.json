@@ -3,7 +3,7 @@
     "idf.espIdfPathWin": "g:\\Espressif\\frameworks\\esp-idf-v5.1.2",
     "idf.toolsPathWin": "g:\\Espressif\\tools",
     "idf.pythonInstallPath": "g:\\Espressif\\tools\\tools\\idf-python\\3.11.2\\python.exe",
-    "idf.portWin": "COM9",
+    "idf.portWin": "COM7",
     "idf.flashType": "UART",
     "idf.customExtraVars": {
         "OPENOCD_SCRIPTS": "g:\\Espressif\\tools\\tools\\openocd-esp32\\v0.12.0-esp32-20230921/openocd-esp32/share/openocd/scripts",

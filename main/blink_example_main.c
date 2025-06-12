@@ -8,6 +8,8 @@
 #include "gh3x_demo.h"
 #include "freertos/Semphr.h"
 
+#include "pwm.h"
+
 extern esp_err_t gh_ESP_LOG(char *string);
 extern esp_err_t gh_spi_send(uint8_t *tx_data, size_t length);
 extern esp_err_t spi_driver_init(void);
@@ -24,9 +26,25 @@ void app_main(void)
     // const char *message2 = "helloworldhelloworldhelloworldhelloworldhelloworld";
     // gh_spi_send((uint8_t *)message2, strlen(message2));  // 转换为uint8_t*并传入字符串长度
 
-    GH3X_DemoInit();
-    GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
-    
+    // GH3X_DemoInit();
+    // GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
+     pwm_halfbridge_init(10000);
+     pwm_halfbridge_start();
+    //  pwm_halfbridge_stop();
+     pwm_single_init(10000, 0.5f, GPIO_NUM_5);
+     pwm_single_start();
+    //  pwm_single_stop();
+
+    // pwm_halfbridge_init(10000);
+    // pwm_single_output(10000, 0.5f, GPIO_NUM_5);
+    // pump_pwm_init(0);  // 初始化为 50% 占空比
+    // pump_pwm_set_duty(PWM_DUTY_MAX / 2);  // 初始化为 50% 占空比
+    // while(1){
+    // pump_pwm_set_duty(PWM_DUTY_MAX / 2);  // 初始化为 50% 占空比
+    // vTaskDelay(pdMS_TO_TICKS(1000));
+    // pump_pwm_set_duty(PWM_DUTY_MAX / 2);
+    // vTaskDelay(pdMS_TO_TICKS(1000));
+    // }
     // spi_driver_init();
 
 

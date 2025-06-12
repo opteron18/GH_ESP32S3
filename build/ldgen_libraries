@@ -67,5 +67,6 @@ D:/2024Project/Linluo/blink/build/esp-idf/main/libmain.a
 D:/2024Project/Linluo/blink/build/esp-idf/gh_algo/libgh_algo.a
 D:/2024Project/Linluo/blink/build/esp-idf/gh_drv/libgh_drv.a
 D:/2024Project/Linluo/blink/build/esp-idf/led/libled.a
+D:/2024Project/Linluo/blink/build/esp-idf/pwm_pump/libpwm_pump.a
 D:/2024Project/Linluo/blink/build/esp-idf/spi/libspi.a
 D:/2024Project/Linluo/blink/build/esp-idf/uart/libuart.a

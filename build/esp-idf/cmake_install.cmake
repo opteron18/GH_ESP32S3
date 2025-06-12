@@ -434,6 +434,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/2024Project/Linluo/blink/build/esp-idf/pwm_pump/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/2024Project/Linluo/blink/build/esp-idf/spi/cmake_install.cmake")
 endif()
 

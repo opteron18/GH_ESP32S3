@@ -67,5 +67,6 @@ $<TARGET_FILE:__idf_main>
 $<TARGET_FILE:__idf_gh_algo>
 $<TARGET_FILE:__idf_gh_drv>
 $<TARGET_FILE:__idf_led>
+$<TARGET_FILE:__idf_pwm_pump>
 $<TARGET_FILE:__idf_spi>
 $<TARGET_FILE:__idf_uart>
