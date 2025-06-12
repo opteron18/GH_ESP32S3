@@ -1,0 +1,46 @@
+{
+    "C_Cpp.intelliSenseEngine": "default",
+    "idf.espIdfPathWin": "g:\\Espressif\\frameworks\\esp-idf-v5.1.2",
+    "idf.toolsPathWin": "g:\\Espressif\\tools",
+    "idf.pythonInstallPath": "g:\\Espressif\\tools\\tools\\idf-python\\3.11.2\\python.exe",
+    "idf.portWin": "COM9",
+    "idf.flashType": "UART",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "g:\\Espressif\\tools\\tools\\openocd-esp32\\v0.12.0-esp32-20230921/openocd-esp32/share/openocd/scripts",
+        "IDF_CCACHE_ENABLE": "1",
+        "ESP_ROM_ELF_DIR": "g:\\Espressif\\tools\\tools\\esp-rom-elfs\\20230320/",
+        "IDF_TARGET": "esp32s3"
+    },
+    "idf.openOcdConfigs": [
+        "board/esp32s3-builtin.cfg"
+    ],
+    "files.associations": {
+        "*.bin": "code-text-binary",
+        "uart.h": "c",
+        "gpio.h": "c",
+        "stdbool.h": "c",
+        "led_strip.h": "c",
+        "sdkconfig.h": "c",
+        "esp_log.h": "c",
+        "task.h": "c",
+        "freertos.h": "c",
+        "esp_system.h": "c",
+        "string.h": "c",
+        "led.h": "c",
+        "gh3x_drv.h": "c",
+        "gh3x_demo.h": "c",
+        "gh3x_soft_led_agc.h": "c",
+        "gh3x_demo_algo_call_inner.h": "c",
+        "gh3x_demo_config.h": "c",
+        "impedance_algo.h": "c",
+        "semphr.h": "c",
+        "spi.h": "c",
+        "spi_master.h": "c",
+        "string_view": "c",
+        "regex": "c",
+        "string": "c",
+        "gh3x_drv_interface.h": "c",
+        "gh3x_demo_version.h": "c",
+        "stdint.h": "c"
+    }
+}
