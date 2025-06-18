@@ -505,9 +505,14 @@ const STGhMultiSensorTimerOps g_stGhMultiSensorTimerOps =
 };
 #endif
 
+#include "driver/uart.h"
+
 GH_WEAK int GH3X_HalSerialSendData(char* uchTxDataBuf, int usBufLen)
 {
-    return 0;
+    // 使用传入的长度参数，不要重新计算
+    const int txBytes = uart_write_bytes(UART_NUM_1, uchTxDataBuf, usBufLen);
+    ESP_LOGI("GH3X_HAL", "Wrote %d bytes", txBytes);
+    return txBytes;
 }
 
 /********END OF FILE********* Copyright (c) 2003 - 2022, Goodix Co., Ltd. ********/

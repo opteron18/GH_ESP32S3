@@ -3,4 +3,4 @@ source "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_app_format/Kconfig
 source "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/Kconfig.projbuild"
 source "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esptool_py/Kconfig.projbuild"
 source "G:/Espressif/frameworks/esp-idf-v5.1.2/components/partition_table/Kconfig.projbuild"
-source "D:/2024Project/Linluo/blink/main/Kconfig.projbuild"
+source "D:/2024Project/Linluo/Eembbed/blink/main/Kconfig.projbuild"

@@ -325,7 +325,7 @@ void GH3X_UprotocolSendFrameDataBytes(const STFrameInfo *const pstFrameInfo)
     // }
 
     frameInfo.packHeader.ubGh3xDataEn = (pstFrameInfo->pstGh3xData->uchChnlNum != 0) ? 1 : 0;
-    frameInfo.packHeader.ubGsDataEn = (pstFrameInfo->pstGsData->uchEnableFlag != 0) ? 1 : 0;
+    // frameInfo.packHeader.ubGsDataEn = (pstFrameInfo->pstGsData->uchEnableFlag != 0) ? 1 : 0;
     frameInfo.packHeader.ubFlagInfo = (pstFrameInfo->pstFlagInfo->uchFlagBits != 0) ? 1 : 0;
     frameInfo.packHeader.ubAlgoData = (pstFrameInfo->pstAlgoData->uchFlag != 0) ? 1 : 0;
     frameInfo.packHeader.ubAgcInfo = (pstFrameInfo->pstGh3xData->punAgcInfo != GH3X_PTR_NULL) ? 1 : 0;

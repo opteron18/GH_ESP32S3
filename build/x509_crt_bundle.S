@@ -1,4 +1,4 @@
-/* * Data converted from D:/2024Project/Linluo/blink/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

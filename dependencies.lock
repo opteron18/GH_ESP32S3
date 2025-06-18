@@ -2,7 +2,7 @@ dependencies:
   espressif/led_strip:
     component_hash: null
     source:
-      path: D:\2024Project\Linluo\blink\components\espressif__led_strip
+      path: D:\2024Project\Linluo\Eembbed\blink\components\espressif__led_strip
       type: local
     version: 2.5.5
   idf:

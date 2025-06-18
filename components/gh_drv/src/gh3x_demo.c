@@ -652,7 +652,9 @@ void GH3X_DemoSamplingControl(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
                 gunDemoFuncMode &= (~(((GU32)1)<< uchFunCnt));
                 unStopFunc |= (((GU32)1)<< uchFunCnt);
             }
-            gpstFrameInfo[uchFunCnt]->pstGsData->uchEnableFlag = GH3X_GetGsensorEnableFlag();
+            if (gpstFrameInfo[uchFunCnt] && gpstFrameInfo[uchFunCnt]->pstGsData) {
+                gpstFrameInfo[uchFunCnt]->pstGsData->uchEnableFlag = GH3X_GetGsensorEnableFlag();
+}
         
         }
     }

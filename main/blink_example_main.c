@@ -9,7 +9,7 @@
 #include "freertos/Semphr.h"
 
 #include "pwm.h"
-
+#include "gh3x_demo.h"
 extern esp_err_t gh_ESP_LOG(char *string);
 extern esp_err_t gh_spi_send(uint8_t *tx_data, size_t length);
 extern esp_err_t spi_driver_init(void);
@@ -19,6 +19,9 @@ void app_main(void)
     // GhCommInit();
     configure_led();
     uart_init();
+    // const char * name = "hellothere";
+    // sendData(name,name);
+
     gh_ESP_LOG("Hello world!\n");
     // spi_driver_init();
     // const char *message = "helloworld";
@@ -26,13 +29,18 @@ void app_main(void)
     // const char *message2 = "helloworldhelloworldhelloworldhelloworldhelloworld";
     // gh_spi_send((uint8_t *)message2, strlen(message2));  // 转换为uint8_t*并传入字符串长度
 
-    // GH3X_DemoInit();
-    // GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
-     pwm_halfbridge_init(10000);
-     pwm_halfbridge_start();
+    GH3X_DemoInit();
+    GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
+    // while(1){
+    //     GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
+    //     GH3X_DemoInterruptProcess();
+    //     GH3X_DelayUs(1000);
+    // }
+    //  pwm_halfbridge_init(10000);
+    //  pwm_halfbridge_start();
     //  pwm_halfbridge_stop();
-     pwm_single_init(10000, 0.5f, GPIO_NUM_5);
-     pwm_single_start();
+    //  pwm_single_init(10000, 0.5f, GPIO_NUM_5);
+    //  pwm_single_start();
     //  pwm_single_stop();
 
     // pwm_halfbridge_init(10000);

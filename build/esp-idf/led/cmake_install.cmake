@@ -1,4 +1,4 @@
-# Install script for directory: D:/2024Project/Linluo/blink/components/led
+# Install script for directory: D:/2024Project/Linluo/Eembbed/blink/components/led
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

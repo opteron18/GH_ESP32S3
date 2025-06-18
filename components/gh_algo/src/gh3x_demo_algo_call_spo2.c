@@ -34,16 +34,16 @@ goodix_spo2_ret goodix_spo2_init_func(GU32 fs)
     stSpo2Cfg.raw_fs = fs;
   
     GH3X_SAMPLE_ALGO_LOG_PARAM("[%s]:params = %d,%d,%d,%d,%d,%d,%d,%d,%d,%d,\r\n", __FUNCTION__,
-                                                                            stSpo2Cfg.valid_chl_num,
-                                                                            stSpo2Cfg.raw_fs,
-                                                                            stSpo2Cfg.hb_en_flg,
-                                                                            stSpo2Cfg.wear_mode,
-                                                                            stSpo2Cfg.acc_thr_max,
-                                                                            stSpo2Cfg.acc_thr_min,
-                                                                            stSpo2Cfg.acc_thr_scale,
-                                                                            stSpo2Cfg.acc_thr_num,
-                                                                            stSpo2Cfg.ctr_en_flg,
-                                                                            stSpo2Cfg.ctr_red_thr);
+                                                                            (unsigned int)stSpo2Cfg.valid_chl_num,
+                                                                            (unsigned int)stSpo2Cfg.raw_fs,
+                                                                            (unsigned int)stSpo2Cfg.hb_en_flg,
+                                                                            (unsigned int)stSpo2Cfg.wear_mode,
+                                                                            (unsigned int)stSpo2Cfg.acc_thr_max,
+                                                                            (unsigned int)stSpo2Cfg.acc_thr_min,
+                                                                            (unsigned int)stSpo2Cfg.acc_thr_scale,
+                                                                            (unsigned int)stSpo2Cfg.acc_thr_num,
+                                                                            (unsigned int)stSpo2Cfg.ctr_en_flg,
+                                                                            (unsigned int)stSpo2Cfg.ctr_red_thr);
 
     stAlgoRet = goodix_spo2_init(&stSpo2Cfg,sizeof(stSpo2Cfg),chVer);
     return stAlgoRet;

@@ -27,7 +27,7 @@
 #define __INTERRUPT_PROCESS_MODE__              (__NORMAL_INT_PROCESS_MODE__)               /**< 2:polling+int 1:use polling 0:use interrupt */
 
 /* gsensor set */
-#define __GSENSOR_ENABLE__                      (1)                                         /*Gsensor enable*/
+#define __GSENSOR_ENABLE__                      (0)                                         /*Gsensor enable*/
 #if (__GSENSOR_ENABLE__)
     #define __GS_SENSITIVITY_CONFIG__               (GSENSOR_SENSITIVITY_512_COUNTS_PER_G)  /**< gsensor sensitivity config */
     #define __GS_GYRO_ENABLE__                      (0)                                     /*Gyro enable*/

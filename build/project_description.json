@@ -1,13 +1,13 @@
 {
     "version":            "1",
     "project_name":       "blink",
-    "project_version":    "83fc299-dirty",
-    "project_path":       "D:/2024Project/Linluo/blink",
+    "project_version":    "a2408c1-dirty",
+    "project_path":       "D:/2024Project/Linluo/Eembbed/blink",
     "idf_path":           "G:/Espressif/frameworks/esp-idf-v5.1.2",
-    "build_dir":          "D:/2024Project/Linluo/blink/build",
-    "config_file":        "D:/2024Project/Linluo/blink/sdkconfig",
+    "build_dir":          "D:/2024Project/Linluo/Eembbed/blink/build",
+    "config_file":        "D:/2024Project/Linluo/Eembbed/blink/sdkconfig",
     "config_defaults":    "",
-    "bootloader_elf":     "D:/2024Project/Linluo/blink/build/bootloader/bootloader.elf",
+    "bootloader_elf":     "D:/2024Project/Linluo/Eembbed/blink/build/bootloader/bootloader.elf",
     "app_elf":            "blink.elf",
     "app_bin":            "blink.bin",
     "build_type":         "flash_app",
@@ -22,11 +22,11 @@
     "c_compiler":         "G:/Espressif/tools/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-gcc.exe",
     "config_environment" : {
         "COMPONENT_KCONFIGS" : "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_trace/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/bt/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp-tls/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_coex/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_common/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_eth/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_event/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_https_ota/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_https_server/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_partition/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_pm/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_psram/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_ringbuf/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/ieee802154/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/log/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/mbedtls/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt/esp-mqtt/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/openthread/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/ulp/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/Kconfig;G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/Kconfig",
-        "COMPONENT_KCONFIGS_PROJBUILD" : "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_app_format/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esptool_py/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/partition_table/Kconfig.projbuild;D:/2024Project/Linluo/blink/main/Kconfig.projbuild"
+        "COMPONENT_KCONFIGS_PROJBUILD" : "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_app_format/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/esptool_py/Kconfig.projbuild;G:/Espressif/frameworks/esp-idf-v5.1.2/components/partition_table/Kconfig.projbuild;D:/2024Project/Linluo/Eembbed/blink/main/Kconfig.projbuild"
     },
     "common_component_reqs": [ "cxx", "newlib", "freertos", "esp_hw_support", "heap", "log", "soc", "hal", "esp_rom", "esp_common", "esp_system", "xtensa" ],
     "build_components" : [ "app_trace", "app_update", "bootloader", "bootloader_support", "bt", "cmock", "console", "cxx", "driver", "efuse", "esp-tls", "esp_adc", "esp_app_format", "esp_coex", "esp_common", "esp_eth", "esp_event", "esp_gdbstub", "esp_hid", "esp_http_client", "esp_http_server", "esp_https_ota", "esp_https_server", "esp_hw_support", "esp_lcd", "esp_local_ctrl", "esp_mm", "esp_netif", "esp_netif_stack", "esp_partition", "esp_phy", "esp_pm", "esp_psram", "esp_ringbuf", "esp_rom", "esp_system", "esp_timer", "esp_wifi", "espcoredump", "espressif__led_strip", "esptool_py", "fatfs", "freertos", "gh_algo", "gh_drv", "hal", "heap", "http_parser", "idf_test", "ieee802154", "json", "led", "log", "lwip", "main", "mbedtls", "mqtt", "newlib", "nvs_flash", "openthread", "partition_table", "perfmon", "protobuf-c", "protocomm", "pthread", "pwm_pump", "sdmmc", "soc", "spi", "spi_flash", "spiffs", "tcp_transport", "touch_element", "uart", "ulp", "unity", "usb", "vfs", "wear_levelling", "wifi_provisioning", "wpa_supplicant", "xtensa", "" ],
-    "build_component_paths" : [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_trace", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_update", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bt", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/cmock", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/cxx", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp-tls", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_app_format", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_coex", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_common", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_eth", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_event", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hid", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_https_ota", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_https_server", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_local_ctrl", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_mm", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif_stack", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_partition", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_pm", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_psram", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_ringbuf", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump", "D:/2024Project/Linluo/blink/components/espressif__led_strip", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esptool_py", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos", "D:/2024Project/Linluo/blink/components/gh_algo", "D:/2024Project/Linluo/blink/components/gh_drv", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/http_parser", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/idf_test", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/ieee802154", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/json", "D:/2024Project/Linluo/blink/components/led", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/log", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip", "D:/2024Project/Linluo/blink/main", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mbedtls", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/openthread", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/partition_table", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/perfmon", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protobuf-c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread", "D:/2024Project/Linluo/blink/components/pwm_pump", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc", "D:/2024Project/Linluo/blink/components/spi", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/touch_element", "D:/2024Project/Linluo/blink/components/uart", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/ulp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/xtensa", "" ],
+    "build_component_paths" : [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_trace", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_update", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bt", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/cmock", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/cxx", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp-tls", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_app_format", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_coex", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_common", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_eth", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_event", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hid", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_https_ota", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_https_server", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_local_ctrl", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_mm", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif_stack", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_partition", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_pm", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_psram", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_ringbuf", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump", "D:/2024Project/Linluo/Eembbed/blink/components/espressif__led_strip", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esptool_py", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/http_parser", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/idf_test", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/ieee802154", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/json", "D:/2024Project/Linluo/Eembbed/blink/components/led", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/log", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip", "D:/2024Project/Linluo/Eembbed/blink/main", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mbedtls", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/openthread", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/partition_table", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/perfmon", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protobuf-c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread", "D:/2024Project/Linluo/Eembbed/blink/components/pwm_pump", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc", "D:/2024Project/Linluo/Eembbed/blink/components/spi", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/touch_element", "D:/2024Project/Linluo/Eembbed/blink/components/uart", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/ulp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/xtensa", "" ],
     "build_component_info" : {
         "app_trace": {
             "alias": "idf::app_trace",
@@ -39,7 +39,7 @@
             "priv_reqs": [ "soc", "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/app_trace/libapp_trace.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/app_trace/libapp_trace.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_trace/app_trace.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_trace/app_trace_util.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_trace/host_file_io.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_trace/port/port_uart.c" ],
             "include_dirs": [ "include" ]
         },
@@ -54,7 +54,7 @@
             "priv_reqs": [ "esptool_py", "efuse", "spi_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/app_update/libapp_update.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/app_update/libapp_update.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_update/esp_ota_ops.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/app_update/esp_ota_app_desc.c" ],
             "include_dirs": [ "include" ]
         },
@@ -84,7 +84,7 @@
             "priv_reqs": [ "spi_flash", "mbedtls", "efuse", "heap", "esp_app_format" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/bootloader_support/libbootloader_support.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/bootloader_support/libbootloader_support.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_common_loader.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_clock_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_mem.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_random.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_random_esp32s3.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_efuse.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/flash_encrypt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/secure_boot.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/bootloader_flash/src/bootloader_flash.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/bootloader_flash/src/flash_qio_mode.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/bootloader_flash/src/bootloader_flash_config_esp32s3.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/bootloader_utility.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/flash_partitions.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/esp_image_format.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader_support/src/idf/bootloader_sha.c" ],
             "include_dirs": [ "include", "bootloader_flash/include" ]
         },
@@ -114,7 +114,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/cmock/libcmock.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/cmock/libcmock.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/cmock/CMock/src/cmock.c" ],
             "include_dirs": [ "CMock/src" ]
         },
@@ -129,7 +129,7 @@
             "priv_reqs": [ "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/console/libconsole.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/console/libconsole.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/commands.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/esp_console_repl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/split_argv.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/linenoise/linenoise.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_cmd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_date.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_dbl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_dstr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_end.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_file.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_hashtable.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_int.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_lit.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_rem.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_rex.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_str.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/arg_utils.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/console/argtable3/argtable3.c" ],
             "include_dirs": [ "." ]
         },
@@ -144,7 +144,7 @@
             "priv_reqs": [ "pthread" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/cxx/libcxx.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/cxx/libcxx.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/cxx/cxx_exception_stubs.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/cxx/cxx_guards.cpp" ],
             "include_dirs": []
         },
@@ -159,7 +159,7 @@
             "priv_reqs": [ "efuse", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/driver/libdriver.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/driver/libdriver.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/gpio/gpio.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/gpio/gpio_glitch_filter_ops.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/gpio/rtc_io.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/spi_bus_lock.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/adc_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/adc_dma_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/gpio/dedic_gpio.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/gpio/gpio_pin_glitch_filter.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/gptimer/gptimer.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/gptimer/gptimer_priv.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/timer_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/i2c/i2c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/i2s/i2s_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/i2s/i2s_std.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/i2s_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/i2s/i2s_pdm.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/i2s/i2s_tdm.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/ledc/ledc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_cap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_cmpr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_com.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_fault.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_gen.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_oper.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_sync.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/mcpwm/mcpwm_timer.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/mcpwm_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/pcnt/pulse_cnt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/pcnt_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/rmt/rmt_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/rmt/rmt_encoder.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/rmt/rmt_rx.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/rmt/rmt_tx.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/rmt_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/sdmmc/sdmmc_transaction.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/sdmmc/sdmmc_host.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/sigma_delta/sdm.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/sigma_delta_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_slave.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/sdspi/sdspi_crc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/sdspi/sdspi_host.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/sdspi/sdspi_transaction.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_slave_hd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/temperature_sensor/temperature_sensor.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/deprecated/rtc_temperature_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/touch_sensor/touch_sensor_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/touch_sensor/esp32s3/touch_sensor.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/twai/twai.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/uart/uart.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/usb_serial_jtag/usb_serial_jtag.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/usb_serial_jtag/usb_serial_jtag_connection_monitor.c" ],
             "include_dirs": [ "include", "deprecated", "analog_comparator/include", "dac/include", "gpio/include", "gptimer/include", "i2c/include", "i2s/include", "ledc/include", "mcpwm/include", "parlio/include", "pcnt/include", "rmt/include", "sdio_slave/include", "sdmmc/include", "sigma_delta/include", "spi/include", "temperature_sensor/include", "touch_sensor/include", "twai/include", "uart/include", "usb_serial_jtag/include", "touch_sensor/esp32s3/include" ]
         },
@@ -174,7 +174,7 @@
             "priv_reqs": [ "bootloader_support", "soc", "spi_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/efuse/libefuse.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/efuse/libefuse.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/esp32s3/esp_efuse_table.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/esp32s3/esp_efuse_fields.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/esp32s3/esp_efuse_rtc_calib.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/esp32s3/esp_efuse_utility.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/src/esp_efuse_api.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/src/esp_efuse_fields.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/src/esp_efuse_utility.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/efuse/src/efuse_controller/keys/with_key_purposes/esp_efuse_api_key.c" ],
             "include_dirs": [ "include", "esp32s3/include" ]
         },
@@ -189,7 +189,7 @@
             "priv_reqs": [ "http_parser", "lwip" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp-tls/libesp-tls.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp-tls/libesp-tls.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp-tls/esp_tls.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp-tls/esp-tls-crypto/esp_tls_crypto.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp-tls/esp_tls_error_capture.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp-tls/esp_tls_mbedtls.c" ],
             "include_dirs": [ ".", "esp-tls-crypto" ]
         },
@@ -204,7 +204,7 @@
             "priv_reqs": [ "driver", "efuse" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_adc/libesp_adc.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_adc/libesp_adc.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/adc_cali.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/adc_cali_curve_fitting.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/adc_oneshot.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/adc_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/deprecated/esp_adc_cal_common_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/adc_continuous.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/adc_filter.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/esp32s3/curve_fitting_coefficients.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_adc/deprecated/esp32s3/esp_adc_cal_legacy.c" ],
             "include_dirs": [ "include", "interface", "esp32s3/include", "deprecated/include" ]
         },
@@ -219,7 +219,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_app_format/libesp_app_format.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_app_format/libesp_app_format.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_app_format/esp_app_desc.c" ],
             "include_dirs": [ "include" ]
         },
@@ -234,7 +234,7 @@
             "priv_reqs": [ "esp_timer", "driver", "esp_event" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_coex/libesp_coex.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_coex/libesp_coex.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_coex/esp32s3/esp_coex_adapter.c" ],
             "include_dirs": [ "include" ]
         },
@@ -249,7 +249,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_common/libesp_common.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_common/libesp_common.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_common/src/esp_err_to_name.c" ],
             "include_dirs": [ "include" ]
         },
@@ -264,7 +264,7 @@
             "priv_reqs": [ "driver", "log", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_eth/libesp_eth.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_eth/libesp_eth.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_eth/src/esp_eth.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_eth/src/esp_eth_phy_802_3.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_eth/src/esp_eth_netif_glue.c" ],
             "include_dirs": [ "include" ]
         },
@@ -279,7 +279,7 @@
             "priv_reqs": [ "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_event/libesp_event.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_event/libesp_event.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_event/default_event_loop.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_event/esp_event.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_event/esp_event_private.c" ],
             "include_dirs": [ "include" ]
         },
@@ -294,7 +294,7 @@
             "priv_reqs": [ "soc", "esp_rom", "esp_system" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_gdbstub/libesp_gdbstub.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_gdbstub/libesp_gdbstub.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub/src/gdbstub.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub/src/gdbstub_transport.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub/src/packet.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub/src/port/xtensa/gdbstub_xtensa.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub/src/port/xtensa/gdbstub-entry.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_gdbstub/src/port/xtensa/xt_debugexception.S" ],
             "include_dirs": [ "include" ]
         },
@@ -309,7 +309,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_hid/libesp_hid.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_hid/libesp_hid.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hid/src/esp_hidd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hid/src/esp_hidh.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hid/src/esp_hid_common.c" ],
             "include_dirs": [ "include" ]
         },
@@ -324,7 +324,7 @@
             "priv_reqs": [ "tcp_transport", "http_parser" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_http_client/libesp_http_client.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_http_client/libesp_http_client.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/esp_http_client.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/lib/http_auth.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/lib/http_header.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/lib/http_utils.c" ],
             "include_dirs": [ "include" ]
         },
@@ -339,7 +339,7 @@
             "priv_reqs": [ "mbedtls", "lwip", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_http_server/libesp_http_server.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_http_server/libesp_http_server.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_main.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_parse.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_sess.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_txrx.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_uri.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_ws.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/util/ctrl_sock.c" ],
             "include_dirs": [ "include" ]
         },
@@ -354,7 +354,7 @@
             "priv_reqs": [ "log", "app_update" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_https_ota/libesp_https_ota.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_https_ota/libesp_https_ota.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_https_ota/src/esp_https_ota.c" ],
             "include_dirs": [ "include" ]
         },
@@ -384,7 +384,7 @@
             "priv_reqs": [ "efuse", "spi_flash", "bootloader_support", "driver", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_hw_support/libesp_hw_support.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_hw_support/libesp_hw_support.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/cpu.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/esp_memory_utils.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/cpu_region_protect.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/esp_clk.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/clk_ctrl_os.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/hw_random.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/intr_alloc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/mac_addr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/periph_ctrl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/revision.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/rtc_module.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/sleep_modes.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/sleep_gpio.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/sleep_modem.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/regi2c_ctrl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/esp_gpio_reserve.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/sar_periph_ctrl_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/io_mux.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/esp_clk_tree.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp_clk_tree_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/adc_share_hw_ctrl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/sleep_cpu.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/dma/gdma.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/dma/async_memcpy_impl_gdma.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/dma/esp_async_memcpy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/systimer.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/esp_hmac.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/esp_ds.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/mspi_timing_tuning.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/mspi_timing_config.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/sleep_wake_stub.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/rtc_clk.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/rtc_clk_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/rtc_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/rtc_sleep.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/rtc_time.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/chip_info.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/esp_crypto_lock.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/sar_periph_ctrl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp32s3/esp_memprot.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_hw_support/port/esp_memprot_conv.c" ],
             "include_dirs": [ "include", "include/soc", "include/soc/esp32s3" ]
         },
@@ -399,7 +399,7 @@
             "priv_reqs": [ "driver", "esp_mm", "esp_psram" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_lcd/libesp_lcd.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_lcd/libesp_lcd.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_io.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_io_i2c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_io_spi.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_nt35510.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_ssd1306.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_st7789.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_ops.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_io_i80.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_lcd/src/esp_lcd_panel_rgb.c" ],
             "include_dirs": [ "include", "interface" ]
         },
@@ -414,7 +414,7 @@
             "priv_reqs": [ "protobuf-c" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_local_ctrl/src/esp_local_ctrl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_local_ctrl/src/esp_local_ctrl_handler.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_local_ctrl/proto-c/esp_local_ctrl.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_local_ctrl/src/esp_local_ctrl_transport_httpd.c" ],
             "include_dirs": [ "include" ]
         },
@@ -429,7 +429,7 @@
             "priv_reqs": [ "heap", "spi_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_mm/libesp_mm.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_mm/libesp_mm.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_mm/esp_mmu_map.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_mm/port/esp32s3/ext_mem_layout.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_mm/esp_cache.c" ],
             "include_dirs": [ "include" ]
         },
@@ -444,7 +444,7 @@
             "priv_reqs": [ "esp_netif_stack" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_netif/libesp_netif.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_netif/libesp_netif.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/esp_netif_handlers.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/esp_netif_objects.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/esp_netif_defaults.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/lwip/esp_netif_lwip.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/lwip/esp_netif_sntp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/lwip/esp_netif_lwip_defaults.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/lwip/netif/wlanif.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/lwip/netif/ethernetif.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_netif/lwip/netif/esp_pbuf_ref.c" ],
             "include_dirs": [ "include" ]
         },
@@ -474,7 +474,7 @@
             "priv_reqs": [ "esp_system", "bootloader_support", "spi_flash", "app_update", "partition_table" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_partition/libesp_partition.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_partition/libesp_partition.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_partition/partition.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_partition/partition_target.c" ],
             "include_dirs": [ "include" ]
         },
@@ -489,7 +489,7 @@
             "priv_reqs": [ "nvs_flash", "driver", "efuse", "esp_timer", "esp_wifi" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_phy/libesp_phy.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_phy/libesp_phy.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy/src/phy_override.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy/src/lib_printf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy/src/phy_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy/src/phy_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_phy/src/btbb_init.c" ],
             "include_dirs": [ "include", "esp32s3/include" ]
         },
@@ -504,7 +504,7 @@
             "priv_reqs": [ "esp_system", "driver", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_pm/libesp_pm.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_pm/libesp_pm.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_pm/pm_locks.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_pm/pm_trace.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_pm/pm_impl.c" ],
             "include_dirs": [ "include" ]
         },
@@ -534,7 +534,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_ringbuf/libesp_ringbuf.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_ringbuf/libesp_ringbuf.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_ringbuf/ringbuf.c" ],
             "include_dirs": [ "include" ]
         },
@@ -549,7 +549,7 @@
             "priv_reqs": [ "soc", "hal" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_rom/libesp_rom.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_rom/libesp_rom.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_crc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_sys.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_uart.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_spiflash.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_efuse.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_longjmp.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_systimer.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_wdt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_cache_esp32s2_esp32s3.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_rom/patches/esp_rom_cache_writeback_esp32s3.S" ],
             "include_dirs": [ "include", "include/esp32s3", "esp32s3" ]
         },
@@ -564,7 +564,7 @@
             "priv_reqs": [ "spi_flash", "esp_timer", "esp_mm", "pthread", "bootloader_support", "efuse", "driver", "esp_partition" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_system/libesp_system.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_system/libesp_system.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/esp_err.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/crosscore_int.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/esp_ipc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/freertos_hooks.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/int_wdt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/panic.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/esp_system.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/startup.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/system_time.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/stack_check.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/ubsan.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/xt_wdt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/debug_stubs.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt_impl_timergroup.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/cpu_start.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/panic_handler.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/esp_system_chip.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/brownout.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/soc/esp32s3/highint_hdl.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/soc/esp32s3/clk.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/soc/esp32s3/reset_reason.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/soc/esp32s3/system_internal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/soc/esp32s3/cache_err_int.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/soc/esp32s3/apb_backup_dma.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/panic_arch.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/panic_handler_asm.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/expression_with_stack.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/expression_with_stack_asm.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/debug_helpers.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/debug_helpers_asm.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/debug_stubs.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/trax.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/esp_ipc_isr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/esp_ipc_isr_handler.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/arch/xtensa/esp_ipc_isr_routines.S" ],
             "include_dirs": [ "include" ]
         },
@@ -579,7 +579,7 @@
             "priv_reqs": [ "soc", "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_timer/libesp_timer.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_timer/libesp_timer.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer/src/esp_timer.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer/src/ets_timer_legacy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer/src/system_time.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer/src/esp_timer_impl_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_timer/src/esp_timer_impl_systimer.c" ],
             "include_dirs": [ "include" ]
         },
@@ -594,7 +594,7 @@
             "priv_reqs": [ "driver", "esptool_py", "esp_pm", "esp_timer", "nvs_flash", "wpa_supplicant", "hal", "lwip", "esp_coex" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/esp_wifi/libesp_wifi.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/esp_wifi/libesp_wifi.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/src/mesh_event.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/src/smartconfig.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/src/wifi_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/src/wifi_default.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/src/wifi_netif.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/src/wifi_default_ap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/esp32s3/esp_adapter.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_wifi/src/smartconfig_ack.c" ],
             "include_dirs": [ "include", "wifi_apps/include" ]
         },
@@ -609,7 +609,7 @@
             "priv_reqs": [ "esp_partition", "spi_flash", "bootloader_support", "mbedtls", "esp_rom", "soc", "esp_system", "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/espcoredump/libespcoredump.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/espcoredump/libespcoredump.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/src/core_dump_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/src/core_dump_checksum.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/src/core_dump_flash.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/src/core_dump_uart.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/src/core_dump_elf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/src/core_dump_binary.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/espcoredump/src/port/xtensa/core_dump_port.c" ],
             "include_dirs": [ "include", "include/port/xtensa" ]
         },
@@ -617,15 +617,15 @@
             "alias": "idf::espressif__led_strip",
             "target": "___idf_espressif__led_strip",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/components/espressif__led_strip",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/components/espressif__led_strip",
             "type": "LIBRARY",
             "lib": "__idf_espressif__led_strip",
             "reqs": [ "driver" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/espressif__led_strip/libespressif__led_strip.a",
-            "sources": [ "D:/2024Project/Linluo/blink/components/espressif__led_strip/src/led_strip_api.c", "D:/2024Project/Linluo/blink/components/espressif__led_strip/src/led_strip_rmt_dev.c", "D:/2024Project/Linluo/blink/components/espressif__led_strip/src/led_strip_rmt_encoder.c", "D:/2024Project/Linluo/blink/components/espressif__led_strip/src/led_strip_spi_dev.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/espressif__led_strip/libespressif__led_strip.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/components/espressif__led_strip/src/led_strip_api.c", "D:/2024Project/Linluo/Eembbed/blink/components/espressif__led_strip/src/led_strip_rmt_dev.c", "D:/2024Project/Linluo/Eembbed/blink/components/espressif__led_strip/src/led_strip_rmt_encoder.c", "D:/2024Project/Linluo/Eembbed/blink/components/espressif__led_strip/src/led_strip_spi_dev.c" ],
             "include_dirs": [ "include", "interface" ]
         },
         "esptool_py": {
@@ -654,7 +654,7 @@
             "priv_reqs": [ "vfs" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/fatfs/libfatfs.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/fatfs/libfatfs.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/diskio/diskio.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/diskio/diskio_rawflash.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/diskio/diskio_sdmmc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/diskio/diskio_wl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/src/ff.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/port/freertos/ffsystem.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/src/ffunicode.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/vfs/vfs_fat.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/vfs/vfs_fat_sdmmc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/fatfs/vfs/vfs_fat_spiflash.c" ],
             "include_dirs": [ "diskio", "vfs", "src" ]
         },
@@ -669,7 +669,7 @@
             "priv_reqs": [ "soc", "esp_pm" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/freertos/libfreertos.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/freertos/libfreertos.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/heap_idf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/esp_additions/idf_additions.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/list.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/queue.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/tasks.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/timers.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/croutine.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/event_groups.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/stream_buffer.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-openocd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/port_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/port_systick.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/esp_additions/freertos_v8_compat.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_overlay_os_hook.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S" ],
             "include_dirs": [ "FreeRTOS-Kernel/include", "FreeRTOS-Kernel/portable/xtensa/include", "esp_additions/include/freertos", "esp_additions/include", "esp_additions/arch/xtensa/include" ]
         },
@@ -677,30 +677,30 @@
             "alias": "idf::gh_algo",
             "target": "___idf_gh_algo",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/components/gh_algo",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo",
             "type": "LIBRARY",
             "lib": "__idf_gh_algo",
-            "reqs": [ "freertos" ],
+            "reqs": [ "freertos", "gh_drv" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/gh_algo/libgh_algo.a",
-            "sources": [ "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_adt.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_bia.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_ecg.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_gsr.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_hr.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_hrv.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_nadt.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call_spo2.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_call.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_config.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_hook.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_algo_memory.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/gh3x_demo_strategy.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/goodix_ecg_config.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/goodix_hba_config.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/goodix_hrv_config.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/goodix_nadt_config.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/goodix_spo2_config_for_GH3300_c3450c.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/goodix_spo2_net_for_GH3300_c3450c.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/goodix_sys_bia.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/heart_net_org_dll.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/HRNet_knBasicWeights.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/HRNet_knConfNetWeights.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/HRNet_knMultiWeights.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/HRNet_knSceneNetWeights.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/HRNet_knSceneSwitchWeights.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/HRNet_knSmallWeights.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/HRNet_knWeights.c", "D:/2024Project/Linluo/blink/components/gh_algo/src/iot_sys_common_lib.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/gh_algo/libgh_algo.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_adt.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_bia.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_ecg.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_gsr.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_hr.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_hrv.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_nadt.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call_spo2.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_call.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_config.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_hook.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_algo_memory.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/gh3x_demo_strategy.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/goodix_ecg_config.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/goodix_hba_config.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/goodix_hrv_config.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/goodix_nadt_config.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/goodix_spo2_config_for_GH3300_c3450c.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/goodix_spo2_net_for_GH3300_c3450c.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/goodix_sys_bia.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/heart_net_org_dll.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/HRNet_knBasicWeights.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/HRNet_knConfNetWeights.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/HRNet_knMultiWeights.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/HRNet_knSceneNetWeights.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/HRNet_knSceneSwitchWeights.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/HRNet_knSmallWeights.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/HRNet_knWeights.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_algo/src/iot_sys_common_lib.c" ],
             "include_dirs": [ "include", ".", "../gh_drv/include" ]
         },
         "gh_drv": {
             "alias": "idf::gh_drv",
             "target": "___idf_gh_drv",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/components/gh_drv",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv",
             "type": "LIBRARY",
             "lib": "__idf_gh_drv",
-            "reqs": [ "freertos", "driver" ],
+            "reqs": [ "freertos", "driver", "gh_algo" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/gh_drv/libgh_drv.a",
-            "sources": [ "D:/2024Project/Linluo/blink/components/gh_drv/src/BiaSampleManager.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh_gsr.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh_multi_sen_pro.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh_package.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh_rpccore.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_bia_cali_processor.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_bia_impedance_fixer.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_bia_invalid_data_filter.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_bia_offset_processor.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_demo_hook.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_demo_protocol.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_demo_reg_array.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_demo_struct.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_demo_user.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_demo.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_drv_config.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_drv_control.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_drv_interface.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_gsensor_control.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_protocol_cmd.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_soft_adt.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_soft_led_agc.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/impedance_algo.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/slabmemory.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/staticmapimp.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_drvlib.c", "D:/2024Project/Linluo/blink/components/gh_drv/src/gh3x_fifo_analyze.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/gh_drv/libgh_drv.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/BiaSampleManager.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh_gsr.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh_multi_sen_pro.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh_package.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh_rpccore.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_bia_cali_processor.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_bia_impedance_fixer.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_bia_invalid_data_filter.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_bia_offset_processor.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_demo_hook.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_demo_protocol.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_demo_reg_array.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_demo_struct.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_demo_user.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_demo.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_drv_config.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_drv_control.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_drv_interface.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_gsensor_control.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_protocol_cmd.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_soft_adt.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_soft_led_agc.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/impedance_algo.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/slabmemory.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/staticmapimp.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_drvlib.c", "D:/2024Project/Linluo/Eembbed/blink/components/gh_drv/src/gh3x_fifo_analyze.c" ],
             "include_dirs": [ "include", ".", "../gh_algo/include" ]
         },
         "hal": {
@@ -714,7 +714,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/hal/libhal.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/hal/libhal.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/mpu_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/efuse_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32s3/efuse_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/mmu_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/cache_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/rtc_io_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/gpio_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/uart_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/uart_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/adc_hal_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/adc_oneshot_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32s3/clk_tree_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_flash_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_flash_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_flash_encrypt_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/systimer_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/timer_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/ledc_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/ledc_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/i2c_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/i2c_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/rmt_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/pcnt_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/mcpwm_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/twai_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/twai_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/gdma_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/i2s_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/sdm_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/adc_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/lcd_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/sha_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/aes_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/brownout_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_slave_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_slave_hal_iram.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_slave_hd_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/hmac_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/ds_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_flash_hal_gpspi.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/touch_sensor_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/usb_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/usb_phy_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/xt_wdt_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32s3/touch_sensor_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32s3/rtc_cntl_hal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/usb_dwc_hal.c" ],
             "include_dirs": [ "esp32s3/include", "include", "platform_port/include" ]
         },
@@ -729,7 +729,7 @@
             "priv_reqs": [ "soc" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/heap/libheap.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/heap/libheap.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap/heap_caps.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap/heap_caps_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap/multi_heap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap/tlsf/tlsf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap/port/memory_layout_utils.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/heap/port/esp32s3/memory_layout.c" ],
             "include_dirs": [ "include" ]
         },
@@ -744,7 +744,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/http_parser/libhttp_parser.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/http_parser/libhttp_parser.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/http_parser/http_parser.c" ],
             "include_dirs": [ "." ]
         },
@@ -789,7 +789,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/json/libjson.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/json/libjson.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/json/cJSON/cJSON.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/json/cJSON/cJSON_Utils.c" ],
             "include_dirs": [ "cJSON" ]
         },
@@ -797,15 +797,15 @@
             "alias": "idf::led",
             "target": "___idf_led",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/components/led",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/components/led",
             "type": "LIBRARY",
             "lib": "__idf_led",
             "reqs": [ "driver", "espressif__led_strip" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/led/libled.a",
-            "sources": [ "D:/2024Project/Linluo/blink/components/led/src/led_blink.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/led/libled.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/components/led/src/led_blink.c" ],
             "include_dirs": [ "include", "." ]
         },
         "log": {
@@ -819,7 +819,7 @@
             "priv_reqs": [ "soc", "hal", "esp_hw_support" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/log/liblog.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/log/liblog.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/log/log.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/log/log_buffers.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/log/log_freertos.c" ],
             "include_dirs": [ "include" ]
         },
@@ -834,7 +834,7 @@
             "priv_reqs": [ "vfs" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/lwip/liblwip.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/lwip/liblwip.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/apps/sntp/sntp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/api_lib.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/api_msg.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/err.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/if_api.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/netbuf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/netdb.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/netifapi.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/sockets.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/api/tcpip.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/apps/sntp/sntp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/apps/netbiosns/netbiosns.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/def.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/dns.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/inet_chksum.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ip.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/mem.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/memp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/netif.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/pbuf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/raw.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/stats.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/sys.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/tcp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/tcp_in.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/tcp_out.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/timeouts.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/udp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/autoip.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/dhcp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/etharp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/icmp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/igmp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/ip4.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/ip4_napt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/ip4_addr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv4/ip4_frag.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/dhcp6.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/ethip6.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/icmp6.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/inet6.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/ip6.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/ip6_addr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/ip6_frag.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/mld6.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/core/ipv6/nd6.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ethernet.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/bridgeif.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/bridgeif_fdb.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/slipif.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/auth.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/ccp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/chap-md5.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/chap-new.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/chap_ms.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/demand.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/eap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/ecp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/eui64.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/fsm.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/ipcp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/ipv6cp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/lcp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/magic.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/mppe.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/multilink.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/ppp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/pppapi.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/pppcrypt.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/pppoe.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/pppol2tp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/pppos.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/upap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/utils.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/lwip/src/netif/ppp/vj.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/port/hooks/tcp_isn_default.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/port/hooks/lwip_default_hooks.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/port/debug/lwip_debug.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/port/sockets_ext.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/port/freertos/sys_arch.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/port/esp32xx/vfs_lwip.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/apps/ping/esp_ping.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/apps/ping/ping.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/apps/ping/ping_sock.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/lwip/apps/dhcpserver/dhcpserver.c" ],
             "include_dirs": [ "include", "include/apps", "include/apps/sntp", "lwip/src/include", "port/include", "port/freertos/include/", "port/esp32xx/include", "port/esp32xx/include/arch" ]
         },
@@ -842,15 +842,15 @@
             "alias": "idf::main",
             "target": "___idf_main",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/main",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
             "reqs": [],
             "priv_reqs": [ "espressif__led_strip" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__led_strip" ],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/main/libmain.a",
-            "sources": [ "D:/2024Project/Linluo/blink/main/blink_example_main.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/main/libmain.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/main/blink_example_main.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
@@ -864,8 +864,8 @@
             "priv_reqs": [ "soc", "esp_hw_support", "esp_pm" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/mbedtls/libmbedtls.a",
-            "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mbedtls/esp_crt_bundle/esp_crt_bundle.c", "D:/2024Project/Linluo/blink/build/x509_crt_bundle.S" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/mbedtls/libmbedtls.a",
+            "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mbedtls/esp_crt_bundle/esp_crt_bundle.c", "D:/2024Project/Linluo/Eembbed/blink/build/x509_crt_bundle.S" ],
             "include_dirs": [ "port/include", "mbedtls/include", "mbedtls/library", "esp_crt_bundle/include" ]
         },
         "mqtt": {
@@ -879,7 +879,7 @@
             "priv_reqs": [ "esp_timer", "http_parser", "esp_hw_support", "heap" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/mqtt/libmqtt.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/mqtt/libmqtt.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt/esp-mqtt/mqtt_client.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt/esp-mqtt/lib/mqtt_msg.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt/esp-mqtt/lib/mqtt_outbox.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt/esp-mqtt/lib/platform_esp32_idf.c" ],
             "include_dirs": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/mqtt/esp-mqtt/include" ]
         },
@@ -894,7 +894,7 @@
             "priv_reqs": [ "soc", "spi_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/newlib/libnewlib.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/newlib/libnewlib.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/abort.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/assert.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/heap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/locks.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/poll.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/pthread.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/random.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/reent_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/newlib_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/syscalls.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/termios.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/stdatomic.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/time.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/sysconf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/realpath.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/newlib/port/esp_time_impl.c" ],
             "include_dirs": [ "platform_include" ]
         },
@@ -909,7 +909,7 @@
             "priv_reqs": [ "spi_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/nvs_flash/libnvs_flash.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/nvs_flash/libnvs_flash.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_api.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_cxx_api.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_item_hash_list.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_page.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_pagemanager.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_storage.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_handle_simple.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_handle_locked.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_partition.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_partition_lookup.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_partition_manager.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/nvs_flash/src/nvs_types.cpp" ],
             "include_dirs": [ "include", "../spi_flash/include" ]
         },
@@ -954,7 +954,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/perfmon/libperfmon.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/perfmon/libperfmon.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/perfmon/xtensa_perfmon_access.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/perfmon/xtensa_perfmon_apis.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/perfmon/xtensa_perfmon_masks.c" ],
             "include_dirs": [ "include" ]
         },
@@ -969,7 +969,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/protobuf-c/libprotobuf-c.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/protobuf-c/libprotobuf-c.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protobuf-c/protobuf-c/protobuf-c/protobuf-c.c" ],
             "include_dirs": [ "protobuf-c" ]
         },
@@ -984,7 +984,7 @@
             "priv_reqs": [ "protobuf-c", "mbedtls", "console", "esp_http_server", "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/protocomm/libprotocomm.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/protocomm/libprotocomm.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/common/protocomm.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/proto-c/constants.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/proto-c/sec0.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/proto-c/sec1.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/proto-c/sec2.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/proto-c/session.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/transports/protocomm_console.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/transports/protocomm_httpd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/security/security0.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/security/security1.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/security/security2.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/crypto/srp6a/esp_srp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/protocomm/src/crypto/srp6a/esp_srp_mpi.c" ],
             "include_dirs": [ "include/common", "include/security", "include/transports" ]
         },
@@ -999,7 +999,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/pthread/libpthread.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/pthread/libpthread.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread/pthread.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread/pthread_cond_var.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread/pthread_local_storage.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread/pthread_rwlock.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/pthread/pthread_semaphore.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1007,15 +1007,15 @@
             "alias": "idf::pwm_pump",
             "target": "___idf_pwm_pump",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/components/pwm_pump",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/components/pwm_pump",
             "type": "LIBRARY",
             "lib": "__idf_pwm_pump",
             "reqs": [ "driver" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/pwm_pump/libpwm_pump.a",
-            "sources": [ "D:/2024Project/Linluo/blink/components/pwm_pump/src/pwm.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/pwm_pump/libpwm_pump.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/components/pwm_pump/src/pwm.c" ],
             "include_dirs": [ "include", "." ]
         },
         "sdmmc": {
@@ -1029,7 +1029,7 @@
             "priv_reqs": [ "soc", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/sdmmc/libsdmmc.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/sdmmc/libsdmmc.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc/sdmmc_cmd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc/sdmmc_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc/sdmmc_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc/sdmmc_io.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc/sdmmc_mmc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/sdmmc/sdmmc_sd.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1044,7 +1044,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/soc/libsoc.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/soc/libsoc.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/lldesc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/dport_access_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/interrupts.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/gpio_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/uart_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/adc_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/dedic_gpio_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/gdma_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/spi_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/ledc_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/pcnt_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/rmt_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/sdm_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/i2s_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/i2c_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/temperature_sensor_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/timer_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/lcd_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/mcpwm_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/sdmmc_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/touch_sensor_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/twai_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/usb_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/usb_otg_periph.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/soc/esp32s3/rtc_io_periph.c" ],
             "include_dirs": [ "include", "esp32s3", "esp32s3/include" ]
         },
@@ -1052,15 +1052,15 @@
             "alias": "idf::spi",
             "target": "___idf_spi",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/components/spi",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/components/spi",
             "type": "LIBRARY",
             "lib": "__idf_spi",
             "reqs": [ "driver" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/spi/libspi.a",
-            "sources": [ "D:/2024Project/Linluo/blink/components/spi/src/spi.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/spi/libspi.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/components/spi/src/spi.c" ],
             "include_dirs": [ "include", "." ]
         },
         "spi_flash": {
@@ -1074,7 +1074,7 @@
             "priv_reqs": [ "bootloader_support", "app_update", "soc", "driver", "esp_mm" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/spi_flash/libspi_flash.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/spi_flash/libspi_flash.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/flash_brownout_hook.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/esp32s3/spi_flash_oct_flash_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_hpm_enable.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_drivers.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_generic.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_issi.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_mxic.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_gd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_winbond.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_boya.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_mxic_opi.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_chip_th.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/memspi_host_driver.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/cache_utils.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/flash_mmap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/flash_ops.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_wrap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/esp_flash_api.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/esp_flash_spi_init.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_os_func_app.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spi_flash/spi_flash_os_func_noos.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1089,7 +1089,7 @@
             "priv_reqs": [ "bootloader_support", "esptool_py", "vfs", "spi_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/spiffs/libspiffs.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/spiffs/libspiffs.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/spiffs_api.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/spiffs/src/spiffs_cache.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/spiffs/src/spiffs_check.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/spiffs/src/spiffs_gc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/spiffs/src/spiffs_hydrogen.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/spiffs/src/spiffs_nucleus.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/spiffs/esp_spiffs.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1104,7 +1104,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/tcp_transport/libtcp_transport.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/tcp_transport/libtcp_transport.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport/transport.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport/transport_ssl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport/transport_internal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport/transport_socks_proxy.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/tcp_transport/transport_ws.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1119,7 +1119,7 @@
             "priv_reqs": [ "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/touch_element/libtouch_element.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/touch_element/libtouch_element.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/touch_element/touch_element.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/touch_element/touch_button.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/touch_element/touch_slider.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/touch_element/touch_matrix.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1127,15 +1127,15 @@
             "alias": "idf::uart",
             "target": "___idf_uart",
             "prefix": "idf",
-            "dir": "D:/2024Project/Linluo/blink/components/uart",
+            "dir": "D:/2024Project/Linluo/Eembbed/blink/components/uart",
             "type": "LIBRARY",
             "lib": "__idf_uart",
             "reqs": [ "driver" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/uart/libuart.a",
-            "sources": [ "D:/2024Project/Linluo/blink/components/uart/src/uart.c" ],
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/uart/libuart.a",
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/components/uart/src/uart.c" ],
             "include_dirs": [ "include", "." ]
         },
         "ulp": {
@@ -1149,7 +1149,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/ulp/libulp.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/ulp/libulp.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/ulp/ulp_common/ulp_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/ulp/ulp_common/ulp_adc.c" ],
             "include_dirs": [ "ulp_common/include", "ulp_common/include/esp32s3" ]
         },
@@ -1164,7 +1164,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/unity/libunity.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/unity/libunity.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/unity/src/unity.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/unity_runner.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/unity_utils_freertos.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/unity_utils_cache.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/unity_utils_memory.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/unity_port_esp32.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/unity/port/esp/unity_utils_memory_esp.c" ],
             "include_dirs": [ "include", "unity/src" ]
         },
@@ -1179,7 +1179,7 @@
             "priv_reqs": [ "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/usb/libusb.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/usb/libusb.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/hcd_dwc.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/hub.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/usb_helpers.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/usb_host.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/usb_private.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/usbh.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/usb/usb_phy.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1194,7 +1194,7 @@
             "priv_reqs": [ "driver", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/vfs/libvfs.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/vfs/libvfs.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs/vfs.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs/vfs_eventfd.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs/vfs_uart.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs/vfs_semihost.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs/vfs_console.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/vfs/vfs_usb_serial_jtag.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1209,7 +1209,7 @@
             "priv_reqs": [ "spi_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/wear_levelling/libwear_levelling.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/wear_levelling/libwear_levelling.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/Partition.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/SPI_Flash.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/WL_Ext_Perf.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/WL_Ext_Safe.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/WL_Flash.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/crc32.cpp", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wear_levelling/wear_levelling.cpp" ],
             "include_dirs": [ "include" ]
         },
@@ -1224,7 +1224,7 @@
             "priv_reqs": [ "protobuf-c", "bt", "json", "esp_timer", "esp_wifi" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/wifi_provisioning/libwifi_provisioning.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/wifi_provisioning/libwifi_provisioning.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/src/wifi_config.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/src/wifi_scan.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/src/wifi_ctrl.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/src/manager.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/src/handlers.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/src/scheme_console.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/proto-c/wifi_config.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/proto-c/wifi_scan.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/proto-c/wifi_ctrl.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/proto-c/wifi_constants.pb-c.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wifi_provisioning/src/scheme_softap.c" ],
             "include_dirs": [ "include" ]
         },
@@ -1239,7 +1239,7 @@
             "priv_reqs": [ "mbedtls", "esp_timer", "esp_wifi" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/wpa_supplicant/libwpa_supplicant.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/wpa_supplicant/libwpa_supplicant.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/port/os_xtensa.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/port/eloop.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/ap_config.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/ieee802_1x.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/wpa_auth.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/wpa_auth_ie.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/pmksa_cache_auth.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/sta_info.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/ieee802_11.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/ap/comeback_token.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/common/sae.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/common/dragonfly.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/common/wpa_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/bitfield.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/aes-siv.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha256-kdf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/ccmp.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/aes-gcm.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/crypto_ops.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/dh_group5.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/dh_groups.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/ms_funcs.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha1-tlsprf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha256-tlsprf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha384-tlsprf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha256-prf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha1-prf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha384-prf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/md4-internal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/sha1-tprf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_common/eap_wsc_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/common/ieee802_11_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/chap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_mschapv2.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_peap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_peap_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_tls.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_tls_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_ttls.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/mschapv2.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_fast.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_fast_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/eap_peer/eap_fast_pac.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/rsn_supp/pmksa_cache.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/rsn_supp/wpa.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/rsn_supp/wpa_ie.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/base64.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/ext_password.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/uuid.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/wpabuf.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/wpa_debug.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/utils/json.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/wps/wps.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/wps/wps_attr_build.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/wps/wps_attr_parse.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/wps/wps_attr_process.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/wps/wps_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/wps/wps_dev_attr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/wps/wps_enrollee.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/common/sae_pk.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/common/bss.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/common/scan.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_scan.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_eap_client.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_wpa2_api_port.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_wpa_main.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_wpas_glue.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_common.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_wps.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_wpa3.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_owe.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/esp_hostap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/crypto/tls_mbedtls.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/crypto/fastpbkdf2.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-bignum.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-rsa.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-ec.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/rc4.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/des-internal.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/aes-wrap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/aes-unwrap.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/wpa_supplicant/src/crypto/aes-ccm.c" ],
             "include_dirs": [ "include", "port/include", "esp_supplicant/include" ]
         },
@@ -1254,7 +1254,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "D:/2024Project/Linluo/blink/build/esp-idf/xtensa/libxtensa.a",
+            "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/xtensa/libxtensa.a",
             "sources": [ "G:/Espressif/frameworks/esp-idf-v5.1.2/components/xtensa/eri.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/xtensa/xt_trax.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/xtensa/xtensa_intr.c", "G:/Espressif/frameworks/esp-idf-v5.1.2/components/xtensa/xtensa_intr_asm.S" ],
             "include_dirs": [ "include", "esp32s3/include" ]
         }

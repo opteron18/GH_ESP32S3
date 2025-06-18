@@ -515,7 +515,7 @@ static void GH3X_NewAgcSubChnlGainAdj(GU8* puchReadFifoBuffer, GU16 usFifoLen)
                      continue;
                 }    
                 GU8 uchSlotAdcNo = ((puchReadFifoBuffer[usIndex]&0x1f)<<2) + ((puchReadFifoBuffer[usIndex+1] & 0x0f)>>2);
-                GH3X_DEBUG_LOG_PARAM("ChnlSlotAdcNo=%d,SlotAdcNo=%d\r\n",pstSTGh3xNewAgcSubChnlRxInfo->uchSlotAdcNo,uchSlotAdcNo );    
+                // GH3X_DEBUG_LOG_PARAM("ChnlSlotAdcNo=%d,SlotAdcNo=%d\r\n",pstSTGh3xNewAgcSubChnlRxInfo->uchSlotAdcNo,uchSlotAdcNo );    
                 if(uchSlotAdcNo == uchSubChnlSlotAdcNo)  
                 {
                     GU32 unDataRaw = GH3X_MAKEUP_3BYTES(puchReadFifoBuffer[usIndex+2], puchReadFifoBuffer[usIndex+3],puchReadFifoBuffer[usIndex+4]);
