@@ -1,14 +1,14 @@
-set(PREBUILT_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+# set(PREBUILT_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
-set(PREBUILT_LIB_FILES
-    "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_common_dl.a"
-    "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_common_dsp.a"
-    "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_ecg.a"
-    "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_hr.a"
-    "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_nadt_cardiff.a"
-    "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_spo2.a"
-    "${PREBUILT_LIB_DIR}/xtensa-esp32-elf-gcc840.a"
-)
+# set(PREBUILT_LIB_FILES
+#     "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_common_dl.a"
+#     "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_common_dsp.a"
+#     "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_ecg.a"
+#     "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_hr.a"
+#     "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_nadt_cardiff.a"
+#     "${PREBUILT_LIB_DIR}/esp32_xtensa-esp32-gcc-8.4.0_o2_spo2.a"
+#     "${PREBUILT_LIB_DIR}/xtensa-esp32-elf-gcc840.a"
+# )
 
 idf_component_register(
     SRCS 
@@ -44,4 +44,4 @@ idf_component_register(
     REQUIRES "${public_requires}" "freertos"  gh_drv
 )
 
-target_link_libraries(${COMPONENT_LIB} INTERFACE ${PREBUILT_LIB_FILES})
+# target_link_libraries(${COMPONENT_LIB} INTERFACE ${PREBUILT_LIB_FILES})

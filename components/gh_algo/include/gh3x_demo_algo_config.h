@@ -68,7 +68,7 @@
     __USE_GOODIX_BIA_ALGORITHM__||\
     __USE_GOODIX_GSR_ALGORITHM__\
     )
-#define __GOODIX_ALGO_CALL_MODE__           (1)
+#define __GOODIX_ALGO_CALL_MODE__           (0)
 
 #else
 #define __GOODIX_ALGO_CALL_MODE__           (0)

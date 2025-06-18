@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "blink",
-    "project_version":    "a2408c1-dirty",
+    "project_version":    "f7dfcca-dirty",
     "project_path":       "D:/2024Project/Linluo/Eembbed/blink",
     "idf_path":           "G:/Espressif/frameworks/esp-idf-v5.1.2",
     "build_dir":          "D:/2024Project/Linluo/Eembbed/blink/build",

@@ -19,17 +19,16 @@ void app_main(void)
     // GhCommInit();
     configure_led();
     uart_init();
+    gh_ESP_LOG("System initialization complete\n");
     // const char * name = "hellothere";
     // sendData(name,name);
 
-    gh_ESP_LOG("Hello world!\n");
     // spi_driver_init();
     // const char *message = "helloworld";
     // gh_spi_send((uint8_t *)message, strlen(message));  // 转换为uint8_t*并传入字符串长度
     // const char *message2 = "helloworldhelloworldhelloworldhelloworldhelloworld";
     // gh_spi_send((uint8_t *)message2, strlen(message2));  // 转换为uint8_t*并传入字符串长度
-
-    GH3X_DemoInit();
+    GH3300_init();
     GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
     // while(1){
     //     GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
