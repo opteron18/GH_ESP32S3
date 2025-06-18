@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "blink",
-    "project_version":    "f7dfcca-dirty",
+    "project_version":    "9056102-dirty",
     "project_path":       "D:/2024Project/Linluo/Eembbed/blink",
     "idf_path":           "G:/Espressif/frameworks/esp-idf-v5.1.2",
     "build_dir":          "D:/2024Project/Linluo/Eembbed/blink/build",
@@ -850,7 +850,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__led_strip" ],
             "file": "D:/2024Project/Linluo/Eembbed/blink/build/esp-idf/main/libmain.a",
-            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/main/blink_example_main.c" ],
+            "sources": [ "D:/2024Project/Linluo/Eembbed/blink/main/blink_example_main.c", "D:/2024Project/Linluo/Eembbed/blink/main/gh3300_task.c", "D:/2024Project/Linluo/Eembbed/blink/main/led_task.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

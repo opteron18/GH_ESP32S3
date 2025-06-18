@@ -12,8 +12,7 @@
 #include "string.h"
 #include "driver/gpio.h"
 #include "led_strip.h"
-
-#define BLINK_GPIO CONFIG_BLINK_GPIO
+#include "led.h"
 
 static const char *TAG = "example";
 

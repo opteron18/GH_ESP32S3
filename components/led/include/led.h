@@ -6,6 +6,8 @@
 #include "string.h"
 #include "driver/gpio.h"
 
+#define BLINK_GPIO CONFIG_BLINK_GPIO
+
 void blink_led(void);
 void configure_led(void);
 void blink_task(void *arg);
