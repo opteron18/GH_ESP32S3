@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/CMakeFiles/bootloader"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/CMakeFiles/bootloader.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 

@@ -2,7 +2,7 @@
     "C_Cpp.intelliSenseEngine": "default",
     "idf.espIdfPathWin": "g:\\Espressif\\frameworks\\esp-idf-v5.1.2",
     "idf.toolsPathWin": "g:\\Espressif\\tools",
-    "idf.pythonInstallPath": "g:\\Espressif\\tools\\tools\\idf-python\\3.11.2\\python.exe",
+    "idf.pythonInstallPath": "/usr/bin/python3",
     "idf.portWin": "COM9",
     "idf.flashType": "UART",
     "idf.customExtraVars": {
@@ -48,5 +48,6 @@
         "stdio.h": "c",
         "goodix_spo2.h": "c",
         "gh3x_demo_algo_call.h": "c"
-    }
+    },
+    "idf.port": "/dev/ttyACM0"
 }

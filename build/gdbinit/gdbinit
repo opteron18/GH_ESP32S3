@@ -1,0 +1,2 @@
+source /root/ESP_Prj/GH_ESP32S3/build/gdbinit/symbols
+source /root/ESP_Prj/GH_ESP32S3/build/gdbinit/connect

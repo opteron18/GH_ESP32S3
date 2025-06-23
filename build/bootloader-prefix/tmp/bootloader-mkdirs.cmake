@@ -3,20 +3,25 @@
 
 cmake_minimum_required(VERSION 3.5)
 
+# If CMAKE_DISABLE_SOURCE_CHANGES is set to true and the source directory is an
+# existing directory in our source tree, calling file(MAKE_DIRECTORY) on it
+# would cause a fatal error, even though it would be a no-op.
+if(NOT EXISTS "/root/esp/v5.4.1/esp-idf/components/bootloader/subproject")
+  file(MAKE_DIRECTORY "/root/esp/v5.4.1/esp-idf/components/bootloader/subproject")
+endif()
 file(MAKE_DIRECTORY
-  "G:/Espressif/frameworks/esp-idf-v5.1.2/components/bootloader/subproject"
-  "D:/2024Project/Linluo/Eembbed/blink/build/bootloader"
-  "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix"
-  "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/tmp"
-  "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp"
-  "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src"
-  "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp"
+  "/root/ESP_Prj/GH_ESP32S3/build/bootloader"
+  "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix"
+  "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/tmp"
+  "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp"
+  "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src"
+  "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "D:/2024Project/Linluo/Eembbed/blink/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/root/ESP_Prj/GH_ESP32S3/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

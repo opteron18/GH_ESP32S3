@@ -6,7 +6,7 @@
 #include "uart.h"
 #include "led_strip.h"
 #include "gh3x_demo.h"
-#include "freertos/Semphr.h"
+#include "freertos/semphr.h"
 
 #include "pwm.h"
 #include "gh3x_demo.h"
