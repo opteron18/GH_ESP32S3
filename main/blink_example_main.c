@@ -16,12 +16,13 @@ extern esp_err_t spi_driver_init(void);
 extern void User_GH3300_init(void);
 extern void FRT_GH3300_TaskCreate();
 extern void FRT_LED_TaskCreate(void);
+extern void create_uart_tasks(void);
 void app_main(void)
 {
 
     // GhCommInit();
     // configure_led();
-    uart_init();
+    // uart_init();
     gh_ESP_LOG("System initialization complete\n");
     // const char * name = "hellothere";
     // sendData(name,name);
@@ -31,8 +32,9 @@ void app_main(void)
     // gh_spi_send((uint8_t *)message, strlen(message));  // 转换为uint8_t*并传入字符串长度
     // const char *message2 = "helloworldhelloworldhelloworldhelloworldhelloworld";
     // gh_spi_send((uint8_t *)message2, strlen(message2));  // 转换为uint8_t*并传入字符串长度
-    FRT_GH3300_TaskCreate();
-    FRT_LED_TaskCreate();
+    // FRT_GH3300_TaskCreate();
+    // FRT_LED_TaskCreate();
+    create_uart_tasks();
     // GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
     // while(1){
     //     GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
