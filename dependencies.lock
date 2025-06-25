@@ -1,15 +1,24 @@
 dependencies:
   espressif/led_strip:
-    component_hash: null
+    dependencies: []
     source:
-      path: D:\2024Project\Linluo\Eembbed\blink\components\espressif__led_strip
+      path: /root/ESP_Prj/GH_ESP32S3/components/espressif__led_strip
       type: local
     version: 2.5.5
   idf:
-    component_hash: null
     source:
       type: idf
+<<<<<<< HEAD
     version: 5.1.2
 manifest_hash: 9114e9d8123fddcc218d117b47cba3debe943d7ac19b440f14e579a51754a2f6
 target: esp32
 version: 1.0.0
+=======
+    version: 5.4.1
+direct_dependencies:
+- espressif/led_strip
+- idf
+manifest_hash: 3c5328f884f0887acf935556292e6e1c07f2d7527fe1bbb8eed2f412da6e49db
+target: esp32s3
+version: 2.0.0
+>>>>>>> Github/master
