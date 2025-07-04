@@ -5,7 +5,7 @@
 #ifndef _ARM_MATH_H
 #include "goodix_type.h"
 #endif
-// HBA ²ÉÑùÂÊ
+// HBA ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifndef HBA_FS
 #define HBA_FS 25
 #endif
@@ -15,129 +15,129 @@
 #define HBA_INTERFACE_VERSION_LEN_MAX (20)
 
 /**
-* @brief HBA Í¨µÀÀàÐÍ
+* @brief HBA Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 typedef enum
 {
-    CH_ENABLE_DEFAULT=0,//°´ÕÕÄ¬ÈÏÅäÖÃ
-    //µ¥Í¨µÀ
+    CH_ENABLE_DEFAULT=0,//ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½Í¨ï¿½ï¿½
     CH1_ENABLE_1000 = 1000,	
     CH1_ENABLE_0100 = 100,
     CH1_ENABLE_0010 = 10,
     CH1_ENABLE_0001 = 1,
-    //Ë«Í¨µÀ,¶Ô²àÅäÖÃ
+    //Ë«Í¨ï¿½ï¿½,ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½
     CH2_ENABLE_1010 = 1010,
     CH2_ENABLE_0101 = 101,
-    //ÈýÍ¨µÀ
+    //ï¿½ï¿½Í¨ï¿½ï¿½
     CH3_ENABLE_0111 = 111,
     CH3_ENABLE_1011 = 1011,
     CH3_ENABLE_1101 = 1101,
     CH3_ENABLE_1110 = 1110,
-    //ËÄÍ¨µÀ
+    //ï¿½ï¿½Í¨ï¿½ï¿½
     CH4_ENABLE_1111 = 1111,
 }goodix_hba_ch_enable;
 
 /**
-* @brief HBA Ëã·¨º¯Êý·µ»Ø×´Ì¬Öµ
+* @brief HBA ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬Öµ
 */
 typedef enum
 {
-	GX_ALGO_HBA_SUCCESS = 0x00000000,			/**< ³É¹¦     */
-	GX_ALGO_HBA_RWONG_INPUT = 0x00000001,		/**< ÊäÈëÊý¾Ý¸ñÊ½²»ºÏ·¨     */
-	GX_ALGO_HBA_NO_MEMORY = 0x00008000,			/**< ÄÚ´æ¿Õ¼ä²»¹»     */
+	GX_ALGO_HBA_SUCCESS = 0x00000000,			/**< ï¿½É¹ï¿½     */
+	GX_ALGO_HBA_RWONG_INPUT = 0x00000001,		/**< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¸ï¿½Ê½ï¿½ï¿½ï¿½Ï·ï¿½     */
+	GX_ALGO_HBA_NO_MEMORY = 0x00008000,			/**< ï¿½Ú´ï¿½Õ¼ä²»ï¿½ï¿½     */
 }goodix_hba_ret;
 
 typedef enum {
-	HBA_SCENES_DEFAULT = 0,				// Ä¬ÈÏ£ºÓÉËã·¨ÄÚ²¿Ê¶±ð´¦Àí
+	HBA_SCENES_DEFAULT = 0,				// Ä¬ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½Ú²ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½
 
-	HBA_SCENES_DAILY_LIFE = 1,			// ÈÕ³£Éú»î
-	HBA_SCENES_RUNNING_INSIDE = 2,		// ÊÒÄÚÅÜ²½»ú
-	HBA_SCENES_WALKING_INSIDE = 3,		// ÊÒÄÚ²½ÐÐ
-	HBA_SCENES_STAIRS = 4,				// ÉÏÏÂÂ¥ÌÝ
+	HBA_SCENES_DAILY_LIFE = 1,			// ï¿½Õ³ï¿½ï¿½ï¿½ï¿½ï¿½
+	HBA_SCENES_RUNNING_INSIDE = 2,		// ï¿½ï¿½ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½
+	HBA_SCENES_WALKING_INSIDE = 3,		// ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½
+	HBA_SCENES_STAIRS = 4,				// ï¿½ï¿½ï¿½ï¿½Â¥ï¿½ï¿½
 
-	HBA_SCENES_RUNNING_OUTSIDE = 5,		// ÊÒÍâÅÜ²½
-	HBA_SCENES_WALKING_OUTSIDE = 6,		// ÊÒÍâ²½ÐÐ
+	HBA_SCENES_RUNNING_OUTSIDE = 5,		// ï¿½ï¿½ï¿½ï¿½ï¿½Ü²ï¿½
+	HBA_SCENES_WALKING_OUTSIDE = 6,		// ï¿½ï¿½ï¿½â²½ï¿½ï¿½
 
-	HBA_SCENES_STILL_REST = 7,			// ¾²Ï¢
-	HBA_SCENES_REST = 8,				// ÐÝÏ¢
-	HBA_SCENES_STILLRADON = 9,			// ±ïÆø
+	HBA_SCENES_STILL_REST = 7,			// ï¿½ï¿½Ï¢
+	HBA_SCENES_REST = 8,				// ï¿½ï¿½Ï¢
+	HBA_SCENES_STILLRADON = 9,			// ï¿½ï¿½ï¿½ï¿½
 
-	HBA_SCENES_BIKING_INSIDE = 10,		//ÊÒÄÚ×ÔÐÐ³µ
-	HBA_SCENES_BIKING_OUTSIDE = 11,		//ÊÒÍâ×ÔÐÐ³µ
-	HBA_SCENES_BIKING_MOUNTAIN= 12,		//ÊÒÍâ×ÔÐÐ³µÔ½Ò°
-	HBA_SCENES_RUNNING_HIGH_HR = 13,	//¸ßÐÄÂÊÅÜ²½
+	HBA_SCENES_BIKING_INSIDE = 10,		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½
+	HBA_SCENES_BIKING_OUTSIDE = 11,		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½
+	HBA_SCENES_BIKING_MOUNTAIN= 12,		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½Ô½Ò°
+	HBA_SCENES_RUNNING_HIGH_HR = 13,	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü²ï¿½
 
-	HBA_SCENES_RUNNING_TREADMILL_CCOMBINE= 14,		// ÅÜ²½»ú×éºÏÅÜ
+	HBA_SCENES_RUNNING_TREADMILL_CCOMBINE= 14,		// ï¿½Ü²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	HBA_SCENES_HIGH_INTENSITY_COMBINE = 15,		// ¸ßÇ¿¶ÈÔË¶¯×éºÏ
-	HBA_SCENES_TRADITIONAL_STRENGTH_COMBINE = 16,		// ´«Í³Á¦Á¿ÑµÁ·×éºÏ
-	HBA_SCENES_STEP_TEST = 17,		    // Ì¨½×²âÊÔ
+	HBA_SCENES_HIGH_INTENSITY_COMBINE = 15,		// ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½
+	HBA_SCENES_TRADITIONAL_STRENGTH_COMBINE = 16,		// ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½
+	HBA_SCENES_STEP_TEST = 17,		    // Ì¨ï¿½×²ï¿½ï¿½ï¿½
 
-	HBA_SCENES_BALL_SPORTS = 18,		// ÇòÀàÔË¶¯
-	HBA_SCENES_AEROBICS = 19,		    // ½¡Éí²Ù
+	HBA_SCENES_BALL_SPORTS = 18,		// ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½
+	HBA_SCENES_AEROBICS = 19,		    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    HBA_SCENES_SLEEP = 20,              // Ë¯Ãß³¡¾°
-    HBA_SCENES_JUMP = 21,               //ÊÖÍóÌøÉþ£¨LS ROMA£©
-    HBA_SCENES_CORDLESS_JUMP = 22,	    // Íò»úÎÞÉþÌøÉþ²âÊÔ
-	HBA_SCENES_SWIMMING = 23,           // ÓÎÓ¾³¡¾°
-    HBA_SCENES_SIZE = 24,               // ³¡¾°ÊýÄ¿
+    HBA_SCENES_SLEEP = 20,              // Ë¯ï¿½ß³ï¿½ï¿½ï¿½
+    HBA_SCENES_JUMP = 21,               //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½LS ROMAï¿½ï¿½
+    HBA_SCENES_CORDLESS_JUMP = 22,	    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	HBA_SCENES_SWIMMING = 23,           // ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½ï¿½
+    HBA_SCENES_SIZE = 24,               // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 }hba_scenes_e;
 
 typedef enum {
-    HBA_TEST_DYNAMIC = 0,		// Ä¬ÈÏ£º¶¯Ì¬²âÊÔ
-    HBA_TEST_DOT = 1,			// µã²â
-    HBA_TEST_SENSELESS = 2,		// ÎÞ¸ÐÄ£Ê½
+    HBA_TEST_DYNAMIC = 0,		// Ä¬ï¿½Ï£ï¿½ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½
+    HBA_TEST_DOT = 1,			// ï¿½ï¿½ï¿½
+    HBA_TEST_SENSELESS = 2,		// ï¿½Þ¸ï¿½Ä£Ê½
 }hba_test_mode;
 
 typedef struct {
-    hba_test_mode mode;                             // ²âÊÔÄ£Ê½
-	hba_scenes_e scence;							// ³¡¾°
-	uint32_t fs;									// ²ÉÑùÂÊ
-	int32_t valid_channel_num;						// ÓÐÐ§Í¨µÀÊý
-	// ÓÃÓÚÍâ²¿¿ØÖÆËã·¨ÇãÏòÐÔµÄ²ÎÊý
-    uint32_t back_track_len;                       // »ØËÝµÄÊ±³¤,Ä¬ÈÏ30s,×î´óÊ±³¤ÏÞÖÆÎª120s£¬×î¶ÌÊ±³¤ÏÞÖÆÎª30s
-	int32_t hba_latest_output_time;					// ×îÍí³öÖµÊ±¼ä
-	int32_t hba_earliest_output_time;				// ×îÔç³öÖµÊ±¼ä
-    uint32_t hba_lowerest_confidence;				// ×îµÍ³öÖµÖÃÐÅ¶È
-	uint32_t hba_out_step_second;					// ³öÖµ¼ä¸ô
-    uint32_t hba_convergence_rate;					// ×·×Ù¹ý³ÌÖÐµÄÊÕÁ²ËÙÂÊ
-    uint32_t senseless_mode_step;                   // ÎÞ¸Ð¼ä¸ôÊ±¼äÃëÊý£¬Îª0±íÊ¾Î´Öª
-    uint32_t senseless_mode_duration;               // ÎÞ¸Ð³ÖÐøÊ±¼äÃëÊý£¬Îª0±íÊ¾Î´Öª
+    hba_test_mode mode;                             // ï¿½ï¿½ï¿½ï¿½Ä£Ê½
+	hba_scenes_e scence;							// ï¿½ï¿½ï¿½ï¿½
+	uint32_t fs;									// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int32_t valid_channel_num;						// ï¿½ï¿½Ð§Í¨ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½ÔµÄ²ï¿½ï¿½ï¿½
+    uint32_t back_track_len;                       // ï¿½ï¿½ï¿½Ýµï¿½Ê±ï¿½ï¿½,Ä¬ï¿½ï¿½30s,ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª120sï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª30s
+	int32_t hba_latest_output_time;					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÊ±ï¿½ï¿½
+	int32_t hba_earliest_output_time;				// ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÊ±ï¿½ï¿½
+    uint32_t hba_lowerest_confidence;				// ï¿½ï¿½Í³ï¿½Öµï¿½ï¿½ï¿½Å¶ï¿½
+	uint32_t hba_out_step_second;					// ï¿½ï¿½Öµï¿½ï¿½ï¿½
+    uint32_t hba_convergence_rate;					// ×·ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    uint32_t senseless_mode_step;                   // ï¿½Þ¸Ð¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½Ê¾Î´Öª
+    uint32_t senseless_mode_duration;               // ï¿½Þ¸Ð³ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½Ê¾Î´Öª
 }goodix_hba_config;
 
 typedef struct
 {
-	uint32_t frameid;								// Ö¡ÐòºÅ
-	uint32_t total_channel_num;                     // Í¨µÀ×ÜÊý
-	int32_t *ppg_rawdata;		// PPGÔ­Ê¼Êý¾Ý£¬ÒÀ´ÎÂÌ¹â1234-ºìÍâ1234-ºì¹â1234
-	int32_t *cur_adj_flg;		// µçÁ÷µ÷¹â±êÖ¾Î»
-	int32_t *gain_adj_flg;		// ÔöÒæµ÷¹â±êÖ¾Î»
-	int32_t *enable_flg;		// Í¨µÀÊ¹ÄÜ±êÖ¾Î»
+	uint32_t frameid;								// Ö¡ï¿½ï¿½ï¿½
+	uint32_t total_channel_num;                     // Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int32_t *ppg_rawdata;		// PPGÔ­Ê¼ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½1234-ï¿½ï¿½ï¿½ï¿½1234-ï¿½ï¿½ï¿½1234
+	int32_t *cur_adj_flg;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾Î»
+	int32_t *gain_adj_flg;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾Î»
+	int32_t *enable_flg;		// Í¨ï¿½ï¿½Ê¹ï¿½Ü±ï¿½Ö¾Î»
 
-	int32_t acc_x;									// ¼ÓËÙ¶È¼ÆxÖá
-	int32_t acc_y;									// ¼ÓËÙ¶È¼ÆyÖá
-	int32_t acc_z;									// ¼ÓËÙ¶È¼ÆzÖá
+	int32_t acc_x;									// ï¿½ï¿½ï¿½Ù¶È¼ï¿½xï¿½ï¿½
+	int32_t acc_y;									// ï¿½ï¿½ï¿½Ù¶È¼ï¿½yï¿½ï¿½
+	int32_t acc_z;									// ï¿½ï¿½ï¿½Ù¶È¼ï¿½zï¿½ï¿½
 
-    uint32_t sleep_flg;                             //Ë¯Ãßflg
+    uint32_t sleep_flg;                             //Ë¯ï¿½ï¿½flg
 }goodix_hba_input_rawdata;
 
 typedef struct
 {
-	uint32_t hba_out_flag;				// ³öÖµ±ê¼Ç£ºÎª 1 ÓÐÐ§
-	int32_t hba_out;					// ÐÄÂÊÖµ
-	float32_t hba_confi;				// ÖÃÐÅ¶È
-	float32_t hba_snr;					// ÐÅÔë±È   : ÂË²¨È¥³ý¸ÉÈÅºó£¬ÆµÆ×Ö÷·åÄÜÁ¿´¦ÓÚ×ÜÄÜÁ¿
-    uint32_t valid_level;			    // ÖÃÐÅµÈ¼¶ : 0 -> 1 -> 2 £¬Ô½´óÔ½¿É¿¿
-    uint32_t valid_score;				// ÖÃÐÅ·ÖÊý : 0->100 Ô½´óÔ½¿É¿¿
-    uint32_t hba_acc_info;              // ÔË¶¯×´Ì¬ : 0-¾²Ï¢£¬Ð¡ÔË¶¯£»1-²½ÐÐ-ÖÐÔË¶¯£»2-ÅÜ²½-´óÔË¶¯£»
-    hba_scenes_e hba_acc_scence;            // ÔË¶¯³¡¾° : ²Î¿¼ hba_scenes_e Ã¶¾ÙÀàÐÍ
-	// Ã¿Ò»Â·µÄÐÄÂÊÖµ£¬ÓÃÓÚµ÷ÊÔ
-	uint32_t *hba_out_flag_channel;				// ³öÖµ±ê¼Ç£ºÎª 1 ÓÐÐ§
-	uint32_t *hba_out_channel;					// ÐÄÂÊÖµ
-	float32_t *hba_confi_channel;				// ÖÃÐÅ¶È
-	float32_t *hba_snr_channel;					// ÐÅÔë±È
-	float32_t **p_hba_td_filter;				// Ê±ÓòÂË²¨½á¹ûÖ¸ÕëÊý×é
-	float32_t **p_hba_fd_filter;			// ÆµÓò(Î¬ÄÉ)ÂË²¨½á¹ûÖ¸ÕëÊý×é£¬4Â·¼Ó1Â·×îÓÅ
+	uint32_t hba_out_flag;				// ï¿½ï¿½Öµï¿½ï¿½Ç£ï¿½Îª 1 ï¿½ï¿½Ð§
+	int32_t hba_out;					// ï¿½ï¿½ï¿½ï¿½Öµ
+	float32_t hba_confi;				// ï¿½ï¿½ï¿½Å¶ï¿½
+	float32_t hba_snr;					// ï¿½ï¿½ï¿½ï¿½ï¿½   : ï¿½Ë²ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    uint32_t valid_level;			    // ï¿½ï¿½ï¿½ÅµÈ¼ï¿½ : 0 -> 1 -> 2 ï¿½ï¿½Ô½ï¿½ï¿½Ô½ï¿½É¿ï¿½
+    uint32_t valid_score;				// ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½ : 0->100 Ô½ï¿½ï¿½Ô½ï¿½É¿ï¿½
+    uint32_t hba_acc_info;              // ï¿½Ë¶ï¿½×´Ì¬ : 0-ï¿½ï¿½Ï¢ï¿½ï¿½Ð¡ï¿½Ë¶ï¿½ï¿½ï¿½1-ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½2-ï¿½Ü²ï¿½-ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½
+    hba_scenes_e hba_acc_scence;            // ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½Î¿ï¿½ hba_scenes_e Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// Ã¿Ò»Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+	uint32_t *hba_out_flag_channel;				// ï¿½ï¿½Öµï¿½ï¿½Ç£ï¿½Îª 1 ï¿½ï¿½Ð§
+	uint32_t *hba_out_channel;					// ï¿½ï¿½ï¿½ï¿½Öµ
+	float32_t *hba_confi_channel;				// ï¿½ï¿½ï¿½Å¶ï¿½
+	float32_t *hba_snr_channel;					// ï¿½ï¿½ï¿½ï¿½ï¿½
+	float32_t **p_hba_td_filter;				// Ê±ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float32_t **p_hba_fd_filter;			// Æµï¿½ï¿½(Î¬ï¿½ï¿½)ï¿½Ë²ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½é£¬4Â·ï¿½ï¿½1Â·ï¿½ï¿½ï¿½ï¿½
 }goodix_hba_result;
 
 #ifdef __cplusplus
@@ -146,64 +146,64 @@ extern "C" {
 
 
 /**
-* @brief HBA ´¦ÀíËã·¨°æ±¾ºÅ
-* @param[in]  version     Íâ²¿´¢´æ°æ±¾ºÅ¿Õ¼ä£¬·ÖÅä20×Ö½Ú
-* @param[out] ÎÞ
-* @return     º¯ÊýÖ´ÐÐÇé¿ö
+* @brief HBA ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½æ±¾ï¿½ï¿½
+* @param[in]  version     ï¿½â²¿ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Å¿Õ¼ä£¬ï¿½ï¿½ï¿½ï¿½20ï¿½Ö½ï¿½
+* @param[out] ï¿½ï¿½
+* @return     ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 DRVDLL_API goodix_hba_ret goodix_hba_version(uint8_t version[120]);
 
 
 /**
-* @brief HBA ´¦ÀíËã·¨³õÊ¼»¯
-* @param[in]  scence     Ê¹ÓÃ³¡¾°
-* @param[in]  fs         HBA ºÍ ACC µÄ²ÉÑùÂÊ¡¾×¢£ºÁ½ÕßÐèÒªÍ¬Æµ¡¿
-* @param[out] ÎÞ
-* @return     º¯ÊýÖ´ÐÐÇé¿ö
+* @brief HBA ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½Ê¼ï¿½ï¿½
+* @param[in]  scence     Ê¹ï¿½Ã³ï¿½ï¿½ï¿½
+* @param[in]  fs         HBA ï¿½ï¿½ ACC ï¿½Ä²ï¿½ï¿½ï¿½ï¿½Ê¡ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÍ¬Æµï¿½ï¿½
+* @param[out] ï¿½ï¿½
+* @return     ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 DRVDLL_API goodix_hba_ret  goodix_hba_init(const void *cfg_instance, uint32_t cfg_size, const char *interface_ver);
 
 
 /**
-* @brief HBA Ëã·¨¸üÐÂ
-* @param[in] raw    ÐÄÂÊÊý¾Ý
-* @param[out] res   ÐÄÂÊÊä³ö½á¹û
-* @return     º¯ÊýÖ´ÐÐÇé¿ö
+* @brief HBA ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½
+* @param[in] raw    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param[out] res   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @return     ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 DRVDLL_API goodix_hba_ret goodix_hba_update(goodix_hba_input_rawdata* raw, goodix_hba_result *res);
 
 /**
-* @brief HBA Ëã·¨Ïú»Ù£¬ÊÍ·ÅÄÚ²¿µÄÄÚ´æ¿Õ¼ä£¬µ÷ÓÃÆäËûÄ£¿éËã·¨Ê±Ê¹ÓÃ
-* @param[out] ÎÞ
-* @return     º¯ÊýÖ´ÐÐÇé¿ö
+* @brief HBA ï¿½ã·¨ï¿½ï¿½ï¿½Ù£ï¿½ï¿½Í·ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Õ¼ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ã·¨Ê±Ê¹ï¿½ï¿½
+* @param[out] ï¿½ï¿½
+* @return     ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 DRVDLL_API goodix_hba_ret goodix_hba_deinit(void);
 
 /**
-* @brief »ñÈ¡hbaµÄÄ¬ÈÏÅäÖÃ²ÎÊý
-* @return     hbaµÄÄ¬ÈÏÅäÖÃ²ÎÊý
+* @brief ï¿½ï¿½È¡hbaï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
+* @return     hbaï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
 */
 DRVDLL_API const void *goodix_hba_config_get_arr(void);
 
 /**
-* @brief »ñÈ¡hbaµÄÅäÖÃsize
-* @return     hbaµÄÅäÖÃsize
+* @brief ï¿½ï¿½È¡hbaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½size
+* @return     hbaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½size
 */
 DRVDLL_API int32_t  goodix_hba_config_get_size(void);
 
 /**
-* @brief »ñÈ¡HBAÅäÖÃÎÄ¼þµÄ°æ±¾ºÅ
-* @param[in/out]  ver       °æ±¾ºÅ±£´æÊý×é
-* @param[in] 	  ver_len   °æ±¾ºÅ³¤¶È£¬½¨ÒéÊ¹ÓÃHBA_INTERFACE_VERSION_LEN_MAX
-* @return     	  ÎÞ
+* @brief ï¿½ï¿½È¡HBAï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä°æ±¾ï¿½ï¿½
+* @param[in/out]  ver       ï¿½æ±¾ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param[in] 	  ver_len   ï¿½æ±¾ï¿½Å³ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½HBA_INTERFACE_VERSION_LEN_MAX
+* @return     	  ï¿½ï¿½
 */
 DRVDLL_API void goodix_hba_config_get_version(char* ver, uint8_t ver_len);
 
 
 /**
-* @brief ÓÃ»§µ÷ÓÃ´òÓ¡HBAÖØÒªÐÅÏ¢£¬ÐèÒªÌáÇ°³õÊ¼»¯´òÓ¡º¯Êý
-* @param[in]  raw    ÐÄÂÊÊäÈëÊý¾Ý£¬NULL == rawÊ±£¬²»´òÓ¡Êý¾Ý
-* @return     	  ÎÞ
+* @brief ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ã´ï¿½Ó¡HBAï¿½ï¿½Òªï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ç°ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
+* @param[in]  raw    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½NULL == rawÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
+* @return     	  ï¿½ï¿½
 */
 DRVDLL_API void hba_essential_info_print(goodix_hba_input_rawdata* raw);
 

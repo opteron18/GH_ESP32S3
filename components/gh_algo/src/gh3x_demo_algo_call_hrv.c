@@ -105,9 +105,9 @@ GS8 GH3XHrvAlgoExe(const STFrameInfo * const pstFrameInfo)
     pstFrameInfo->pstAlgoData->uchFlag =  0;
     GS8 chAlgoRet = GH3X_RET_OK;
     GU8 uchGainValue = 0;
-    GS32 ppg_rawdata[PPG_CHANNEL_NUM] = {0};
-    GS32 cur_adj_flg[PPG_CHANNEL_NUM] = {0};
-    GS32 gain_adj_flg[PPG_CHANNEL_NUM] = {0};
+    int32_t ppg_rawdata[PPG_CHANNEL_NUM] = {0};
+    int32_t cur_adj_flg[PPG_CHANNEL_NUM] = {0};
+    int32_t gain_adj_flg[PPG_CHANNEL_NUM] = {0};
     goodix_hrv_result stResult = {0};
     goodix_hrv_input_rawdata stRawdataInput = {0};  
     stRawdataInput.ppg_rawdata = ppg_rawdata;

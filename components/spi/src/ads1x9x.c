@@ -1,4 +1,3 @@
-
 #include "ads1x9x.h"
 #include "spi.h"
 #include "esp_log.h"
@@ -8,13 +7,71 @@
 
 #define TAG "ADS1192_DRIVER"
 
-static void delay_ms(uint32_t ms) {
-    vTaskDelay(pdMS_TO_TICKS(ms));
-}
+#define ADS1x9x_PIN_NUM_MISO 16  // Changed from 6
+#define ADS1x9x_PIN_NUM_MOSI 18  // Changed from 7
+#define ADS1x9x_PIN_NUM_CLK  17  // Changed from 8
+#define ADS1x9x_PIN_NUM_CS   7  // Changed from 9
+
+    // #define GH3X_INT_GPIO      4
+    // #define GH3X_INT_NAME      "GH3X_INT"
+
+    static spi_device_handle_t ads1x9x_spi;
+
+    static void delay_ms(uint32_t ms) {
+        vTaskDelay(pdMS_TO_TICKS(ms));
+    }
+
+    esp_err_t ads1x9x_spi_driver_init(void)
+    {
+        spi_bus_config_t ads1x9x_spi_cfg = {
+            .miso_io_num = ADS1x9x_PIN_NUM_MISO,
+            .mosi_io_num = ADS1x9x_PIN_NUM_MOSI,
+            .sclk_io_num = ADS1x9x_PIN_NUM_CLK,
+            .quadwp_io_num = -1,
+            .quadhd_io_num = -1,
+            .max_transfer_sz = 64
+        };
+
+        spi_device_interface_config_t ads1x9x_spi_interface_cfg = {
+            .clock_speed_hz = 8 * 1000 * 1000, // 1 MHz
+            // .duty_cycle_pos = 64,     //Duty cycle of positive clock, in 1/256th increments (128 = 50%/50% duty). Setting this to 0 (=not setting it) is equivalent to setting this to 128.
+            .mode = 0,                          // CPOL = 0, CPHA = 1
+            .spics_io_num = ADS1x9x_PIN_NUM_CS,
+            .queue_size = 3,
+            // .spics_io_num = -1,
+        };
+        
+        esp_err_t ret;
+        // SPI3_HOST
+        ret = spi_bus_initialize(SPI2_HOST, &ads1x9x_spi_cfg, SPI_DMA_CH_AUTO);
+        if (ret != ESP_OK) {
+            ESP_LOGE(TAG, "ads1x9x SPI bus init failed");
+            return ret;
+        }
+        // SPI3_HOST
+        ret = spi_bus_add_device(SPI2_HOST, &ads1x9x_spi_interface_cfg, &ads1x9x_spi);
+        if (ret != ESP_OK) {
+            ESP_LOGE(TAG, "ads1x9x SPI device add failed");
+            return ret;
+        }
+
+        // gpio_config_t io_conf = {
+        // .pin_bit_mask = (1ULL << PIN_NUM_CS),
+        // .mode = GPIO_MODE_OUTPUT,
+        // .pull_up_en = GPIO_PULLUP_DISABLE,
+        // .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        // .intr_type = GPIO_INTR_DISABLE
+        // };
+        // gpio_config(&io_conf);
+        // gpio_set_level(PIN_NUM_CS, 1); // CS 初始为高电平
+
+        ESP_LOGI(TAG, "ads1x9x_SPI bus/device init complete");
+        return ESP_OK;
+    }
 
 // === GPIO + SPI Resource Setup ===
 esp_err_t ads1192_init(void) {
-    spi_driver_init();
+    ads1x9x_spi_driver_init();
 
     gpio_config_t io_conf = {
         .pin_bit_mask = (1ULL << ADS_RESET_GPIO) |
@@ -29,11 +86,11 @@ esp_err_t ads1192_init(void) {
     gpio_set_level(ADS_RESET_GPIO, 1);
     gpio_set_level(ADS_START_GPIO, 0);
 
-    ads1192_reset();
-    delay_ms(10);
-    ads1192_stop();
-    delay_ms(10);
-    ads1192_start();
+    // ads1192_reset();
+    // delay_ms(10);
+    // ads1192_stop();
+    // delay_ms(10);
+    // ads1192_start();
 
     return ESP_OK;
 }
