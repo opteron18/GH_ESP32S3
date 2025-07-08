@@ -39,9 +39,9 @@ static void uart_periodic_task(void *arg) {
 void create_uart_tasks(void) {
     // 使用新类型名
     static uart_driver_config_t uart_cfg = {
-        .uart_num = UART_NUM_1,
-        .tx_pin = 17,  // 自定义TX引脚
-        .rx_pin = 18,  // 自定义RX引脚
+        .uart_num = UART_NUM_0,
+        .tx_pin = 43,  // 自定义TX引脚
+        .rx_pin = 44,  // 自定义RX引脚
         .baud_rate = 115200,
         .rx_queue = NULL, // 在驱动中创建
         .tx_queue = NULL  // 在驱动中创建

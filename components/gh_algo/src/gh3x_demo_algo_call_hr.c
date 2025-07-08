@@ -119,10 +119,10 @@ GS8 GH3XHrAlgoExe(const STFrameInfo * const pstFrameInfo)
     {
         return GH3X_RET_GENERIC_ERROR;
     }
-    GS32 ppg_rawdata[3 * PPG_CHANNEL_NUM] = {0};
-    GS32 cur_adj_flg[3 * PPG_CHANNEL_NUM] = {0};
-    GS32 gain_adj_flg[3 * PPG_CHANNEL_NUM] = {0};
-    GS32 enable_flg[3 * PPG_CHANNEL_NUM] = {0};
+    int32_t ppg_rawdata[3 * PPG_CHANNEL_NUM] = {0};
+    int32_t cur_adj_flg[3 * PPG_CHANNEL_NUM] = {0};
+    int32_t gain_adj_flg[3 * PPG_CHANNEL_NUM] = {0};
+    int32_t enable_flg[3 * PPG_CHANNEL_NUM] = {0};
     goodix_hba_input_rawdata stRawdata = {0};
     stRawdata.ppg_rawdata = ppg_rawdata;
     stRawdata.cur_adj_flg = cur_adj_flg;

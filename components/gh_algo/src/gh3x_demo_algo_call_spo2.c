@@ -96,12 +96,12 @@ GS8 GH3XSpo2AlgoExe(const STFrameInfo * const pstFrameInfo)
     {
         return GH3X_RET_GENERIC_ERROR;
     }
-    GS32 ppg_rawdata[3 * CHIP_PPG_CHL_NUM] = {0};
+    int32_t ppg_rawdata[3 * CHIP_PPG_CHL_NUM] = {0};
     GS8 cur_adj_flg[3 * CHIP_PPG_CHL_NUM] = {0};
     GS8 gain_adj_flg[3 * CHIP_PPG_CHL_NUM] = {0};
     GS8 enable_flg[3 * CHIP_PPG_CHL_NUM] = {0};
-    GS32 ch_agc_drv0[3 * CHIP_PPG_CHL_NUM] = {0};
-    GS32 ch_agc_drv1[3 * CHIP_PPG_CHL_NUM] = {0};
+    int32_t ch_agc_drv0[3 * CHIP_PPG_CHL_NUM] = {0};
+    int32_t ch_agc_drv1[3 * CHIP_PPG_CHL_NUM] = {0};
     GS8 ch_agc_gain[3 * CHIP_PPG_CHL_NUM] = {0};
     goodix_spo2_input_rawdata stRawdata = {0};
     stRawdata.ppg_rawdata = ppg_rawdata;

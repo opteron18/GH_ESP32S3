@@ -154,9 +154,16 @@ esp_err_t ads1192_read_data(uint8_t *data_buf, size_t length);
 #define DEV_ID_ADS1292  0x03
 
 // ========= 默认引脚定义 =========
-#define ADS_RESET_GPIO  25
-#define ADS_START_GPIO  26
-#define ADS_DRDY_GPIO   27
+#define ADS1x9x_PIN_NUM_MISO 16  // Changed from 6
+#define ADS1x9x_PIN_NUM_MOSI 18  // Changed from 7
+#define ADS1x9x_PIN_NUM_CLK  17  // Changed from 8
+#define ADS1x9x_PIN_NUM_CS   12  // Changed from 9
+
+#define ADS_RESET_GPIO  14
+#define ADS_START_GPIO  13
+#define ADS_DRDY_GPIO   15
+
+esp_err_t ads1192_init(void);
 
 esp_err_t ads1192_init(void);
 

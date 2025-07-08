@@ -1,17 +1,27 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "led.h"
+#include "esp_log.h"
 
+uint32_t a;
+uint32_t b;
 void FRT_LED_Task(){
     vTaskDelay(pdMS_TO_TICKS(10));
     configure_led();
+    const TickType_t xfrequency = pdMS_TO_TICKS(1000);
+    TickType_t xlastwaketime = xTaskGetTickCount();
     while(1){
-        // ESP_LOGI(TAG, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
+        
         gpio_set_level(BLINK_GPIO, 1);
+        vTaskDelayUntil(&xlastwaketime,xfrequency);
+        // ESP_LOGI(LED_Thread, "LED ON at tick: %lu", (unsigned long)xlastwaketime);
         /* Toggle the LED state */
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        // vTaskDelay(1000 / portTICK_PERIOD_MS);
         gpio_set_level(BLINK_GPIO, 0);
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelayUntil(&xlastwaketime,xfrequency);
+        // ESP_LOGI(LED_Thread, "LED OFF at tick: %lu", (unsigned long)xlastwaketime);
+        // vTaskDelay(1000 / portTICK_PERIOD_MS);
+
     }
 }
 

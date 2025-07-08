@@ -16,15 +16,15 @@
 extern "C" {
 #endif
 
-/* 返回错误码 */
+/* ????????? */
 typedef enum {
-    GX_HRV_ALGO_OK              = 0x00000000, // 成功返回，或无出值刷新
-    GX_HRV_ALGO_FAILED          = 0x10000001, // 失败返回
-    GX_HRV_ALGO_NULL_PTR        = 0x10000002, // 外部传入的指针为空
-    GX_HRV_ALGO_INVALID_PARAM   = 0x10000003, // 参数范围无效
-    GX_HRV_ALGO_OUT_OF_MEM      = 0x10000004, // 内存分配失败
-    GX_HRV_ALGO_DEINIT_ABORT    = 0x10000005, // 释放失败
-    GX_HRV_ALGO_UPDATE          = 0x10000006, // 有出值刷新
+    GX_HRV_ALGO_OK              = 0x00000000, // ?????????????????
+    GX_HRV_ALGO_FAILED          = 0x10000001, // ??????
+    GX_HRV_ALGO_NULL_PTR        = 0x10000002, // ?????????????
+    GX_HRV_ALGO_INVALID_PARAM   = 0x10000003, // ??????Χ??Ч
+    GX_HRV_ALGO_OUT_OF_MEM      = 0x10000004, // ?????????
+    GX_HRV_ALGO_DEINIT_ABORT    = 0x10000005, // ??????
+    GX_HRV_ALGO_UPDATE          = 0x10000006, // ?г?????
 }goodix_hrv_ret;
 
 #define PPG_CHANNEL_NUM		            4
@@ -35,27 +35,27 @@ typedef enum {
 #define HRV_INTERFACE_VERSION_LEN_MAX (20)
 
 typedef struct {
-    int32_t need_ipl;                                   // 是否需要插值到1KHz
-    int32_t fs;                                         // 采样率
-    int32_t acc_thr[ACC_THR_NUM];                       // acc 相关阈值，默认值为：20/10/3/3
+    int32_t need_ipl;                                   // ???????????1KHz
+    int32_t fs;                                         // ??????
+    int32_t acc_thr[ACC_THR_NUM];                       // acc ???????????????20/10/3/3
 }goodix_hrv_config;
 
 typedef struct {
-	uint8_t bit_num;                       //数据位数
-    int32_t *ppg_rawdata;                 // PPG原始信号，最多四通道
-    int32_t *cur_adj_flg;                 // 电流调光标志位
-    int32_t *gain_adj_flg;                // 增益调光标志位
-	int32_t acc_x;                        // 加速计 x 轴
-    int32_t acc_y;                        // 加速计 y 轴
-    int32_t acc_z;                       // 加速计 z 轴
-    int32_t frame_id;                    // 帧序号
-    int32_t hr;                           // 当前心率值
+	uint8_t bit_num;                       //????λ??
+    int32_t *ppg_rawdata;                 // PPG??????????????
+    int32_t *cur_adj_flg;                 // ??????????λ
+    int32_t *gain_adj_flg;                // ?????????λ
+	int32_t acc_x;                        // ????? x ??
+    int32_t acc_y;                        // ????? y ??
+    int32_t acc_z;                       // ????? z ??
+    int32_t frame_id;                    // ????
+    int32_t hr;                           // ????????
 }goodix_hrv_input_rawdata;
 
 typedef struct {
-    int32_t rri[RRI_NUM];                               // RRI结果数组
-    int32_t rri_confidence;                             // 结果置信度
-	int32_t rri_valid_num;                              // RRI有效结果数量
+    int32_t rri[RRI_NUM];                               // RRI???????
+    int32_t rri_confidence;                             // ????????
+	int32_t rri_valid_num;                              // RRI??Ч???????
 }goodix_hrv_result;
 
 IOT_SYS_DLL_API uint8_t *goodix_hrv_version(void);
@@ -67,22 +67,22 @@ IOT_SYS_DLL_API goodix_hrv_ret goodix_hrv_calc(goodix_hrv_input_rawdata *input_d
 IOT_SYS_DLL_API goodix_hrv_ret goodix_hrv_deinit(void);
 
 /**
-* @brief 获取hrv的默认配置参数
-* @return     hrv的默认配置参数
+* @brief ???hrv????????ò???
+* @return     hrv????????ò???
 */
 IOT_SYS_DLL_API const void *goodix_hrv_config_get_arr(void);
 
 /**
-* @brief 获取hrv的配置size
-* @return     hrv的配置size
+* @brief ???hrv??????size
+* @return     hrv??????size
 */
 IOT_SYS_DLL_API int32_t  goodix_hrv_config_get_size(void);
 
 /**
-* @brief 获取HRV配置文件的版本号
-* @param[in/out]  ver       版本号保存数组
-* @param[in] 	  ver_len   版本号长度，建议使用HRV_INTERFACE_VERSION_LEN_MAX
-* @return     	  无
+* @brief ???HRV?????????汾??
+* @param[in/out]  ver       ?汾?????????
+* @param[in] 	  ver_len   ?汾?????????????HRV_INTERFACE_VERSION_LEN_MAX
+* @return     	  ??
 */
 IOT_SYS_DLL_API void goodix_hrv_config_get_version(char* ver, uint8_t ver_len);
 

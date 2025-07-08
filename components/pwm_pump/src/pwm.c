@@ -17,11 +17,11 @@ static mcpwm_timer_handle_t single_timer = NULL;
 static mcpwm_oper_handle_t single_oper = NULL;
 static mcpwm_cmpr_handle_t single_comparator = NULL;
 static mcpwm_gen_handle_t single_generator = NULL;
-
+// MCPWM_TIMER_CLK_SRC_DEFAULT
 esp_err_t pwm_halfbridge_init(uint32_t pwm_freq_hz) {
     mcpwm_timer_config_t timer_config = {
         .group_id = 0,
-        .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT,
+        .clk_src = GPTIMER_CLK_SRC_DEFAULT,
         .resolution_hz = 1000000,
         .count_mode = MCPWM_TIMER_COUNT_MODE_UP,
         .period_ticks = 1000000 / pwm_freq_hz,
@@ -90,10 +90,10 @@ esp_err_t pwm_single_init(uint32_t pwm_freq_hz, float duty_cycle, gpio_num_t gpi
     if (duty_cycle < 0.0f || duty_cycle > 1.0f || pwm_freq_hz == 0) {
         return ESP_ERR_INVALID_ARG;
     }
-
+    // MCPWM_TIMER_CLK_SRC_DEFAULT
     mcpwm_timer_config_t timer_config = {
         .group_id = 1,
-        .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT,
+        .clk_src = GPTIMER_CLK_SRC_DEFAULT,
         .resolution_hz = 1000000,
         .count_mode = MCPWM_TIMER_COUNT_MODE_UP,
         .period_ticks = 1000000 / pwm_freq_hz,

@@ -14,7 +14,7 @@
 #include "led_strip.h"
 #include "led.h"
 
-static const char *TAG = "example";
+static const char *TAG = "LED";
 
 static uint8_t s_led_state = 0;
 
@@ -62,10 +62,15 @@ void blink_led(void)
 
 void configure_led(void)
 {
+     gpio_config_t io_conf = {
+    .pin_bit_mask = (1ULL << BLINK_GPIO),
+    .mode = GPIO_MODE_OUTPUT,
+    .pull_up_en = GPIO_PULLUP_DISABLE,
+    .pull_down_en = GPIO_PULLDOWN_DISABLE,
+    .intr_type = GPIO_INTR_DISABLE
+    };
+    gpio_config(&io_conf);
     ESP_LOGI(TAG, "Example configured to blink GPIO LED!");
-    gpio_reset_pin(BLINK_GPIO);
-    /* Set the GPIO as a push/pull output */
-    gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
 }
 
 // #endif
