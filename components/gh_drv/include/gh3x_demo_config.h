@@ -72,9 +72,9 @@
 #endif
 
 /* function enable */
-#define __FUNC_TYPE_ADT_ENABLE__                (0)    /**< adt function enable */
+#define __FUNC_TYPE_ADT_ENABLE__                (1)    /**< adt function enable */
 #define __FUNC_TYPE_HR_ENABLE__                 (1)    /**< hr function enable */
-#define __FUNC_TYPE_HRV_ENABLE__                (1)    /**< hrv function enable */
+#define __FUNC_TYPE_HRV_ENABLE__                (0)    /**< hrv function enable */
 #define __FUNC_TYPE_HSM_ENABLE__                (0)    /**< hsm function enable */
 #define __FUNC_TYPE_FPBP_ENABLE__               (0)    /**< fpbp function enable */
 #define __FUNC_TYPE_PWA_ENABLE__                (0)    /**< pwa function enable */

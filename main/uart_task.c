@@ -39,9 +39,9 @@ static void uart_periodic_task(void *arg) {
 void create_uart_tasks(void) {
     // 使用新类型名
     static uart_driver_config_t uart_cfg = {
-        .uart_num = UART_NUM_0,
-        .tx_pin = 43,  // 自定义TX引脚
-        .rx_pin = 44,  // 自定义RX引脚
+        .uart_num = UART_NUM_1,
+        .tx_pin = 47,  // 自定义TX引脚
+        .rx_pin = 48,  // 自定义RX引脚
         .baud_rate = 115200,
         .rx_queue = NULL, // 在驱动中创建
         .tx_queue = NULL  // 在驱动中创建
@@ -54,12 +54,12 @@ void create_uart_tasks(void) {
     }
     
     // 注册接收回调
-    uart_register_rx_callback(rx_callback);
+    // uart_register_rx_callback(rx_callback);
     
     // 创建传输和接收任务
-    xTaskCreate(uart_transmit_task, "uart_tx", 4096, NULL, 5, NULL);
-    xTaskCreate(uart_receive_task, "uart_rx", 4096, NULL, 5, NULL);
+    // xTaskCreate(uart_transmit_task, "uart_tx", 4096, NULL, 5, NULL);
+    // xTaskCreate(uart_receive_task, "uart_rx", 4096, NULL, 5, NULL);
     
     // 创建周期发送任务
-    xTaskCreate(uart_periodic_task, "uart_periodic", 2048, NULL, 4, NULL);
+    // xTaskCreate(uart_periodic_task, "uart_periodic", 2048, NULL, 4, NULL);
 }

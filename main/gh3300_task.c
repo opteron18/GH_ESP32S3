@@ -12,7 +12,7 @@ void User_GH3300_StartSamping(int GH3300_FUNCTION){
 void FRT_GH3300_Task(){
     vTaskDelay(pdMS_TO_TICKS(10));
     User_GH3300_init();
-    User_GH3300_StartSamping(GH3X_FUNCTION_HR);
+    User_GH3300_StartSamping(GH3X_FUNCTION_HRV);
     while(1){
         GH3X_DemoInterruptProcess();
         vTaskDelay(pdMS_TO_TICKS(10));

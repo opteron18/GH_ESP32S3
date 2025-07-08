@@ -320,12 +320,15 @@ static GU8 GH3xGetDrvCurrentAvg(GU8 uchSlotIdx)
 
 static void GH3xNewAgcChnlInfoInit(void)
 {
+    // EXAMPLE_LOG("GH3X_NEW_AGC_SLOT_NUM_LIMIT:%d-------------------------------",GH3X_NEW_AGC_SLOT_NUM_LIMIT);
     if(0 == GH3X_NEW_AGC_SLOT_NUM_LIMIT)
     {
         return;
     }
+    // EXAMPLE_LOG("g_Gh3x2xNewAgcInitFlag:%d-------------------------------",g_Gh3x2xNewAgcInitFlag);
     if(0 == g_Gh3x2xNewAgcInitFlag)
     {
+        // EXAMPLE_LOG("g_Gh3x2xNewAgcInitFlag:%d-------------------------------",g_Gh3x2xNewAgcInitFlag);
         GU8 uchNewAgcSlotCnt = 0;
         GU16 usPPG_CFGN_Used = 0;
         if(g_stSoftAgcCfg.uchSlotxSoftAgcAdjEn)  // if configure software AGC 
@@ -338,6 +341,7 @@ static void GH3xNewAgcChnlInfoInit(void)
 
         for(GU8 uchSlotCnt = 0; uchSlotCnt < 16; uchSlotCnt ++)   // Support up to 16 slots
         {    
+            // EXAMPLE_LOG("Support up to 16 slots--------------------------------------------------------------------");
              GU8 uchSlotIdx; //Indicates which CFG is used by the current slot
              uchSlotIdx = puchConfigSlotIdx[uchSlotCnt];
              GU8 uchRegAgcEn =    GH3xGetAgcReg(GH3X_AGC_REG_AGC_EN, uchSlotIdx);
@@ -354,6 +358,7 @@ static void GH3xNewAgcChnlInfoInit(void)
 
             if((g_stSoftAgcCfg.uchSlotxSoftAgcAdjEn & (1 << uchSlotCnt)))   // configed SoftAGC
             {
+                // EXAMPLE_LOG("g_stSoftAgcCfg.uchSlotxSoftAgcAdjEn & (1 << uchSlotCnt)--------------------------------------------------------------------");
                 if(uchNewAgcSlotCnt < GH3X_NEW_AGC_SLOT_NUM_LIMIT)
                 {
                     g_pstGh3xNewAgcMainChnlInfoEntity[uchNewAgcSlotCnt].uchSlotAdc = (uchSlotIdx << 2); 
@@ -364,6 +369,7 @@ static void GH3xNewAgcChnlInfoInit(void)
                         g_pstGh3xNewAgcMainChnlInfoEntity[uchNewAgcSlotCnt].uchSpo2ChnlIndex =  1;
                         GH3X_DEBUG_LOG_PARAM("[NewAgc] SlotNum = %d, Spo2RedSlotCfgEn = %d, Spo2IrSlotCfgEn = %d\r\n",uchSlotCnt, g_stSoftAgcCfg.uchSpo2RedSlotCfgEn, g_stSoftAgcCfg.uchSpo2IrSlotCfgEn);   
                     }
+                    EXAMPLE_LOG("SlotNum--------------------------------------------------------------------");
                     /******* slot function Distinguish   END******************************************************/
                     GH3X_DEBUG_LOG_PARAM("[NewAgc] SlotNum = %d, PPGCFG = %d, AGCEn = %d\r\n",uchSlotCnt,uchSlotIdx,uchRegAgcEn);             
                     uchNewAgcSlotCnt ++;

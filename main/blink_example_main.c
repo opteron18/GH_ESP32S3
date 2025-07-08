@@ -20,11 +20,11 @@ extern void FRT_GH3300_TaskCreate();
 extern void FRT_LED_TaskCreate(void);
 extern void create_uart_tasks(void);
 extern void FRT_adc_buttom_TaskCreate(void);
-
+extern void create_EMG_tasks(void);
 void app_main(void)
 {
-
-    // GhCommInit();
+    create_uart_tasks();
+    GhCommInit();
     // configure_led();
     // uart_init();
     // while(1){
@@ -45,7 +45,8 @@ void app_main(void)
     // gh_spi_send((uint8_t *)message, strlen(message));  // 转换为uint8_t*并传入字符串长度
     // const char *message2 = "helloworldhelloworldhelloworldhelloworldhelloworld";
     // gh_spi_send((uint8_t *)message2, strlen(message2));  // 转换为uint8_t*并传入字符串长度
-    FRT_GH3300_TaskCreate();
+    create_EMG_tasks();
+    // FRT_GH3300_TaskCreate();
     // FRT_LED_TaskCreate();
 
 

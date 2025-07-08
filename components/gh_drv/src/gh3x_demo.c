@@ -323,6 +323,7 @@ void GH3X_DemoInterruptProcess(void)
         if ((unGotEvent & (GH3X_IRQ_MSK_FIFO_WATERMARK_BIT | GH3X_IRQ_MSK_FIFO_FULL_BIT)) || 
                           (GH3X_GetSoftEvent() & GH3X_SOFT_EVENT_NEED_TRY_READ_FIFO))
         {
+            EXAMPLE_LOG("get fifo data-------------------------------------------------------------------");
             GH3X_SetFifoFullFlag((unGotEvent & GH3X_IRQ_MSK_FIFO_FULL_BIT) != 0);
             GH3X_ReadFifodata(gpuchReadRawdataBuffer, &gusReadRawdataLen);
 #if __FUNC_TYPE_GSR_ENABLE__
@@ -431,7 +432,6 @@ void GhUploadChipEvent(GU32 unGotEvent)
         unGotEvent &= ~(GH3X_IRQ_MSK_WEAR_ON_BIT);   //ignore wear on event
     }
 #endif
-    
     if (((unGotEvent & __GH3X_EVENT_PROTOCOL_MASK__) != 0) && 
             ((((GH3X_GetDemoFuncMode() != 0)
 #if __GH_MULTI_SENSOR_EVENT_PRO_CONIG__
@@ -606,7 +606,7 @@ void GH3X_DemoSamplingControl(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
     {
         if(gpstFrameInfo[uchFunCnt] && (unFuncMode & (((GU32)1)<< uchFunCnt)))
         {
-        
+            EXAMPLE_LOG("gpstFrameInfo:----------------------------------------------------------");
             if((UPROTOCOL_CMD_START == emSwitch)&&((gunDemoFuncMode & (((GU32)1)<< uchFunCnt)) != (((GU32)1)<< uchFunCnt)))
             {
                 if(uchFunCnt == GH3X_FUNC_OFFSET_BIA)
@@ -622,6 +622,9 @@ void GH3X_DemoSamplingControl(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
                 #endif
                 }
                 #if (__SUPPORT_SOFT_AGC_CONFIG__)
+                int workmode = GH3X_GetDemoWorkMode();
+                EXAMPLE_LOG("gunDemoFuncMode:%d----------------------------------------------------------",gunDemoFuncMode);
+                EXAMPLE_LOG("GH3X_GetDemoWorkMode:%d--------------------------------------------------------",workmode);
                 if(gunDemoFuncMode == 0 && GH3X_GetDemoWorkMode() == GH3X_DEMO_WORK_MODE_MCU_ONLINE)
                 {
                     GH3X_LedAgcInit();
