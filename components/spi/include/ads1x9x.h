@@ -158,6 +158,8 @@ esp_err_t ads1192_read_data(uint8_t *data_buf, size_t length);
 #define ADS_START_GPIO  26
 #define ADS_DRDY_GPIO   27
 
+esp_err_t ads1192_init(void);
+
 #ifdef __cplusplus
 }
 #endif
