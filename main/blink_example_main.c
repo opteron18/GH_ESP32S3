@@ -19,15 +19,9 @@ extern void User_GH3300_init(void);
 extern void FRT_GH3300_TaskCreate();
 extern void FRT_LED_TaskCreate(void);
 extern void create_uart_tasks(void);
-<<<<<<< HEAD
-=======
 extern void FRT_adc_buttom_TaskCreate(void);
-<<<<<<< HEAD
 extern void create_EMG_tasks(void);
-=======
->>>>>>> 44c6432d8c32e1d5f337b28621bd58e278a5e262
 
->>>>>>> 8b5f554308b6c81667902286e1de7bbc4cdc5bea
 void app_main(void)
 {
     create_uart_tasks();
@@ -45,17 +39,14 @@ void app_main(void)
 
     // const char * name = "hellothere";
     // sendData(name,name);
-<<<<<<< HEAD
-    ESP_ERROR_CHECK(ads1192_init());
-    for(;;){
-        vTaskDelay(pdMS_TO_TICKS(10));
-    }
-=======
+    // ESP_ERROR_CHECK(ads1192_init());
+    // for(;;){
+    //     vTaskDelay(pdMS_TO_TICKS(10));
+    // }
     // ads1192_init();
     // for(;;){
     //     vTaskDelay(pdMS_TO_TICKS(10));
     // }
->>>>>>> 44c6432d8c32e1d5f337b28621bd58e278a5e262
 
     // spi_driver_init();
     // const char *message = "helloworld";
@@ -65,14 +56,11 @@ void app_main(void)
     // create_EMG_tasks();
     // FRT_GH3300_TaskCreate();
     // FRT_LED_TaskCreate();
-<<<<<<< HEAD
-=======
 
 
     // FRT_adc_buttom_TaskCreate();
 
 
->>>>>>> 44c6432d8c32e1d5f337b28621bd58e278a5e262
     // create_uart_tasks();
     // GH3X_DemoStartSampling(GH3X_FUNCTION_HR);
     // while(1){
