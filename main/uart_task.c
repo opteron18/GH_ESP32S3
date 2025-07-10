@@ -42,7 +42,7 @@ void create_uart_tasks(void) {
         .uart_num = UART_NUM_1,
         .tx_pin = 47,  // 自定义TX引脚
         .rx_pin = 48,  // 自定义RX引脚
-        .baud_rate = 115200,
+        .baud_rate = 256000,
         .rx_queue = NULL, // 在驱动中创建
         .tx_queue = NULL  // 在驱动中创建
     };

@@ -57,7 +57,7 @@ esp_err_t ads1292r_init(ADS1292R_t *dev, spi_host_device_t host) {
     spi_device_interface_config_t devcfg = {
         .clock_speed_hz = 500 * 1000,
         .mode = 1,
-        .spics_io_num = dev->cs_pin,
+        .spics_io_num = -1,
         .queue_size = 1,
     };
     spi_bus_add_device(host, &devcfg, &dev->spi);
@@ -88,7 +88,7 @@ void ads1292r_stop(ADS1292R_t *dev) {
     gpio_set_level(dev->start_pin, 0);
 }
 
-void ads1292r_read_data(ADS1292R_t *dev, float *ch_val) {
+esp_err_t  ads1292r_read_data(ADS1292R_t *dev, float *ch_val) {
     uint8_t buf[9] = {0};
     uint8_t dummy[9] = {0};
     spi_readwrite(dev, dummy, buf, 9);
@@ -101,4 +101,6 @@ void ads1292r_read_data(ADS1292R_t *dev, float *ch_val) {
 
     ch_val[0] = ((float)raw_ch1 / 256.0f) * 0.288486f / 12;
     ch_val[1] = ((float)raw_ch2 / 256.0f) * 0.288486f / 12;
+
+    return ESP_OK;
 }

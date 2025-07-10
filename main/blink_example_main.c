@@ -33,6 +33,9 @@ void app_main(void)
     // }
     vTaskDelay(pdMS_TO_TICKS(10));
     gh_ESP_LOG("System initialization complete\n");
+
+    create_EMG_tasks();
+
     // const char * name = "hellothere";
     // sendData(name,name);
     // ads1192_init();
@@ -45,7 +48,7 @@ void app_main(void)
     // gh_spi_send((uint8_t *)message, strlen(message));  // 转换为uint8_t*并传入字符串长度
     // const char *message2 = "helloworldhelloworldhelloworldhelloworldhelloworld";
     // gh_spi_send((uint8_t *)message2, strlen(message2));  // 转换为uint8_t*并传入字符串长度
-    create_EMG_tasks();
+    // create_EMG_tasks();
     // FRT_GH3300_TaskCreate();
     // FRT_LED_TaskCreate();
 

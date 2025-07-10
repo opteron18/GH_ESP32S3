@@ -36,6 +36,6 @@ void ads1292r_write_regs(ADS1292R_t *dev, uint8_t addr, uint8_t *data, uint8_t l
 void ads1292r_read_regs(ADS1292R_t *dev, uint8_t addr, uint8_t *data, uint8_t len);
 void ads1292r_start(ADS1292R_t *dev);
 void ads1292r_stop(ADS1292R_t *dev);
-void ads1292r_read_data(ADS1292R_t *dev, float *ch_val);
+esp_err_t  ads1292r_read_data(ADS1292R_t *dev, float *ch_val);
 
 #endif

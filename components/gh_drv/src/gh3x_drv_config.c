@@ -233,7 +233,7 @@ void GH3X_WriteBiaDrvConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualR
  */
 void GH3X_WriteSwConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue)
 {
-    GH3X_DEBUG_LOG_PARAM("%s\r\n", __FUNCTION__);
+    // GH3X_DEBUG_LOG_PARAM("%s\r\n", __FUNCTION__);
     if (usVirtualRegAddr < GH3X_FIFO_CTRL_ADDR) // config arr info         0x1F
     {
         switch (usVirtualRegAddr)
@@ -367,7 +367,7 @@ void GH3X_WriteSwConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegVa
  */
 void GH3X_WriteFunctionConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue)
 {
-    GH3X_DEBUG_LOG_PARAM("%s\r\n", __FUNCTION__);
+    // GH3X_DEBUG_LOG_PARAM("%s\r\n", __FUNCTION__);
     GU32 unFunctionID = (usVirtualRegAddr - GH3X_REG_IS_VIRTUAL0X7_BIT) / GH3X_VREG_FUNCTION_OFFSET;
     if (usVirtualRegAddr >= GH3X_ADT_DRV_CFG_ADDR + GH3X_VREG_FUNCTION_OFFSET * unFunctionID &&\
         usVirtualRegAddr < GH3X_ADT_ALG_CFG_ADDR + GH3X_VREG_FUNCTION_OFFSET * unFunctionID)

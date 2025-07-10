@@ -1175,6 +1175,7 @@ GS8 GH3X_FunctionStart(const STFrameInfo * const pstFrameInfo)
     /* if all func off, start sampling */
     if (GH3X_NO_FUNCTION == gunFuncStartedBitmap)
     {
+        EXAMPLE_LOG("GH3X_NO_FUNCTION----------------------------------------------------");
         GH3X_WriteRegBitField(0x780, 0, 1,0);
         chRet = GH3X_StartSampling();
         GH3X_DEBUG_LOG_PARAM("[FunctionStart] function id: 0x%X, start result: %d\r\n",(int)(1 << pstFrameInfo->uchFuncID), chRet);

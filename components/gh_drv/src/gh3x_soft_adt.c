@@ -28,13 +28,16 @@ extern void GH3X_UprotocolSendChipEvent(GU32 unEvent);
 
 void GH3X_SamplingControlHookProcess(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
 {
+    // EXAMPLE_LOG("GH3X_SamplingControlHookProcess---------------------------------------------------");
     if(((GH3X_FUNCTION_ADT & unFuncMode) || (GH3X_FUNCTION_BIA & unFuncMode)) && emSwitch == UPROTOCOL_CMD_START)
     {
+        // EXAMPLE_LOG("UPROTOCOL_CMD_START---------------------------------------------------");
         guchAdtWearStatus = 0;
         guchEcgLeadStatus=0;
     }
     else if((GH3X_FUNCTION_ADT & unFuncMode || (GH3X_FUNCTION_BIA & unFuncMode)) && emSwitch == UPROTOCOL_CMD_STOP)
     {
+        // EXAMPLE_LOG("UPROTOCOL_CMD_STOP---------------------------------------------------");
         guchAdtWearStatus = 0;
         guchEcgLeadStatus=0;
         GOODIX_PLATFROM_LEAD_OFF_EVENT();

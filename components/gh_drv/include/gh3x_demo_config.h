@@ -74,22 +74,22 @@
 /* function enable */
 #define __FUNC_TYPE_ADT_ENABLE__                (1)    /**< adt function enable */
 #define __FUNC_TYPE_HR_ENABLE__                 (1)    /**< hr function enable */
-#define __FUNC_TYPE_HRV_ENABLE__                (0)    /**< hrv function enable */
-#define __FUNC_TYPE_HSM_ENABLE__                (0)    /**< hsm function enable */
-#define __FUNC_TYPE_FPBP_ENABLE__               (0)    /**< fpbp function enable */
-#define __FUNC_TYPE_PWA_ENABLE__                (0)    /**< pwa function enable */
+#define __FUNC_TYPE_HRV_ENABLE__                (1)    /**< hrv function enable */
+#define __FUNC_TYPE_HSM_ENABLE__                (1)    /**< hsm function enable */
+#define __FUNC_TYPE_FPBP_ENABLE__               (1)    /**< fpbp function enable */
+#define __FUNC_TYPE_PWA_ENABLE__                (1)    /**< pwa function enable */
 #define __FUNC_TYPE_SPO2_ENABLE__               (1)    /**< spo2 function enable */
-#define __FUNC_TYPE_ECG_ENABLE__                (0)    /**< ecg function enable */
-#define __FUNC_TYPE_PWTT_ENABLE__               (0)    /**< pwtt function enable */
-#define __FUNC_TYPE_SOFT_ADT_GREEN_ENABLE__     (0)    /**< soft_adt_green function enable */
-#define __FUNC_TYPE_BT_ENABLE__                 (0)    /**< bt function enable */
-#define __FUNC_TYPE_RESP_ENABLE__               (0)    /**< resp function enable */
-#define __FUNC_TYPE_AF_ENABLE__                 (0)    /**< af function enable */
-#define __FUNC_TYPE_TEST1_ENABLE__              (0)    /**< test1 function enable */
-#define __FUNC_TYPE_TEST2_ENABLE__              (0)    /**< test2 function enable */
-#define __FUNC_TYPE_SOFT_ADT_IR_ENABLE__        (0)    /**< soft_adt_ir function enable */
-#define __FUNC_TYPE_BIA_ENABLE__                (0)    /**< bia function enable */
-#define __FUNC_TYPE_GSR_ENABLE__                (0)    /**< gsr function enable */
+#define __FUNC_TYPE_ECG_ENABLE__                (1)    /**< ecg function enable */
+#define __FUNC_TYPE_PWTT_ENABLE__               (1)    /**< pwtt function enable */
+#define __FUNC_TYPE_SOFT_ADT_GREEN_ENABLE__     (1)    /**< soft_adt_green function enable */
+#define __FUNC_TYPE_BT_ENABLE__                 (1)    /**< bt function enable */
+#define __FUNC_TYPE_RESP_ENABLE__               (1)    /**< resp function enable */
+#define __FUNC_TYPE_AF_ENABLE__                 (1)    /**< af function enable */
+#define __FUNC_TYPE_TEST1_ENABLE__              (1)    /**< test1 function enable */
+#define __FUNC_TYPE_TEST2_ENABLE__              (1)    /**< test2 function enable */
+#define __FUNC_TYPE_SOFT_ADT_IR_ENABLE__        (1)    /**< soft_adt_ir function enable */
+#define __FUNC_TYPE_BIA_ENABLE__                (1)    /**< bia function enable */
+#define __FUNC_TYPE_GSR_ENABLE__                (1)    /**< gsr function enable */
 
 #define __HARD_ADT_ALGO_CHECK_EN__          (0)   //0: do not use algo to replace hard adt module in chip  1: use algo to replace hard adt mudule in chip
 

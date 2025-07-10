@@ -15,7 +15,7 @@ void FRT_GH3300_Task(){
     User_GH3300_StartSamping(GH3X_FUNCTION_HRV);
     while(1){
         GH3X_DemoInterruptProcess();
-        vTaskDelay(pdMS_TO_TICKS(10));
+        vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
 void FRT_GH3300_TaskCreate(){

@@ -604,9 +604,10 @@ void GH3X_DemoSamplingControl(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
     GU32 unStartFunc = 0, unStopFunc =0;
     for(GU8 uchFunCnt = 0; uchFunCnt < GH3X_FUNC_OFFSET_MAX; uchFunCnt ++)
     {
+        // EXAMPLE_LOG("forforforfor------------------------------------------------");
         if(gpstFrameInfo[uchFunCnt] && (unFuncMode & (((GU32)1)<< uchFunCnt)))
         {
-            EXAMPLE_LOG("gpstFrameInfo:----------------------------------------------------------");
+            // EXAMPLE_LOG("gpstFrameInfo:----------------------------------------------------------");
             if((UPROTOCOL_CMD_START == emSwitch)&&((gunDemoFuncMode & (((GU32)1)<< uchFunCnt)) != (((GU32)1)<< uchFunCnt)))
             {
                 if(uchFunCnt == GH3X_FUNC_OFFSET_BIA)
@@ -623,13 +624,14 @@ void GH3X_DemoSamplingControl(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
                 }
                 #if (__SUPPORT_SOFT_AGC_CONFIG__)
                 int workmode = GH3X_GetDemoWorkMode();
-                EXAMPLE_LOG("gunDemoFuncMode:%d----------------------------------------------------------",gunDemoFuncMode);
-                EXAMPLE_LOG("GH3X_GetDemoWorkMode:%d--------------------------------------------------------",workmode);
+                // EXAMPLE_LOG("gunDemoFuncMode:%d----------------------------------------------------------",gunDemoFuncMode);
+                // EXAMPLE_LOG("GH3X_GetDemoWorkMode:%d--------------------------------------------------------",workmode);
                 if(gunDemoFuncMode == 0 && GH3X_GetDemoWorkMode() == GH3X_DEMO_WORK_MODE_MCU_ONLINE)
                 {
                     GH3X_LedAgcInit();
                 }
                 #endif
+                EXAMPLE_LOG("GH3X_FunctionStart------------------------------------");
                 GH3X_FunctionStart(gpstFrameInfo[uchFunCnt]);
                 GH3X_InitResample(gpstFrameInfo[uchFunCnt]);
                 GH3X_SamplingControlHook(unFuncMode,emSwitch);
@@ -686,8 +688,10 @@ void GH3X_DemoSamplingControl(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
 #if __FIFO_MONITOR_EN__
         Gh3xFifoMonitorInfoInit();
 #endif
+        EXAMPLE_LOG("GH3X_SetSoftEvent-------------------------------------------------------------");
         GH3X_SetSoftEvent(GH3X_SOFT_EVENT_NEED_TRY_READ_FIFO);
     }
+    EXAMPLE_LOG("gunDemoFuncMode :%d---------------------------------------------------------- ",gunDemoFuncMode);
     if(gunDemoFuncMode == 0)
     {
 #if __FIFO_MONITOR_EN__
@@ -697,9 +701,11 @@ void GH3X_DemoSamplingControl(GU32 unFuncMode, EMUprotocolParseCmdType emSwitch)
     EXAMPLE_LOG("Current gunDemoFuncMode= 0x%x\r\n",gunDemoFuncMode);
     if(GH3X_GetSoftEvent()&&(0 == guchInterruptProNotFinishFlag))   //avoid nesting
     {
+    EXAMPLE_LOG("GH3X_GetSoftEvent= 0x%x\r\n",gunDemoFuncMode);
 #ifdef GOODIX_DEMO_PLATFORM
         SendMsgToCardiff(OP_CHIP_HW_INT, NULL, 0,0);
 #else
+        EXAMPLE_LOG("GH3X_DemoInterruptProcess----------------------------------------------------------");
         GH3X_DemoInterruptProcess();
 #endif
     }

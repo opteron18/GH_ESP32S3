@@ -320,15 +320,12 @@ static GU8 GH3xGetDrvCurrentAvg(GU8 uchSlotIdx)
 
 static void GH3xNewAgcChnlInfoInit(void)
 {
-    // EXAMPLE_LOG("GH3X_NEW_AGC_SLOT_NUM_LIMIT:%d-------------------------------",GH3X_NEW_AGC_SLOT_NUM_LIMIT);
     if(0 == GH3X_NEW_AGC_SLOT_NUM_LIMIT)
     {
         return;
     }
-    // EXAMPLE_LOG("g_Gh3x2xNewAgcInitFlag:%d-------------------------------",g_Gh3x2xNewAgcInitFlag);
     if(0 == g_Gh3x2xNewAgcInitFlag)
     {
-        // EXAMPLE_LOG("g_Gh3x2xNewAgcInitFlag:%d-------------------------------",g_Gh3x2xNewAgcInitFlag);
         GU8 uchNewAgcSlotCnt = 0;
         GU16 usPPG_CFGN_Used = 0;
         if(g_stSoftAgcCfg.uchSlotxSoftAgcAdjEn)  // if configure software AGC 
@@ -341,7 +338,6 @@ static void GH3xNewAgcChnlInfoInit(void)
 
         for(GU8 uchSlotCnt = 0; uchSlotCnt < 16; uchSlotCnt ++)   // Support up to 16 slots
         {    
-            // EXAMPLE_LOG("Support up to 16 slots--------------------------------------------------------------------");
              GU8 uchSlotIdx; //Indicates which CFG is used by the current slot
              uchSlotIdx = puchConfigSlotIdx[uchSlotCnt];
              GU8 uchRegAgcEn =    GH3xGetAgcReg(GH3X_AGC_REG_AGC_EN, uchSlotIdx);
@@ -358,7 +354,6 @@ static void GH3xNewAgcChnlInfoInit(void)
 
             if((g_stSoftAgcCfg.uchSlotxSoftAgcAdjEn & (1 << uchSlotCnt)))   // configed SoftAGC
             {
-                // EXAMPLE_LOG("g_stSoftAgcCfg.uchSlotxSoftAgcAdjEn & (1 << uchSlotCnt)--------------------------------------------------------------------");
                 if(uchNewAgcSlotCnt < GH3X_NEW_AGC_SLOT_NUM_LIMIT)
                 {
                     g_pstGh3xNewAgcMainChnlInfoEntity[uchNewAgcSlotCnt].uchSlotAdc = (uchSlotIdx << 2); 
@@ -369,7 +364,6 @@ static void GH3xNewAgcChnlInfoInit(void)
                         g_pstGh3xNewAgcMainChnlInfoEntity[uchNewAgcSlotCnt].uchSpo2ChnlIndex =  1;
                         GH3X_DEBUG_LOG_PARAM("[NewAgc] SlotNum = %d, Spo2RedSlotCfgEn = %d, Spo2IrSlotCfgEn = %d\r\n",uchSlotCnt, g_stSoftAgcCfg.uchSpo2RedSlotCfgEn, g_stSoftAgcCfg.uchSpo2IrSlotCfgEn);   
                     }
-                    EXAMPLE_LOG("SlotNum--------------------------------------------------------------------");
                     /******* slot function Distinguish   END******************************************************/
                     GH3X_DEBUG_LOG_PARAM("[NewAgc] SlotNum = %d, PPGCFG = %d, AGCEn = %d\r\n",uchSlotCnt,uchSlotIdx,uchRegAgcEn);             
                     uchNewAgcSlotCnt ++;
@@ -852,7 +846,7 @@ static void GH3X_NewAgcMainChnlMeanValueCal(GU8* puchReadFifoBuffer, GU16 usFifo
                         pstNewAgcMainChnlIdaelAdjInfo->uchIniteFirst = 1;  //// Must be set to 1 after the first second!!!
                         //////////////end ideal value adjust 
                         GH3X_DEBUG_LOG_PARAM("Mean cal: Rawmean = %d, Adjmean = %d, Slot_num = %d\r\n",pstNewAgcMainChnlMeanInfo->unRawdataMean, punRawdataMean[uchSlotCnt], uchSlotCnt);
-                        // GH3X_DEBUG_LOG_PARAM("Sat flag: SatCnt = %d, SatCheck = %d, CheckMaxNum = %d, Satflag = %d\r\n", g_pstGh3x2xNewAgcMainChnlSat.Sat_cnt[uchSlotCnt], g_pstGh3x2xNewAgcMainChnlSat.Sat_CheckCnt[uchSlotCnt], g_pstGh3x2xNewAgcMainChnlSat.Sat_Check_Num_Max[uchSlotCnt], g_pstGh3x2xNewAgcMainChnlSat.Sat_flag);
+//                        GH3X_DEBUG_LOG_PARAM("Sat flag: SatCnt = %d, SatCheck = %d, CheckMaxNum = %d, Satflag = %d\r\n", g_pstGh3x2xNewAgcMainChnlSat.Sat_cnt[uchSlotCnt], g_pstGh3x2xNewAgcMainChnlSat.Sat_CheckCnt[uchSlotCnt], g_pstGh3x2xNewAgcMainChnlSat.Sat_Check_Num_Max[uchSlotCnt], g_pstGh3x2xNewAgcMainChnlSat.Sat_flag);
                         GH3X_DEBUG_LOG_PARAM("Ideal adjust: SeconsCnt = %d\r\n", pstNewAgcMainChnlIdaelAdjInfo->uchSeconsCnt);
                         GH3X_DEBUG_LOG_PARAM("Adj flag: Trigmean = %d, L_Thd = %d, H_Thd = %d, Adjflag = %d\r\n", TrigeMean, unTemp_Trig_L_Thd, unTemp_Trig_H_Thd, *pAdjFlag);                                     
                         g_pstGh3x2xNewAgcMainChnlSat.Sat_flag &= (~(1<<uchSlotCnt)) ; ////clear the Sat flag 
