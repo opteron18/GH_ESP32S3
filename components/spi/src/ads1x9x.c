@@ -7,10 +7,18 @@
 
 #define TAG "ADS1192_DRIVER"
 
+<<<<<<< HEAD
+#define ADS1x9x_PIN_NUM_MISO 12  // Changed from 6
+#define ADS1x9x_PIN_NUM_MOSI 13  // Changed from 7
+#define ADS1x9x_PIN_NUM_CLK  14  // Changed from 8
+#define ADS1x9x_PIN_NUM_CS   15  // Changed from 9
+#define ADS1x9x_PIN_NUM_RSN  18  // Keep as is
+=======
 #define ADS1x9x_PIN_NUM_MISO 16  // Changed from 6
 #define ADS1x9x_PIN_NUM_MOSI 18  // Changed from 7
 #define ADS1x9x_PIN_NUM_CLK  17  // Changed from 8
 #define ADS1x9x_PIN_NUM_CS   7  // Changed from 9
+>>>>>>> 44c6432d8c32e1d5f337b28621bd58e278a5e262
 
     // #define GH3X_INT_GPIO      4
     // #define GH3X_INT_NAME      "GH3X_INT"
@@ -42,14 +50,24 @@
         };
         
         esp_err_t ret;
+<<<<<<< HEAD
+
+        ret = spi_bus_initialize(SPI3_HOST, &ads1x9x_spi_cfg, SPI_DMA_CH_AUTO);
+=======
         // SPI3_HOST
         ret = spi_bus_initialize(SPI2_HOST, &ads1x9x_spi_cfg, SPI_DMA_CH_AUTO);
+>>>>>>> 44c6432d8c32e1d5f337b28621bd58e278a5e262
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "ads1x9x SPI bus init failed");
             return ret;
         }
+<<<<<<< HEAD
+
+        ret = spi_bus_add_device(SPI3_HOST, &ads1x9x_spi_interface_cfg, &ads1x9x_spi);
+=======
         // SPI3_HOST
         ret = spi_bus_add_device(SPI2_HOST, &ads1x9x_spi_interface_cfg, &ads1x9x_spi);
+>>>>>>> 44c6432d8c32e1d5f337b28621bd58e278a5e262
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "ads1x9x SPI device add failed");
             return ret;

@@ -165,6 +165,8 @@ esp_err_t ads1192_read_data(uint8_t *data_buf, size_t length);
 
 esp_err_t ads1192_init(void);
 
+esp_err_t ads1192_init(void);
+
 #ifdef __cplusplus
 }
 #endif
