@@ -162,34 +162,34 @@ void gh3x_algorithm_get_io_data_hook_func(const STFrameInfo * const pstFrameInfo
     //    }
     //    EXAMPLE_LOG("\r\n");
     //}
-    #if 1
-	if (((0x1) << (pstFrameInfo->uchFuncID)) == GH3X_FUNCTION_HRV)
-	{
-		EXAMPLE_LOG("hrv_fi=%d,gs=%d,%d,%d,raw:%d,%d,%d,%d,%d,%d,%d,%d \n",
-			(int)*(pstFrameInfo->punFrameCnt)&0xFF, 
-			(int)pstFrameInfo->pstGsData->pusData[0], 
-			(int)pstFrameInfo->pstGsData->pusData[1],
-			(int)pstFrameInfo->pstGsData->pusData[2], 
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[0] & 0x00FFFFFF),
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[1] & 0x00FFFFFF),
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[2] & 0x00FFFFFF),
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[3] & 0x00FFFFFF),
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[4] & 0x00FFFFFF),
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[5] & 0x00FFFFFF),
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[6] & 0x00FFFFFF),
-			(int)(pstFrameInfo->pstGh3xData->punRawdata[7] & 0x00FFFFFF));
-		if(pstFrameInfo->pstAlgoData->uchFlag)
-		{
-			EXAMPLE_LOG("hrv_data rri0:%d,rri1:%d,rri2:%d,rri3:%d,confi:%d,rri_count:%d \n", 
-				(int)pstFrameInfo->pstAlgoData->pnResults[0], 
-				(int)pstFrameInfo->pstAlgoData->pnResults[1],
-				(int)pstFrameInfo->pstAlgoData->pnResults[2],
-				(int)pstFrameInfo->pstAlgoData->pnResults[3],
-				(int)pstFrameInfo->pstAlgoData->pnResults[4],
-				(int)pstFrameInfo->pstAlgoData->pnResults[5]);
-		}
-	}
-#endif
+    //     #if 1
+    //     if (((0x1) << (pstFrameInfo->uchFuncID)) == GH3X_FUNCTION_HRV)
+    //     {
+    //         EXAMPLE_LOG("hrv_fi=%d,gs=%d,%d,%d,raw:%d,%d,%d,%d,%d,%d,%d,%d \n",
+    //             (int)*(pstFrameInfo->punFrameCnt)&0xFF, 
+    //             (int)pstFrameInfo->pstGsData->pusData[0], 
+    //             (int)pstFrameInfo->pstGsData->pusData[1],
+    //             (int)pstFrameInfo->pstGsData->pusData[2], 
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[0] & 0x00FFFFFF),
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[1] & 0x00FFFFFF),
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[2] & 0x00FFFFFF),
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[3] & 0x00FFFFFF),
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[4] & 0x00FFFFFF),
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[5] & 0x00FFFFFF),
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[6] & 0x00FFFFFF),
+    //             (int)(pstFrameInfo->pstGh3xData->punRawdata[7] & 0x00FFFFFF));
+    //         if(pstFrameInfo->pstAlgoData->uchFlag)
+    //         {
+    //             EXAMPLE_LOG("hrv_data rri0:%d,rri1:%d,rri2:%d,rri3:%d,confi:%d,rri_count:%d \n", 
+    //                 (int)pstFrameInfo->pstAlgoData->pnResults[0], 
+    //                 (int)pstFrameInfo->pstAlgoData->pnResults[1],
+    //                 (int)pstFrameInfo->pstAlgoData->pnResults[2],
+    //                 (int)pstFrameInfo->pstAlgoData->pnResults[3],
+    //                 (int)pstFrameInfo->pstAlgoData->pnResults[4],
+    //                 (int)pstFrameInfo->pstAlgoData->pnResults[5]);
+    //         }
+    //     }
+    // #endif
 }
 
 #if (__FUNC_TYPE_ECG_ENABLE__)

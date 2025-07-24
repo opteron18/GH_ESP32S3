@@ -48,33 +48,72 @@ static void IRAM_ATTR drdy_isr_handler(void *arg) {
 
 
 void FRT_EMG_Task() {
+    // vTaskDelay(pdMS_TO_TICKS(3000));
     emg_task_handle = xTaskGetCurrentTaskHandle();  // 注册当前任务句柄
 
     circular_buffer_init(&circ, 1000);
 
     // 初始化 SPI 总线
     spi_bus_config_t buscfg = {
+        //origin test module
         .mosi_io_num = GPIO_NUM_18,
         .miso_io_num = GPIO_NUM_16,
         .sclk_io_num = GPIO_NUM_17,
+        //-------------------------------
+
+        //spi3
+        // .mosi_io_num = GPIO_NUM_19,
+        // .miso_io_num = GPIO_NUM_13,
+        // .sclk_io_num = GPIO_NUM_14,
+        //-------------------------------
+
+        //spi2
+        // .mosi_io_num = GPIO_NUM_10,
+        // .miso_io_num = GPIO_NUM_9,
+        // .sclk_io_num = GPIO_NUM_8,
+        //-------------------------------
+
         .quadwp_io_num = -1,
         .quadhd_io_num = -1,
         .max_transfer_sz = 64,
     };
+
+    //spi2
+    // ESP_ERROR_CHECK(spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO));
+    //-------------------------------
+
+    //spi3
     ESP_ERROR_CHECK(spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO));
+    //-------------------------------
     
+    //origin test module
     ads.cs_pin = GPIO_NUM_7;
     ads.pwdn_pin = GPIO_NUM_14;
     ads.start_pin = GPIO_NUM_13;
     ads.drdy_pin = GPIO_NUM_15;
+    //-------------------------------
+
+    //spi2 PWDN START DRDY Pin
+    // ads.cs_pin = GPIO_NUM_12;
+    // ads.pwdn_pin = GPIO_NUM_40;
+    // ads.start_pin = GPIO_NUM_20;
+    // ads.drdy_pin = GPIO_NUM_39;
+    //-------------------------------
+
+    //spi2
+    // ads1292r_init(&ads, SPI2_HOST);
+    //-------------------------------
+
+    //spi3
     ads1292r_init(&ads, SPI2_HOST);
+    //-------------------------------
 
     gpio_install_isr_service(0);
     gpio_set_intr_type(ads.drdy_pin, GPIO_INTR_NEGEDGE);
     gpio_isr_handler_add(ads.drdy_pin, drdy_isr_handler, NULL);
 
     ads1292r_start(&ads);
-
+    vTaskDelay(pdMS_TO_TICKS(200));
     while (1) {
         // 等待 DRDY 通知，最多阻塞 100ms
         ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(100));
@@ -83,10 +122,15 @@ void FRT_EMG_Task() {
 
         float data[2];  // 改为 float 类型
         
+        // uint8_t id_val = 0;
+        // ads1292r_read_regs(&ads, 0x3, &id_val, 1);
+        // ESP_LOGE(TAG, "DEVICE ID: 0x%02X", id_val);
+
         if (ads1292r_read_data(&ads, data) == ESP_OK) {
             circular_buffer_write(&circ, (uint8_t *)data, sizeof(data));
         }
-
+        
+        // vTaskDelay(pdMS_TO_TICKS(100));
         // 如果缓冲区有足够数据，打包发送
         if (circular_buffer_count(&circ) >= BUF_LEN) {
             circular_buffer_read(&circ, read_buf, BUF_LEN);
@@ -94,6 +138,7 @@ void FRT_EMG_Task() {
             uart_write_bytes(UART_NUM_1,tx_buf,len);
             // fwrite(tx_buf, 1, len, stdout);
         }
+
     }
 }
 

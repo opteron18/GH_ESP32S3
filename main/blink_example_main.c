@@ -25,36 +25,25 @@ extern void create_EMG_tasks(void);
 void app_main(void)
 {
     create_uart_tasks();
-    GhCommInit();
+    // GhCommInit();
     // configure_led();
     // uart_init();
     // while(1){
     //     gh_ESP_LOG("System initialization complete\n");
     //     vTaskDelay(1);
     // }
+
     vTaskDelay(pdMS_TO_TICKS(10));
-    gh_ESP_LOG("System initialization complete\n");
+    // gh_ESP_LOG("System initialization complete\n");
 
-    create_EMG_tasks();
-
-    // const char * name = "hellothere";
-    // sendData(name,name);
-    // ESP_ERROR_CHECK(ads1192_init());
-    // for(;;){
-    //     vTaskDelay(pdMS_TO_TICKS(10));
-    // }
-    // ads1192_init();
-    // for(;;){
-    //     vTaskDelay(pdMS_TO_TICKS(10));
-    // }
-
-    // spi_driver_init();
-    // const char *message = "helloworld";
-    // gh_spi_send((uint8_t *)message, strlen(message));  // 转换为uint8_t*并传入字符串长度
-    // const char *message2 = "helloworldhelloworldhelloworldhelloworldhelloworld";
-    // gh_spi_send((uint8_t *)message2, strlen(message2));  // 转换为uint8_t*并传入字符串长度
     // create_EMG_tasks();
+
+    // vTaskDelay(pdMS_TO_TICKS(10));
+    // ads1192_init();
+    ///////////////////////////////////////////////////////////////////////////////////////
+    create_EMG_tasks();
     // FRT_GH3300_TaskCreate();
+    ///////////////////////////////////////////////////////////////////////////////////////
     // FRT_LED_TaskCreate();
 
 

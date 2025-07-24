@@ -464,7 +464,7 @@ void GhCommInit(void)
     GhRPCInitialInfo info;
     memset(&info,0,sizeof(GhRPCInitialInfo));
     info.lock = GHProtocalLock;
-    info.unlock = GHProtocalUnLock;
+    info.unlock = GHProtocalUnLock; 
     info.delay = protocol_delay;
     info.sendFunction = sendFunction;
     //info.mode = 0;

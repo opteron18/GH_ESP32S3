@@ -6,13 +6,21 @@
 #include "driver/gpio.h"
 
 // 默认引脚占位，可在初始化函数中修改
-#define PIN_NUM_MISO 7
-#define PIN_NUM_MOSI 8
-#define PIN_NUM_CLK  6
-#define PIN_NUM_CS   13
-#define PIN_NUM_RSN   18
+// #define PIN_NUM_MISO 7
+// #define PIN_NUM_MOSI 8
+// #define PIN_NUM_CLK  6
+// #define PIN_NUM_CS   13
+// #define PIN_NUM_RSN   18
 
-#define GH3X_INT_GPIO      4
+#define PIN_NUM_MISO 9
+#define PIN_NUM_MOSI 10
+#define PIN_NUM_CLK  8
+#define PIN_NUM_CS   11
+#define PIN_NUM_RSN  17
+
+#define GH3X_INT_GPIO      15
+
+// #define GH3X_INT_GPIO      4
 #define GH3X_INT_NAME      "GH3X_INT"
 
 
