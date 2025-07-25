@@ -24,25 +24,18 @@ extern void create_EMG_tasks(void);
 
 void app_main(void)
 {
-    create_uart_tasks();
+    // create_uart_tasks();
     // GhCommInit();
     // configure_led();
     // uart_init();
-    // while(1){
-    //     gh_ESP_LOG("System initialization complete\n");
-    //     vTaskDelay(1);
-    // }
-
     vTaskDelay(pdMS_TO_TICKS(10));
     // gh_ESP_LOG("System initialization complete\n");
-
-    // create_EMG_tasks();
 
     // vTaskDelay(pdMS_TO_TICKS(10));
     // ads1192_init();
     ///////////////////////////////////////////////////////////////////////////////////////
-    create_EMG_tasks();
-    // FRT_GH3300_TaskCreate();
+    // create_EMG_tasks();
+    FRT_GH3300_TaskCreate();
     ///////////////////////////////////////////////////////////////////////////////////////
     // FRT_LED_TaskCreate();
 

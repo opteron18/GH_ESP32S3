@@ -36,21 +36,13 @@ idf_component_register(
 )
 
 add_prebuilt_library(PREBUILT_LIB_FILES
-    "src/riscv32-elf-gcc1420-esp-basic-soft-hr.a"
-    "src/riscv32-elf-gcc1420-esp-medium-soft-hr.a"
-    "src/riscv32-elf-gcc1420-esp-premium-soft-hr.a"
-    "src/riscv32-elf-gcc1420-exclusive-esp-soft.a"
-    "src/riscv32_gcc-14.2.0-esp_os_pre+soft_spo2.a"
-    "src/riscv32-elf-gcc1420-esp-soft-hrv.a"
-    
-    "src/GitInfo_riscv32-elf-gcc1420-esp--soft.a"
-    "src/GitInfo_riscv32-elf-gcc1420-esp-soft.a"
-    "src/riscv32_gcc-14.2.0-esp_os_basic+soft_spo2.a"
-    
-
-    "src/riscv32_gcc-14.2.0-esp_os+soft.a"
-    "src/riscv32_gcc-14.2.0-esp_os+soft_common_dl.a"
-    "src/riscv32_gcc-14.2.0-esp_os+soft_common_dsp.a"
+    "lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a"
+    "lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dsp.a"
+    "lib/esp32_xtensa-esp32-gcc-14.2.0_os_ecg.a"
+    "lib/esp32_xtensa-esp32-gcc-14.2.0_os_hr.a"
+    "lib/esp32_xtensa-esp32-gcc-14.2.0_os_hrv.a"
+    "lib/esp32_xtensa-esp32-gcc-14.2.0_os_nadt.a"
+    "lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a"
     PRIV_REQUIRES spi_flash app_update gh_algo gh_drv
 )
 

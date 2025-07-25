@@ -8,6 +8,7 @@
 #include "esp_log.h"
 #include "ads1292r.h"
 #include "driver/uart.h"
+#include "global_config.h"
 
 #define BUF_LEN 240
 #define SAMPLE_ADDR 0x11
@@ -55,24 +56,31 @@ void FRT_EMG_Task() {
 
     // 初始化 SPI 总线
     spi_bus_config_t buscfg = {
+
+        #if (USE_ADS1292R)
         //origin test module
         .mosi_io_num = GPIO_NUM_18,
         .miso_io_num = GPIO_NUM_16,
         .sclk_io_num = GPIO_NUM_17,
         //-------------------------------
-
+        #endif
         //spi3
         // .mosi_io_num = GPIO_NUM_19,
         // .miso_io_num = GPIO_NUM_13,
         // .sclk_io_num = GPIO_NUM_14,
         //-------------------------------
 
+        #if (USE_EVT_ADS1192)
+        //spi3
+        .mosi_io_num = GPIO_NUM_19,
+        .miso_io_num = GPIO_NUM_13,
+        .sclk_io_num = GPIO_NUM_14,
         //spi2
         // .mosi_io_num = GPIO_NUM_10,
         // .miso_io_num = GPIO_NUM_9,
         // .sclk_io_num = GPIO_NUM_8,
         //-------------------------------
-
+        #endif
         .quadwp_io_num = -1,
         .quadhd_io_num = -1,
         .max_transfer_sz = 64,
@@ -83,29 +91,39 @@ void FRT_EMG_Task() {
     //-------------------------------
 
     //spi3
-    ESP_ERROR_CHECK(spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO));
+    ESP_ERROR_CHECK(spi_bus_initialize(SPI3_HOST, &buscfg, SPI_DMA_CH_AUTO));
     //-------------------------------
     
+    #if (USE_ADS1292R)
     //origin test module
     ads.cs_pin = GPIO_NUM_7;
     ads.pwdn_pin = GPIO_NUM_14;
     ads.start_pin = GPIO_NUM_13;
     ads.drdy_pin = GPIO_NUM_15;
     //-------------------------------
+    #endif
 
+    #if (USE_EVT_ADS1192)
+    //spi3 PWDN START DRDY Pin
+    ads.cs_pin = GPIO_NUM_12;
+    // ads.pwdn_pin = GPIO_NUM_40;
+    ads.pwdn_pin = GPIO_NUM_30;
+    ads.start_pin = GPIO_NUM_20;
+    ads.drdy_pin = GPIO_NUM_39;
     //spi2 PWDN START DRDY Pin
     // ads.cs_pin = GPIO_NUM_12;
     // ads.pwdn_pin = GPIO_NUM_40;
     // ads.start_pin = GPIO_NUM_20;
     // ads.drdy_pin = GPIO_NUM_39;
     //-------------------------------
+    #endif
 
     //spi2
     // ads1292r_init(&ads, SPI2_HOST);
     //-------------------------------
 
     //spi3
-    ads1292r_init(&ads, SPI2_HOST);
+    ads1292r_init(&ads, SPI3_HOST);
     //-------------------------------
 
     gpio_install_isr_service(0);
@@ -113,7 +131,7 @@ void FRT_EMG_Task() {
     gpio_isr_handler_add(ads.drdy_pin, drdy_isr_handler, NULL);
 
     ads1292r_start(&ads);
-    vTaskDelay(pdMS_TO_TICKS(200));
+    vTaskDelay(pdMS_TO_TICKS(1000));
     while (1) {
         // 等待 DRDY 通知，最多阻塞 100ms
         ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(100));
@@ -135,7 +153,7 @@ void FRT_EMG_Task() {
         if (circular_buffer_count(&circ) >= BUF_LEN) {
             circular_buffer_read(&circ, read_buf, BUF_LEN);
             uint8_t len = ack_data_pack(SAMPLE_ADDR, read_buf, BUF_LEN, tx_buf);
-            uart_write_bytes(UART_NUM_1,tx_buf,len);
+            uart_write_bytes(UART_NUM_0,tx_buf,len);
             // fwrite(tx_buf, 1, len, stdout);
         }
 

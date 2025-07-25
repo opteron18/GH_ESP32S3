@@ -3,6 +3,7 @@
 #include "freertos/task.h"
 #include <string.h>
 #include "esp_log.h"
+#include "global_config.h"
 
 // 接收回调示例
 static void rx_callback(uart_packet_t *packet) {
@@ -48,12 +49,34 @@ void create_uart_tasks(void) {
     // };
 
     static uart_driver_config_t uart_cfg = {
+
+        #if (USE_UART0)
+        .uart_num = UART_NUM_0,
+        .tx_pin = 43,  // 自定义TX引脚
+        .rx_pin = 44,  // 自定义RX引脚
+        .baud_rate = 256000,
+        .rx_queue = NULL, // 在驱动中创建
+        .tx_queue = NULL  // 在驱动中创建
+        #endif
+        
+        #if (USE_UART1)
         .uart_num = UART_NUM_1,
         .tx_pin = 47,  // 自定义TX引脚
         .rx_pin = 48,  // 自定义RX引脚
         .baud_rate = 256000,
         .rx_queue = NULL, // 在驱动中创建
         .tx_queue = NULL  // 在驱动中创建
+        #endif
+
+        #if (USE_UART2)
+        .uart_num = UART_NUM_2,
+        .tx_pin = 47,  // 自定义TX引脚
+        .rx_pin = 48,  // 自定义RX引脚
+        .baud_rate = 256000,
+        .rx_queue = NULL, // 在驱动中创建
+        .tx_queue = NULL  // 在驱动中创建
+        #endif
+
     };
     
     

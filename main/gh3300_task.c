@@ -22,11 +22,11 @@ void User_GH3300_StartSamping(int GH3300_FUNCTION){
 void FRT_GH3300_Task(){
     vTaskDelay(pdMS_TO_TICKS(10));
     User_GH3300_init();
-    User_GH3300_StartSamping(GH3X_FUNCTION_HRV);
-    GH3X_DemoStopSampling(GH3X_FUNCTION_HRV);
+    User_GH3300_StartSamping(GH3X_FUNCTION_HR);
+    // GH3X_DemoStopSampling(GH3X_FUNCTION_HRV);
     while(1){
         // esp_task_wdt_reset();
-        // GH3X_DemoInterruptProcess();
+        GH3X_DemoInterruptProcess();
         vTaskDelay(pdMS_TO_TICKS(10));
     }
 }

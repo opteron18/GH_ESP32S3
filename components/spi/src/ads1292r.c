@@ -1,7 +1,7 @@
 #include "ads1292r.h"
 #include "freertos/task.h"
 #include <string.h>
-
+#include "global_config.h"
 static const char *TAG = "ADS1292R";
 
 static void spi_readwrite(ADS1292R_t *dev, uint8_t *tx, uint8_t *rx, size_t len) {
@@ -21,9 +21,17 @@ void ads1292r_send_cmd(ADS1292R_t *dev, uint8_t cmd) {
 }
 
 void ads1292r_write_regs(ADS1292R_t *dev, uint8_t addr, uint8_t *data, uint8_t len) {
-    uint8_t cmd[2] = { ADS1292R_WREG | addr, len - 1 };
-    spi_readwrite(dev, cmd, NULL, 2);
-    spi_readwrite(dev, data, NULL, len);
+    // uint8_t cmd[2] = { ADS1292R_WREG | addr, len - 1 };
+    // spi_readwrite(dev, cmd, NULL, 2);
+    // spi_readwrite(dev, data, NULL, len);
+    uint8_t tx_buf[2 + len];
+
+    tx_buf[0] = ADS1292R_WREG | addr;  // WREG command + register address
+    tx_buf[1] = len - 1;               // number of registers - 1
+
+    memcpy(&tx_buf[2], data, len);     // append data to be written
+
+    spi_readwrite(dev, tx_buf, NULL, 2 + len);  // One single SPI transaction
 }
 
 void ads1292r_read_regs(ADS1292R_t *dev, uint8_t addr, uint8_t *data, uint8_t len) {
@@ -77,39 +85,13 @@ esp_err_t ads1292r_init(ADS1292R_t *dev, spi_host_device_t host) {
 
     ads1292r_reset(dev);
 
-    // 写寄存器
-    // uint8_t config[11] = {
-    //     0x02,
-    //     // 0xE0,
-    //     0x02,
-    //     0xF0,
-    //     0x60,
-    //     0x60,
-    //     0x3F,
-    //     0x0F,
-    //     0x40,
-    //     0x02,
-    //     0x03,
-    //     0x0C
-    // };
+    #if (USE_EVT_ADS1192)
+    ads1292r_write_regs(dev, 0x01, ads1192_default_config, 11);
+    #endif
 
-    
-
-    uint8_t config[11] = {
-        0x04, // CONFIG1: 250SPS (DR2=1 DR1=0 DR0=0)
-        0x80, // CONFIG2: PDB_REFBUF = 1
-        0x10, // LOFF: 仅保留COMP_EN = 1，其它为0（或根据需要）
-        0x10, // CH1SET: GAIN=6, MUX=Normal
-        0x10, // CH2SET: 同上
-        0x00, // RLD_SENS: RLD相关配置，根据需要启用/禁用
-        0x00, // LOFF_SENS: 默认
-        0x00, // LOFF_STAT: 只读，写入无效
-        0x00, // MISC1: 默认0
-        0x02, // MISC2: CALIB_ON使能
-        0x0C  // GPIO: 开启 GPIOD1 和 GPIOD2
-    };
-
-    ads1292r_write_regs(dev, 0x01, config, 11);
+    #if (USE_ADS1292R)
+    ads1292r_write_regs(dev, 0x01, ads1292r_default_config, 11);
+    #endif
     ads1292r_read_regs(dev, 0x00, dev->reg, 12);
 
     // uint8_t id_val = 0;
@@ -125,15 +107,15 @@ esp_err_t ads1292r_init(ADS1292R_t *dev, spi_host_device_t host) {
         ESP_LOGI(TAG, "Reg[%02d] = 0x%02X", i, dev->reg[i]);
     }
 
-    ESP_LOGI(TAG,"READ SECOND TIME");
-    ads1292r_read_regs(dev, 0x00, dev->reg, 12);
-    for (int i = 0; i < 12; ++i) {
-        if(dev->reg[i] == 0x51){
-            ESP_LOGI(TAG,"THIS REG IS 0x51");
-            ESP_LOGI(TAG,"THIS ADDR IS %d",i);
-        }
-        ESP_LOGI(TAG, "Reg[%02d] = 0x%02X", i, dev->reg[i]);
-    }
+    // ESP_LOGI(TAG,"READ SECOND TIME");
+    // ads1292r_read_regs(dev, 0x00, dev->reg, 12);
+    // for (int i = 0; i < 12; ++i) {
+    //     if(dev->reg[i] == 0x51){
+    //         ESP_LOGI(TAG,"THIS REG IS 0x51");
+    //         ESP_LOGI(TAG,"THIS ADDR IS %d",i);
+    //     }
+    //     ESP_LOGI(TAG, "Reg[%02d] = 0x%02X", i, dev->reg[i]);
+    // }
 
     return ESP_OK;
 }
@@ -148,27 +130,34 @@ void ads1292r_stop(ADS1292R_t *dev) {
 }
 
 esp_err_t  ads1292r_read_data(ADS1292R_t *dev, float *ch_val) {
+
+    #if (USE_ADS1292R)
     uint8_t buf[9] = {0};
     uint8_t dummy[9] = {0};
     spi_readwrite(dev, dummy, buf, 9);
 
     int32_t raw_ch1 = (buf[3] << 16) | (buf[4] << 8) | buf[5];
     int32_t raw_ch2 = (buf[6] << 16) | (buf[7] << 8) | buf[8];
+    #endif
 
-    // uint8_t buf[7];
-    // uint8_t dummy[7] = {0};
-    // spi_readwrite(dev, dummy, buf, 7);
+    #if (USE_EVT_ADS1192)
+    uint8_t buf[7];
+    uint8_t dummy[7] = {0};
+    spi_readwrite(dev, dummy, buf, 7);
 
-    // int16_t raw_ch1 = (buf[3] << 8) | buf[4];
-    // int16_t raw_ch2 = (buf[5] << 8) | buf[6];
+    int16_t raw_ch1 = (buf[3] << 8) | buf[4];
+    int16_t raw_ch2 = (buf[5] << 8) | buf[6];
+    #endif
 
+    // #if (USE_ADS1292R)
+    // // if (raw_ch1 & 0x800000) raw_ch1 |= 0xFF000000;
+    // // if (raw_ch2 & 0x800000) raw_ch2 |= 0xFF000000;
+    // #endif
 
-    // if (raw_ch1 & 0x800000) raw_ch1 |= 0xFF000000;
-    // if (raw_ch2 & 0x800000) raw_ch2 |= 0xFF000000;
-
-    if (raw_ch1 & 0x8000) raw_ch1 |= 0xFFFF0000;
-    if (raw_ch2 & 0x8000) raw_ch2 |= 0xFFFF0000;
-
+    // #if (USE_EVT_ADS1192)
+    // if (raw_ch1 & 0x8000) raw_ch1 |= 0xFFFF0000;
+    // if (raw_ch2 & 0x8000) raw_ch2 |= 0xFFFF0000;
+    // #endif
 
     ch_val[0] = ((float)raw_ch1 / 256.0f) * 0.288486f / 12;
     ch_val[1] = ((float)raw_ch2 / 256.0f) * 0.288486f / 12;

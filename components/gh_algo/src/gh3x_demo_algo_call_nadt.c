@@ -72,7 +72,7 @@ void GH3X_SetIRDetectTimeThreshold(GU32 unIRDetectTimeThreshold)
 void SoftWearControlInit(const STFrameInfo * const pstFrameInfo)
 {
 	g_SoftAdtWearState = GH3X_SOFT_ALGO_ADT_DEFAULT;
-	GCHAR uchNadtVersion[100] = {0};
+	GCHAR uchNadtVersion[120] = {0};
 
     GetNadtVersion((uint8_t *)uchNadtVersion);
     GH3X_ALGO_LOG_PARAM("[%s]nadt algorithm version : %s\r\n", __FUNCTION__, uchNadtVersion);
