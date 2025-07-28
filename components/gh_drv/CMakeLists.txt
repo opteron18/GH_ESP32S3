@@ -29,6 +29,6 @@ idf_component_register(
         "src/gh3x_drvlib.c" 
         "src/gh3x_fifo_analyze.c"
     
-    INCLUDE_DIRS "include" "." "../gh_algo/include"
+    INCLUDE_DIRS "include" "." "../gh_algo/include" 
     REQUIRES "${public_requires}" "freertos" "driver" gh_algo )
 
