@@ -1,0 +1,564 @@
+/**
+ * @copyright (c) 2003 - 2022, Goodix Co., Ltd. All rights reserved.
+ *
+ * @file    gh3x_drv_config.h
+ *
+ * @brief   gh3x driver configurations
+ *
+ * @version ref gh3x_drv_version.h
+ *
+ */
+
+#ifndef _GH3X_DRV_CONFIG_H_
+#define _GH3X_DRV_CONFIG_H_
+#include "gh3x_drv.h"
+
+/* started bitmap */
+
+#define  GH3X_STARTED_BITMAP_ALL_OFF              (0x0000)    /**< fnction started bitmap, all off bit */
+#define  GH3X_STARTED_BITMAP_HBA                  (0x0001)    /**< fnction started bitmap, hba bit */
+#define  GH3X_STARTED_BITMAP_SPO2                 (0x0002)    /**< fnction started bitmap, spo2 bit */
+#define  GH3X_STARTED_BITMAP_ECG                  (0x0004)    /**< fnction started bitmap, ecg bit */
+#define  GH3X_STARTED_BITMAP_ADT                  (0x0008)    /**< fnction started bitmap, adt bit */
+#define  GH3X_STARTED_BITMAP_HRV                  (0x0010)    /**< fnction started bitmap, hrv bit */
+#define  GH3X_STARTED_BITMAP_CUSTOMIZE            (0x0080)    /**< fnction started bitmap, customize bit */
+
+
+//#define  GH3X2X_REG_IS_VIRTUAL0X0_BIT               (0x0000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X1_BIT               (0x1000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X2_BIT               (0x2000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X3_BIT               (0x3000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X4_BIT               (0x4000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X5_BIT               (0x5000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X6_BIT               (0x6000)
+#define  GH3X_REG_IS_VIRTUAL0X7_BIT               (0x7000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X8_BIT               (0x8000)
+//#define  GH3X2X_REG_IS_VIRTUAL0X9_BIT               (0x9000)
+//#define  GH3X2X_REG_IS_VIRTUAL0XA_BIT               (0xA000)
+//#define  GH3X2X_REG_IS_VIRTUAL0XB_BIT               (0xB000)
+//#define  GH3X2X_REG_IS_VIRTUAL0XC_BIT               (0xC000)
+//#define  GH3X2X_REG_IS_VIRTUAL0XE_BIT               (0xE000)
+//#define  GH3X2X_REG_IS_VIRTUAL0XF_BIT               (0xF000)
+
+
+
+
+//vitual addr version
+#define GH3X_VIRTUAL_REG_VERSION_STRING "GH3X_Virtual_Reg_v4.0"
+//top
+#define GH3X_TOP_INFO_ADDR 0x1000
+//#define GH3X_SLOT_LEDDRV_ADDR 0x10E0
+//#define GH3X_DUMP_CFG_ADDR 0x1100
+#define GH3X_FIFO_CTRL_ADDR 0x1120
+#define GH3X_G_SENSOR_CFG_ADDR 0x1140
+//#define GH3X_SOFT_AGC_PARA_ADDR 0x1160
+#define GH3X_CAP_CFG_ADDR       0x1180
+#define GH3X_TEMP_CFG_ADDR      0x11A0
+#define GH3X_SOFT_AGC_PARA_ADDR 0x11C0
+
+#define GH3X_FS_PARA_ADDR  0x1280
+#define GH3X_CHNL_MAP_ADDR 0x1300
+
+#define GH3X_ADT_DRV_CFG_ADDR 0x7000
+#define GH3X_ADT_ALG_CFG_ADDR 0x70C0
+#define GH3X_HR_DRV_CFG_ADDR 0x7300
+#define GH3X_HR_ALG_CFG_ADDR 0x73C0
+#define GH3X_HRV_DRV_CFG_ADDR 0x7600
+#define GH3X_HRV_ALG_CFG_ADDR 0x76C0
+#define GH3X_HSM_DRV_CFG_ADDR 0x7900
+#define GH3X_HSM_ALG_CFG_ADDR 0x79C0
+#define GH3X_FPBP_DRV_CFG_ADDR 0x7C00
+#define GH3X_FPBP_ALG_CFG_ADDR 0x7CC0
+#define GH3X_PWA_DRV_CFG_ADDR 0x7F00
+#define GH3X_PWA_ALG_CFG_ADDR 0x7FC0
+#define GH3X_SPO2_DRV_CFG_ADDR 0x8200
+#define GH3X_SPO2_ALG_CFG_ADDR 0x82C0
+
+#define GH3X_ECG_DRV_CFG_ADDR 0x8500
+#define GH3X_ECG_ALG_CFG_ADDR 0x85C0
+#define GH3X_PWTT_DRV_CFG_ADDR 0x8800
+#define GH3X_PWTT_ALG_CFG_ADDR 0x88C0
+#define GH3X_SOFTADTGREEN_DRV_CFG_ADDR 0x8B00
+#define GH3X_SOFTADTGREEN_ALG_CFG_ADDR 0x8BC0
+#define GH3X_BT_DRV_CFG_ADDR 0x8E00
+#define GH3X_BT_ALG_CFG_ADDR 0x8EC0
+#define GH3X_RESP_DRV_CFG_ADDR 0x9100
+#define GH3X_RESP_ALG_CFG_ADDR 0x91C0
+#define GH3X_AF_DRV_CFG_ADDR 0x9400
+#define GH3X_AF_ALG_CFG_ADDR 0x94C0
+#define GH3X_TEST1_DRV_CFG_ADDR 0x9700
+#define GH3X_TEST1_ALG_CFG_ADDR 0x97C0
+#define GH3X_TEST2_DRV_CFG_ADDR 0x9A00
+#define GH3X_TEST2_ALG_CFG_ADDR 0x9AC0
+#define GH3X_SOFTADTIR_DRV_CFG_ADDR 0x9D00
+#define GH3X_SOFTADTIR_ALG_CFG_ADDR 0x9DC0
+
+#define GH3X_BIA_DRV_CFG_ADDR 0xA000
+#define GH3X_BIA_ALG_CFG_ADDR 0xA0C0
+#define GH3X_GSR_DRV_CFG_ADDR 0xA300
+#define GH3X_GSR_ALG_CFG_ADDR 0xA3C0
+#define GH3X_FINISH_FLAG_ADDR 0xFF00
+
+//top_info
+#define GH3X_TOP_INFO_ADDR 0x1000
+#define GH3X_CFG_VER_ADDR 0x1000
+#define GH3X_CFG_TOOL_VER_ADDR 0x1002
+#define GH3X_PROJECT_ID_ADDR 0x1004
+#define GH3X_TIMESTAMP_L_ADDR 0x1006
+#define GH3X_TIMESTAMP_H_ADDR 0x1008
+#define GH3X_REINIT_PARAM_ADDR 0x100A
+#define GH3X_CURRENT_TIMESTAMP_L_ADDR 0x100C
+#define GH3X_CURRENT_TIMESTAMP_H_ADDR 0x100E
+//fifo_ctrl
+#define GH3X_FIFO_CTRL_OFFSET 0x001F
+#define GH3X_NORMAL_FIFO_WATER_LINE_ADDR 0x1120
+#define GH3X_ADT_FIFO_WATER_LINE_ADDR 0x1122
+#define GH3X_FIFO_PACKAGE_SEND_MODE_ADDR 0x1124
+//g_sensor_cfg
+#define GH3X_G_SENSOR_CFG_OFFSET 0x001F
+#define GH3X_GSENSOR_VENDOR_ID_ADDR 0x1140
+#define GH3X_GSENSOR_SAMPLE_RATE_ADDR 0x1142
+#define GH3X_GSENSOR_CTRL_ADDR 0x1144
+//cap_cfg
+#define GH3X_CAP_CFG_OFFSET 0x001F
+#define GH3X_CAP_CTRL_ADDR 0x1180
+#define GH3X_CAP_SAMPLE_RATE_ADDR 0x1182
+//temp_cfg
+#define GH3X_TEMP_CFG_OFFSET 0x001F
+#define GH3X_TEMP_CTRL_ADDR 0x11A0
+#define GH3X_TEMP_SAMPLE_RATE_ADDR 0x11A2
+//soft_agc_para
+#define GH3X_AGC_ADJUST_EN_ADDR 0x11C0
+#define GH3X_BG_CANCEL_ADJUST_EN_ADDR 0x11C2
+#define GH3X_AGC_AMB_SLOT_CTRL_ADDR 0x11C4
+#define GH3X_AGC_GAIN_LIMIT_ADDR 0x11C6
+#define GH3X_AGC_SPO2REDSLOTCFGEN_ADDR 0x11C8
+#define GH3X_AGC_SPO2IRSLOTCFGEN_ADDR 0x11CA
+#define GH3X_AGC_CFG0_TRIG_THD_H_MSB_16_ADDR 0x11CC
+#define GH3X_AGC_CFG0_TRIG_THD_L_MSB_16_ADDR 0x11CE
+#define GH3X_AGC_CFG0_RESTRAIN_THD_H_MSB_16_ADDR 0x11D0
+#define GH3X_AGC_CFG0_RESTRAIN_THD_L_MSB_16_ADDR 0x11D2
+#define GH3X_AGC_CFG15_TRIG_THD_H_MSB_16_ADDR 0x1224
+
+//fs_para
+#define GH3X_ADT_FS_ADDR 0x1280
+#define GH3X_HR_FS_ADDR 0x1282
+
+
+//chnl_map
+#define GH3X_ADT_CHMAP_CNT_ADDR 0x1300
+#define GH3X_ADT_CHMAP_CH0_ADDR 0x1302
+
+
+
+///////////////////////
+//adt_drv_cfg
+#define GH3X_ADT_DRV_CFG_OFFSET 0x00C7
+#define GH3X_ADT_CONFIG0_ADDR 0x3000
+#define GH3X_ADT_CONFIG1_ADDR 0x3002
+//adt_algcfg
+#define GH3X_ADT_ALG_CFG_OFFSET 0x023F
+//hr_drv_cfg
+#define GH3X_HR_DRV_CFG_OFFSET 0x00C7
+//hr_algcfg
+//#define GH3X_HR_ALG_CFG_OFFSET 0x023F
+//#define GH3X_HR_SCENARIO_CFG_L_ADDR 0x33C0
+//#define GH3X_HR_SCENARIO_CFG_H_ADDR 0x33C2
+//#define GH3X_HR_OUTPUT_TIME_L_ADDR 0x33C4
+//#define GH3X_HR_OUTPUT_TIME_H_ADDR 0x33C6
+//#define GH3X_HR_FS_L_ADDR 0x33C8
+//#define GH3X_HR_FS_H_ADDR 0x33CA
+#define GH3X_HR_ALGO_CHNL_NUM_ADDR 0x75C0
+//#define GH3X_ALGO_CHNL_MAP_HR_GREEN_CHNL0_1_ADDR 0x35C4
+//#define GH3X_ALGO_CHNL_MAP_HR_GREEN_CHNL2_3_ADDR 0x35C6
+//#define GH3X_ALGO_CHNL_MAP_HR_IR_CHNL0_1_ADDR 0x35CC
+//#define GH3X_ALGO_CHNL_MAP_HR_IR_CHNL2_3_ADDR 0x35CE
+//#define GH3X_ALGO_CHNL_MAP_HR_RED_CHNL0_1_ADDR 0x35D4
+//#define GH3X_ALGO_CHNL_MAP_HR_RED_CHNL2_3_ADDR 0x35D6
+//hrv_drv_cfg
+#define GH3X_HRV_DRV_CFG_OFFSET 0x00C7
+//hrv_algcfg
+#define GH3X_HRV_ALG_CFG_OFFSET 0x023F
+#define GH3X_HRV_INTERPOLATION_ENABLE_L_ADDR 0x36C0
+#define GH3X_HRV_INTERPOLATION_ENABLE_H_ADDR 0x36C2
+#define GH3X_HRV_ACC_THR_MAX_L_ADDR 0x36C4
+#define GH3X_HRV_ACC_THR_MAX_H_ADDR 0x36C6
+#define GH3X_HRV_ACC_THR_MIN_L_ADDR 0x36C8
+#define GH3X_HRV_ACC_THR_MIN_H_ADDR 0x36CA
+#define GH3X_HRV_ACC_THR_NUM_L_ADDR 0x36CC
+#define GH3X_HRV_ACC_THR_NUM_H_ADDR 0x36D0
+#define GH3X_HRV_ACC_THR_SCALE_L_ADDR 0x36D2
+#define GH3X_HRV_ACC_THR_SCALE_H_ADDR 0x36D4
+//hsm_drv_cfg
+#define GH3X_HSM_DRV_CFG_OFFSET 0x00C7
+//hsm_algcfg
+#define GH3X_HSM_ALG_CFG_OFFSET 0x023F
+//fpbp_drv_cfg
+#define GH3X_FPBP_DRV_CFG_OFFSET 0x00C7
+//fpbp_algcfg 
+#define GH3X_FPBP_ALG_CFG_OFFSET 0x023F
+#define GH3X_FPBP_CALC_MODE_L_ADDR 0x3CC0
+#define GH3X_FPBP_CALC_MODE_H_ADDR 0x3CC2
+#define GH3X_FPBP_CALI_WAVE_REPLEVEL_THRD_L_ADDR 0x3CC4
+#define GH3X_FPBP_CALI_WAVE_REPLEVEL_THRD_H_ADDR 0x3CC6
+#define GH3X_FPBP_CALI_WAVE_STBLEVEL_THRD_L_ADDR 0x3CC8
+#define GH3X_FPBP_CALI_WAVE_STBLEVEL_THRD_H_ADDR 0x3CCA
+#define GH3X_FPBP_CALI_CONFSCORE_THRD_L_ADDR 0x3CCC
+#define GH3X_FPBP_CALI_CONFSCORE_THRD_H_ADDR 0x3CCE
+#define GH3X_FPBP_CALC_WAVE_REPLEVEL_THRD_L_ADDR 0x3CD0
+#define GH3X_FPBP_CALC_WAVE_REPLEVEL_THRD_H_ADDR 0x3CD2
+#define GH3X_FPBP_CALC_WAVE_STBLEVEL_THRD_L_ADDR 0x3CD4
+#define GH3X_FPBP_CALC_WAVE_STBLEVEL_THRD_H_ADDR 0x3CD6
+#define GH3X_FPBP_CALC_CONFSCORE_THRD_L_ADDR 0x3CD8
+#define GH3X_FPBP_CALC_CONFSCORE_THRD_H_ADDR 0x3CDA
+#define GH3X_FPBP_RESULT_CHECK_FLAG_L_ADDR 0x3CDC
+#define GH3X_FPBP_RESULT_CHECK_FLAG_H_ADDR 0x3CDE
+#define GH3X_FPBP_PROGRAM_SELECT_L_ADDR 0x3CE0
+#define GH3X_FPBP_PROGRAM_SELECT_H_ADDR 0x3CE2
+#define GH3X_FPBP_PRESSURE_OFFSET_L_ADDR 0x3CE4
+#define GH3X_FPBP_PRESSURE_OFFSET_H_ADDR 0x3CE6
+#define GH3X_FPBP_PRESSURE_FACTOR_L_ADDR 0x3CE8
+#define GH3X_FPBP_PRESSURE_FACTOR_H_ADDR 0x3CEA
+#define GH3X_FPBP_PRESSURE_AREA_L_ADDR 0x3CEC
+#define GH3X_FPBP_PRESSURE_AREA_H_ADDR 0x3CEE
+#define GH3X_FPBP_ALGO_CHNL_NUM_ADDR 0x3EC0
+#define GH3X_ALGO_CHNL_MAP_FPBP_ECG_CHNL_ADDR 0x3EC2
+#define GH3X_ALGO_CHNL_MAP_FPBP_GREEN_CHNL0_1_ADDR 0x3EC4
+#define GH3X_ALGO_CHNL_MAP_FPBP_GREEN_CHNL2_3_ADDR 0x3EC6
+#define GH3X_ALGO_CHNL_MAP_FPBP_IR_CHNL0_1_ADDR 0x3ECC
+#define GH3X_ALGO_CHNL_MAP_FPBP_IR_CHNL2_3_ADDR 0x3ECE
+#define GH3X_ALGO_CHNL_MAP_FPBP_RED_CHNL0_1_ADDR 0x3ED4
+#define GH3X_ALGO_CHNL_MAP_FPBP_RED_CHNL2_3_ADDR 0x3ED6
+//pwa_drv_cfg
+#define GH3X_PWA_DRV_CFG_OFFSET 0x00C7
+//pwa_algcfg
+#define GH3X_PWA_ALG_CFG_OFFSET 0x023F
+#define GH3X_PWA_CALC_MODE_L_ADDR 0x3FC0
+#define GH3X_PWA_CALC_MODE_H_ADDR 0x3FC2
+#define GH3X_PWA_CALI_WAVE_REPLEVEL_THRD_L_ADDR 0x3FC4
+#define GH3X_PWA_CALI_WAVE_REPLEVEL_THRD_H_ADDR 0x3FC6
+#define GH3X_PWA_CALI_WAVE_STBLEVEL_THRD_L_ADDR 0x3FC8
+#define GH3X_PWA_CALI_WAVE_STBLEVEL_THRD_H_ADDR 0x3FCA
+#define GH3X_PWA_CALI_CONFSCORE_THRD_L_ADDR 0x3FCC
+#define GH3X_PWA_CALI_CONFSCORE_THRD_H_ADDR 0x3FCE
+#define GH3X_PWA_CALC_WAVE_REPLEVEL_THRD_L_ADDR 0x3FD0
+#define GH3X_PWA_CALC_WAVE_REPLEVEL_THRD_H_ADDR 0x3FD2
+#define GH3X_PWA_CALC_WAVE_STBLEVEL_THRD_L_ADDR 0x3FD4
+#define GH3X_PWA_CALC_WAVE_STBLEVEL_THRD_H_ADDR 0x3FD6
+#define GH3X_PWA_CALC_CONFSCORE_THRD_L_ADDR 0x3FD8
+#define GH3X_PWA_CALC_CONFSCORE_THRD_H_ADDR 0x3FDA
+#define GH3X_PWA_RESULT_CHECK_FLAG_L_ADDR 0x3FDC
+#define GH3X_PWA_RESULT_CHECK_FLAG_H_ADDR 0x3FDE
+#define GH3X_PWA_PROGRAM_SELECT_L_ADDR 0x3FE0
+#define GH3X_PWA_PROGRAM_SELECT_H_ADDR 0x3FE2
+#define GH3X_PWA_PRESSURE_OFFSET_L_ADDR 0x3FE4
+#define GH3X_PWA_PRESSURE_OFFSET_H_ADDR 0x3FE6
+#define GH3X_PWA_PRESSURE_FACTOR_L_ADDR 0x3FE8
+#define GH3X_PWA_PRESSURE_FACTOR_H_ADDR 0x3FEA
+#define GH3X_PWA_PRESSURE_AREA_L_ADDR 0x3FEC
+#define GH3X_PWA_PRESSURE_AREA_H_ADDR 0x3FEE
+#define GH3X_PWA_ALGO_CHNL_NUM_ADDR 0x41C0
+#define GH3X_ALGO_CHNL_MAP_PWA_ECG_CHNL_ADDR 0x41C2
+#define GH3X_ALGO_CHNL_MAP_PWA_GREEN_CHNL0_1_ADDR 0x41C4
+#define GH3X_ALGO_CHNL_MAP_PWA_GREEN_CHNL2_3_ADDR 0x41C6
+#define GH3X_ALGO_CHNL_MAP_PWA_IR_CHNL0_1_ADDR 0x41CC
+#define GH3X_ALGO_CHNL_MAP_PWA_IR_CHNL2_3_ADDR 0x41CE
+#define GH3X_ALGO_CHNL_MAP_PWA_RED_CHNL0_1_ADDR 0x41D4
+#define GH3X_ALGO_CHNL_MAP_PWA_RED_CHNL2_3_ADDR 0x41D6
+//spo2_drv_cfg
+#define GH3X_SPO2_DRV_CFG_OFFSET 0x00C7
+//spo2_algcfg
+#define GH3X_SPO2_ALG_CFG_OFFSET 0x023F
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR0_L_ADDR 0x42C0
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR0_H_ADDR 0x42C2
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR1_L_ADDR 0x42C4
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR1_H_ADDR 0x42C6
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR2_L_ADDR 0x42C8
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR2_H_ADDR 0x42CA
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR3_L_ADDR 0x42CC
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR3_H_ADDR 0x42CE
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR4_L_ADDR 0x42D0
+#define GH3X_SPO2_CH0_CORRECTION_FACTOR4_H_ADDR 0x42D2
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR0_L_ADDR 0x42D4
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR0_H_ADDR 0x42D6
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR1_L_ADDR 0x42D8
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR1_H_ADDR 0x42DA
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR2_L_ADDR 0x42DC
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR2_H_ADDR 0x42DE
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR3_L_ADDR 0x42E0
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR3_H_ADDR 0x42E2
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR4_L_ADDR 0x42E4
+#define GH3X_SPO2_CH1_CORRECTION_FACTOR4_H_ADDR 0x42E6
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR0_L_ADDR 0x42E8
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR0_H_ADDR 0x42EA
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR1_L_ADDR 0x42EC
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR1_H_ADDR 0x42EE
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR2_L_ADDR 0x42F0
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR2_H_ADDR 0x42F2
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR3_L_ADDR 0x42F4
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR3_H_ADDR 0x42F6
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR4_L_ADDR 0x42F8
+#define GH3X_SPO2_CH2_CORRECTION_FACTOR4_H_ADDR 0x42FA
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR0_L_ADDR 0x42FC
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR0_H_ADDR 0x42FE
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR1_L_ADDR 0x4300
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR1_H_ADDR 0x4302
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR2_L_ADDR 0x4304
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR2_H_ADDR 0x4306
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR3_L_ADDR 0x4308
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR3_H_ADDR 0x430A
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR4_L_ADDR 0x430C
+#define GH3X_SPO2_CH3_CORRECTION_FACTOR4_H_ADDR 0x430E
+#define GH3X_SPO2_ALGO_CHNL_NUM_ADDR 0x44C0
+#define GH3X_ALGO_CHNL_MAP_SPO2_GREEN_CHNL0_1_ADDR 0x44C4
+#define GH3X_ALGO_CHNL_MAP_SPO2_GREEN_CHNL2_3_ADDR 0x44C6
+#define GH3X_ALGO_CHNL_MAP_SPO2_IR_CHNL0_1_ADDR 0x44CC
+#define GH3X_ALGO_CHNL_MAP_SPO2_IR_CHNL2_3_ADDR 0x44CE
+#define GH3X_ALGO_CHNL_MAP_SPO2_RED_CHNL0_1_ADDR 0x44D4
+#define GH3X_ALGO_CHNL_MAP_SPO2_RED_CHNL2_3_ADDR 0x44D6
+//ecgdrv_cfg
+#define GH3X_ECG_DRV_CFG_OFFSET 0x00C7
+#define GH3X_ECG_SETTING0_ADDR 0x4500
+#define GH3X_ECG_SETTING1_ADDR 0x4502
+#define GH3X_ECG_SETTING2_ADDR 0x4504
+#define GH3X_ECG_SETTING3_ADDR 0x4506
+//ecgalgcfg
+#define GH3X_ECG_ALG_CFG_OFFSET 0x023F
+//pwtt_drv_cfg
+#define GH3X_PWTT_DRV_CFG_OFFSET 0x00C7
+//pwtt_algcfg
+#define GH3X_PWTT_ALG_CFG_OFFSET 0x023F
+//softadtgreen_drv_cfg
+#define GH3X_SOFTADTGREEN_DRV_CFG_OFFSET 0x00C7
+//softadtgreen_algcfg
+#define GH3X_SOFTADTGREEN_ALG_CFG_OFFSET 0x023F
+#define GH3X_SOFTADT_GREEN_ALGO_CHNL_NUM_ADDR 0x4DC0
+#define GH3X_ALGO_CHNL_MAP_SOFTADTGREEN_GREEN_CHNL0_1_ADDR 0x4DC4
+#define GH3X_ALGO_CHNL_MAP_SOFTADTGREEN_GREEN_CHNL2_3_ADDR 0x4DC6
+#define GH3X_ALGO_CHNL_MAP_SOFTADTGREEN_GREEN_BG_CHNL0_1_ADDR 0x4DCC
+#define GH3X_ALGO_CHNL_MAP_SOFTADTGREEN_BG_CHNL2_3_ADDR 0x4DCE
+#define GH3X_ALGO_CHNL_MAP_SOFTADTGREEN_ADT_CHNL0_1_ADDR 0x4DD4
+#define GH3X_ALGO_CHNL_MAP_SOFTADTGREEN_ADT_CHNL2_3_ADDR 0x4DD6
+//bt_drv_cfg
+#define GH3X_BT_DRV_CFG_OFFSET 0x00C7
+//bt_algcfg
+#define GH3X_BT_ALG_CFG_OFFSET 0x023F
+#define GH3X_BT_NTC0_CALIRESISTANCE1_L_ADDR 0x4EC0
+#define GH3X_BT_NTC0_CALIRESISTANCE1_H_ADDR 0x4EC2
+#define GH3X_BT_NTC0_CALIRESISTANCE2_L_ADDR 0x4EC4
+#define GH3X_BT_NTC0_CALIRESISTANCE2_H_ADDR 0x4EC6
+#define GH3X_BT_NTC0_CALIRESISTANCE3_L_ADDR 0x4EC8
+#define GH3X_BT_NTC0_CALIRESISTANCE3_H_ADDR 0x4ECA
+#define GH3X_BT_NTC0_BASERESISTANCE_L_ADDR 0x4ECC
+#define GH3X_BT_NTC0_BASERESISTANCE_H_ADDR 0x4ECE
+#define GH3X_BT_NTC0_CALITEMPERATURE1_L_ADDR 0x4ED0
+#define GH3X_BT_NTC0_CALITEMPERATURE1_H_ADDR 0x4ED2
+#define GH3X_BT_NTC0_CALITEMPERATURE2_L_ADDR 0x4ED4
+#define GH3X_BT_NTC0_CALITEMPERATURE2_H_ADDR 0x4ED6
+#define GH3X_BT_NTC0_CALITEMPERATURE3_L_ADDR 0x4ED8
+#define GH3X_BT_NTC0_CALITEMPERATURE3_H_ADDR 0x4EDA
+#define GH3X_BT_NTC1_CALIRESISTANCE1_L_ADDR 0x4EDC
+#define GH3X_BT_NTC1_CALIRESISTANCE1_H_ADDR 0x4EDE
+#define GH3X_BT_NTC1_CALIRESISTANCE2_L_ADDR 0x4EE0
+#define GH3X_BT_NTC1_CALIRESISTANCE2_H_ADDR 0x4EE2
+#define GH3X_BT_NTC1_CALIRESISTANCE3_L_ADDR 0x4EE4
+#define GH3X_BT_NTC1_CALIRESISTANCE3_H_ADDR 0x4EE6
+#define GH3X_BT_NTC1_BASERESISTANCE_L_ADDR 0x4EE8
+#define GH3X_BT_NTC1_BASERESISTANCE_H_ADDR 0x4EEA
+#define GH3X_BT_NTC1_CALITEMPERATURE1_L_ADDR 0x4EEC
+#define GH3X_BT_NTC1_CALITEMPERATURE1_H_ADDR 0x4EEE
+#define GH3X_BT_NTC1_CALITEMPERATURE2_L_ADDR 0x4EF0
+#define GH3X_BT_NTC1_CALITEMPERATURE2_H_ADDR 0x4EF2
+#define GH3X_BT_NTC1_CALITEMPERATURE3_L_ADDR 0x4EF4
+#define GH3X_BT_NTC1_CALITEMPERATURE3_H_ADDR 0x4EF6
+//resp_drv_cfg
+#define GH3X_RESP_DRV_CFG_OFFSET 0x00C7
+//resp_algcfg
+#define GH3X_RESP_ALG_CFG_OFFSET 0x023F
+//af_drv_cfg
+#define GH3X_AF_DRV_CFG_OFFSET 0x00C7
+//af_algcfg
+#define GH3X_AF_ALG_CFG_OFFSET 0x023F
+#define GH3X_AF_WAIT_TIME_L_ADDR 0x54C0
+#define GH3X_AF_WAIT_TIME_H_ADDR 0x54C2
+//test1_drv_cfg
+#define GH3X_TEST1_DRV_CFG_OFFSET 0x00C7
+//test1_algcfg
+#define GH3X_TEST1_ALG_CFG_OFFSET 0x023F
+//test2_drv_cfg
+#define GH3X_TEST2_DRV_CFG_OFFSET 0x00C7
+//test2_algcfg
+#define GH3X_TEST2_ALG_CFG_OFFSET 0x023F
+//softadtir_drv_cfg
+#define GH3X_SOFTADTIR_DRV_CFG_OFFSET 0x00C7
+//softadtir_algcfg
+#define GH3X_SOFTADTIR_ALG_CFG_OFFSET 0x023F
+#define GH3X_SOFTADT_ALGO_IR_CHNL_NUM_ADDR 0x5FC0
+#define GH3X_ALGO_CHNL_MAP_SOFTADTIR_IR_CHNL0_1_ADDR 0x5FC4
+#define GH3X_ALGO_CHNL_MAP_SOFTADTIR_IR_CHNL2_3_ADDR 0x5FC6
+#define GH3X_ALGO_CHNL_MAP_SOFTADTIR_BG_CHNL0_1_ADDR 0x5FCC
+#define GH3X_ALGO_CHNL_MAP_SOFTADTIR_BG_CHNL2_3_ADDR 0x5FCE
+#define GH3X_ALGO_CHNL_MAP_SOFTADTIR_ADT_CHNL0_1_ADDR 0x5FD4
+#define GH3X_ALGO_CHNL_MAP_SOFTADTIR_ADT_CHNL2_3_ADDR 0x5FD6
+//finish_flag
+#define GH3X_FINISH_FLAG_OFFSET 0x00FF
+#define GH3X_CHECKSUM_ADDR 0xFFFE
+#define GH3X_END_FLAG_ADDR 0xFFFF
+
+
+
+#define GH3X_CHNLMAP_OFFSET 0X0102
+#define GH3X_VREG_ALGO_PARA_OFFSET 0X00C0
+#define GH3X_VREG_FUNCTION_OFFSET 0X0300
+#define GH3X_VREG_FUNCTION_ALGO_OFFSET 0X00C0
+#define GH3X_VREG_ALGO_CHNL_MAP_OFFSET 0X0200
+
+
+
+/* control config */
+
+#define GH3X_DUMP_MODE_EN     (1)
+
+#define GH3X_ELECTRO_RRECER_OBSERVE_EN     (0)
+
+#define GH3X_AGC_BG_CANCEL_ADJ_EN (0)
+
+#define GH3X_AGC_2X2_GAIN_ADJ_EN (0)
+
+#define GH3X_SUPPORT_READ_BACK_VIRTUAL_REG (0)
+
+/// init communicate confirm max cnt
+#define   GH3X_COMMUNICATE_CONFIRM_MAX_CNT                    (3)
+
+/// virtual reg support config software
+#define   GH3X_VIRTUAL_REG_SW_CONFIG_SUPPORT                  (1)
+
+/// channel map max channel support to unpack rawdata
+#define   GH3X_CHANNEL_MAP_MAX_CH                             (128)
+
+
+/// gsensor data num
+#define   GH3X_GSENSOR_MAX_SIZE                               (3)
+
+/// wear on force switch with adt logic sel
+#define   GH3X_WEAR_ON_FORCE_SWITCH_WITH_LOGIC_SEL            (1)
+
+/// ex control slot enable bit form virtual reg config
+#define   GH3X_EX_SLOT_EN_FROM_CONFIG                         (0)
+
+/// ex control channel map cnt follow algorithm
+#define   GH3X_EX_CHANNEL_CNT_FOLLOW_ALGORITHMS               (0)
+
+
+/* protocol config */
+
+/// universal protocol packet min len support
+#define  GH3X_UPROTOCOL_PACKET_LEN_MIN                        (20)
+
+
+
+/// cmd support config: fifo thr cmd support
+#define  GH3X_UPROTOCOL_FIFO_THR_CFG_CMD_SUP                  (1)
+
+/// cmd support config: chip ctrl cmd support wakeup & sleep
+#define  GH3X_UPROTOCOL_CHIP_CTRL_CMD_WAKEUP_SLEEP_SUP        (1)
+
+/* version */
+GCHAR *GH3X_GetVirtualRegVersion(void);
+
+/**
+ * @fn     GS8 GH3X_DecodeRegCfgArr(GU32* punRunMode, const STReg *pstRegConfigArr, GU16 usRegConfigLen)
+ *
+ * @brief  Analyze reg cfg array to get the run mode.
+ *
+ * @attention   None
+ *
+ * @param[in]   pstRegConfigArr             pointer to reg config array
+ * @param[in]   usRegConfigLen              reg config array length
+ * @param[out]  punRunMode                  pointer to run mode contained in reg config array
+ *
+ * @retval  #GH3X_RET_OK                      return successfully
+ * @retval  #GH3X_RET_PARAMETER_ERROR         return parameter error
+ */
+GS8 GH3X_DecodeRegCfgArr(GU32* punRunMode, const STReg *pstRegConfigArr, GU16 usRegConfigLen);
+
+/**
+ * @fn     GS8 GH3X_WriteVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue)
+ *
+ * @brief  Write virtual reg val, for software param config
+ *
+ * @attention   Virtual reg addr has del control bits, so reg addr is [0:11] valid.
+ *
+ * @param[in]   usVirtualRegAddr        virtual reg addr
+ * @param[in]   usVirtualRegValue       virtual reg value
+ * @param[out]  None
+ *
+ * @return  None
+ */
+void GH3X_WriteVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue);
+
+
+
+/**
+ * @fn     GS8 GH3X_WriteChnlMapConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue)
+ *
+ * @brief  Write software param config with virtual reg
+ *
+ * @attention   Virtual reg addr has del control bits, so reg addr is [0:11] valid.
+ *
+ * @param[in]   usVirtualRegAddr        virtual reg addr
+ * @param[in]   usVirtualRegValue       virtual reg value
+ * @param[out]  None
+ *
+ * @return  None
+ */
+void GH3X_WriteChnlMapConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue);
+
+
+
+
+
+/**
+ * @fn     GS8 GH3X_WriteSwConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue)
+ *
+ * @brief  Write software param config with virtual reg
+ *
+ * @attention   Virtual reg addr has del control bits, so reg addr is [0:11] valid.
+ *
+ * @param[in]   usVirtualRegAddr        virtual reg addr
+ * @param[in]   usVirtualRegValue       virtual reg value
+ * @param[out]  None
+ *
+ * @return  None
+ */
+void GH3X_WriteSwConfigWithVirtualReg(GU16 usVirtualRegAddr, GU16 usVirtualRegValue);
+
+
+
+
+/**
+ * @fn     GS8 GH3X_LoadNewRegConfigArr(const STReg *pstRegConfigArr, GU16 usRegConfigLen)
+ *
+ * @brief  Load new gh3x reg config array
+ *
+ * @attention   If reg val don't need verify, should set reg addr bit 12;
+ *              If reg is virtual reg, should set reg addr bit 13;
+ *              e.g.      need config reg 0x0000: 0x0611
+ *                        {0x0000, 0x0611} //verify write by read reg
+ *                        {0x1000, 0x0611} //don't need verify write val
+ *                        {0x2000, 0x0611} //set virtual reg
+ *
+ * @param[in]   pstRegConfigArr       pointer to the reg struct array
+ * @param[in]   usRegConfigLen        reg struct array length
+ * @param[out]  None
+ *
+ * @return  errcode
+ * @retval  #GH3X_RET_OK               return successfully
+ * @retval  #GH3X_RET_COMM_ERROR       gh3x communicate error
+ */
+GS8 GH3X_LoadNewRegConfigArr(const STReg *pstRegConfigArr, GU16 usRegConfigLen , GU8 uchChipIndex);
+void GH3X_SwConfigDeinit(void);
+
+#endif /* _GH3X_DRV_CONFIG_H_ */
+
+/********END OF FILE********* Copyright (c) 2003 - 2022, Goodix Co., Ltd. ********/

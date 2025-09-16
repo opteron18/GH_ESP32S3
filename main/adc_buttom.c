@@ -283,7 +283,7 @@ static const char* TAG = "ADC_MULTIKEY";
 
 // ADC配置
 #define ADC_UNIT            ADC_UNIT_1
-#define ADC_CHANNEL         ADC_CHANNEL_8  // GPIO39 对应 ADC1_CHANNEL_8
+#define ADC_CHANNEL         ADC_CHANNEL_5  // GPIO39 对应 ADC1_CHANNEL_8
 #define ADC_ATTEN           ADC_ATTEN_DB_12 // 支持0-3.3V电压范围
 #define ADC_BITWIDTH        ADC_BITWIDTH_12
 
@@ -331,11 +331,11 @@ typedef struct {
 // 按键电压阈值表 (mV)
 // 根据实际电路的分压电阻调整这些值
 static const int key_voltage_table[KEY_COUNT + 1][2] = {
-    {2800,    3100},   // KEY_NONE: 0-100mV
-    {2600,  2799},   // KEY_1: 200-400mV
-    {2400,  2599},   // KEY_2: 500-700mV
-    {2100,  2300},  // KEY_3: 800-1000mV
-    {1800, 2000},  // KEY_4: 1100-1300mV
+    {3170,    3200},   // KEY_NONE: 0-100mV
+    {3000,  3100},   // KEY_1: 200-400mV
+    {2150,  2200},   // KEY_2: 500-700mV
+    {1000,  1100},  // KEY_3: 800-1000mV
+    {0, 100},  // KEY_4: 1100-1300mV
     {1600, 1400}   // KEY_5: 1400-1600mV
 };
 
@@ -608,7 +608,7 @@ void FRT_adc_buttom_TaskCreate(void)
     
     // 创建ADC监测任务（可选，用于调试）
     // 注释掉下面这行可以减少日志输出
-    xTaskCreate(adc_monitor_task, "adc_monitor", 2048, NULL, 2, NULL);
+    xTaskCreate(adc_monitor_task, "adc_monitor", 4096, NULL, 2, NULL);
     
     ESP_LOGI(TAG, "All tasks created successfully");
 }

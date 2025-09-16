@@ -1,20 +1,20 @@
-#ifndef Goodix_DSP_EXPORTS
+// #ifndef Goodix_DSP_EXPORTS
 #include "goodix_hba.h"
-
+#include "heart_net_org_export.h"
 const goodix_hba_config external_hba_cfg =
 {
-	.mode = HBA_TEST_DYNAMIC,			// ÓÐÐ§Í¨µÀÊý
+	.mode = HBA_TEST_DYNAMIC,			// ï¿½ï¿½Ð§Í¨ï¿½ï¿½ï¿½ï¿½
 	.scence = HBA_SCENES_DEFAULT,
-	.fs = 25,			    // Ô­Ê¼²ÉÑù
+	.fs = 25,			    // Ô­Ê¼ï¿½ï¿½ï¿½ï¿½
 	.valid_channel_num = 4,
-	.back_track_len = 0,                       // »ØËÝµÄÊ±³¤,Ä¬ÈÏ30s,×î´óÊ±³¤ÏÞÖÆÎª120s£¬×î¶ÌÊ±³¤ÏÞÖÆÎª30s
-	.hba_latest_output_time = 20,					// ×îÍí³öÖµÊ±¼ä
-	.hba_earliest_output_time = 8,				// ×îÔç³öÖµÊ±¼ä
-    .hba_lowerest_confidence = 0,				// ×îµÍ³öÖµÖÃÐÅ¶È
-	.hba_out_step_second = 0,					// ³öÖµ¼ä¸ô
-    .hba_convergence_rate = 0,					// ×·×Ù¹ý³ÌÖÐµÄÊÕÁ²ËÙÂÊ
-    .senseless_mode_step = 0,                   // ÎÞ¸Ð¼ä¸ôÊ±¼äÃëÊý£¬Îª0±íÊ¾Î´Öª
-    .senseless_mode_duration = 0               // ÎÞ¸Ð³ÖÐøÊ±¼äÃëÊý£¬Îª0±íÊ¾Î´Öª
+	.back_track_len = 0,                       // ï¿½ï¿½ï¿½Ýµï¿½Ê±ï¿½ï¿½,Ä¬ï¿½ï¿½30s,ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª120sï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª30s
+	.hba_latest_output_time = 20,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÊ±ï¿½ï¿½
+	.hba_earliest_output_time = 8,				// ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÊ±ï¿½ï¿½
+    .hba_lowerest_confidence = 0,				// ï¿½ï¿½Í³ï¿½Öµï¿½ï¿½ï¿½Å¶ï¿½
+	.hba_out_step_second = 0,					// ï¿½ï¿½Öµï¿½ï¿½ï¿½
+    .hba_convergence_rate = 0,					// ×·ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    .senseless_mode_step = 0,                   // ï¿½Þ¸Ð¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½Ê¾Î´Öª
+    .senseless_mode_duration = 0               // ï¿½Þ¸Ð³ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½Ê¾Î´Öª
 };
 
 const void *goodix_hba_config_get_arr()
@@ -31,7 +31,7 @@ void goodix_hba_config_get_version(char* ver, uint8_t ver_len)
 {
 	uint32_t copy_num = ver_len < (strlen(HBA_INTERFACE_VERSION) + 1) ? ver_len : (strlen(HBA_INTERFACE_VERSION) + 1);
 	memcpy(ver, HBA_INTERFACE_VERSION, copy_num);
-	ver[copy_num - 1] = '\0'; //Èç¹ûNET_VERSIONµÄ³¤¶È´óÓÚsize£¬ÐèÒªÌí¼Ó½áÊø·û
+	ver[copy_num - 1] = '\0'; //ï¿½ï¿½ï¿½NET_VERSIONï¿½Ä³ï¿½ï¿½È´ï¿½ï¿½ï¿½sizeï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
-#endif //Goodix_DSP_EXPORTS
+// #endif //Goodix_DSP_EXPORTS

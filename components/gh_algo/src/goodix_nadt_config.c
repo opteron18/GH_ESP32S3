@@ -1,4 +1,4 @@
-#ifndef Goodix_DSP_EXPORTS
+// #ifndef Goodix_DSP_EXPORTS
 #include "goodix_nadt.h"
 
 const goodix_nadt_config external_nadt_cfg =
@@ -59,4 +59,4 @@ void goodix_nadt_config_get_version(char* ver, GU8 ver_len)
 	ver[copy_num - 1] = '\0'; //如果NADT_CONFIG_VER的长度大于size，需要添加结束符
 }
 
-#endif
+// #endif

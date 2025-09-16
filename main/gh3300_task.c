@@ -3,17 +3,10 @@
 #include "freertos/task.h"
 #include "esp_task_wdt.h"
 #include "esp_log.h"
+#include  "heart_net_org_export.h"
 
 void User_GH3300_init(void){
     GH3X_DemoInit();
-    // esp_task_wdt_reset();
-    // if (GH3X_DemoInit() != ESP_OK) {
-    //     // 错误处理
-    //     ESP_LOGE("GH3300", "Init failed");
-    //     return;
-    // }
-    // esp_task_wdt_reset();
-
 }
 void User_GH3300_StartSamping(int GH3300_FUNCTION){
     GH3X_DemoStartSampling(GH3300_FUNCTION);

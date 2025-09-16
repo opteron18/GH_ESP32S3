@@ -70,6 +70,13 @@ void FRT_EMG_Task() {
         // .sclk_io_num = GPIO_NUM_14,
         //-------------------------------
 
+        #if (USE_ADS1292R_TWO_CORE)
+        //spi3
+        .mosi_io_num = GPIO_NUM_47,
+        .miso_io_num = GPIO_NUM_21,
+        .sclk_io_num = GPIO_NUM_48,
+        #endif
+
         #if (USE_EVT_ADS1192)
         //spi3
         .mosi_io_num = GPIO_NUM_19,
@@ -103,11 +110,20 @@ void FRT_EMG_Task() {
     //-------------------------------
     #endif
 
+    #if (USE_ADS1292R_TWO_CORE)
+    //origin test module
+    ads.cs_pin = GPIO_NUM_18;
+    ads.pwdn_pin = GPIO_NUM_15;
+    ads.start_pin = GPIO_NUM_16;
+    ads.drdy_pin = GPIO_NUM_17;
+    //-------------------------------
+    #endif
+
     #if (USE_EVT_ADS1192)
     //spi3 PWDN START DRDY Pin
     ads.cs_pin = GPIO_NUM_12;
-    // ads.pwdn_pin = GPIO_NUM_40;
-    ads.pwdn_pin = GPIO_NUM_30;
+    ads.pwdn_pin = GPIO_NUM_40;
+    // ads.pwdn_pin = GPIO_NUM_30;
     ads.start_pin = GPIO_NUM_20;
     ads.drdy_pin = GPIO_NUM_39;
     //spi2 PWDN START DRDY Pin
@@ -145,15 +161,26 @@ void FRT_EMG_Task() {
         // ESP_LOGE(TAG, "DEVICE ID: 0x%02X", id_val);
 
         if (ads1292r_read_data(&ads, data) == ESP_OK) {
+            // ESP_LOGI(TAG,"CH1: %f",data[0]);
+            // ESP_LOGI(TAG,"CH2: %f",data[1]);
             circular_buffer_write(&circ, (uint8_t *)data, sizeof(data));
         }
         
-        // vTaskDelay(pdMS_TO_TICKS(100));
+        // vTaskDelay(pdMS_TO_TICKS(1));
         // 如果缓冲区有足够数据，打包发送
         if (circular_buffer_count(&circ) >= BUF_LEN) {
             circular_buffer_read(&circ, read_buf, BUF_LEN);
             uint8_t len = ack_data_pack(SAMPLE_ADDR, read_buf, BUF_LEN, tx_buf);
-            uart_write_bytes(UART_NUM_0,tx_buf,len);
+            #if(USE_ADS1292R)
+                #if(USE_HOST_DEBUGER)
+                    uart_write_bytes(UART_NUM_0,tx_buf,len);
+                #endif
+            #endif
+            #if(USE_EVT_ADS1192)
+                #if(USE_HOST_DEBUGER)
+                    uart_write_bytes(UART_NUM_0,tx_buf,len);
+                #endif
+            #endif
             // fwrite(tx_buf, 1, len, stdout);
         }
 

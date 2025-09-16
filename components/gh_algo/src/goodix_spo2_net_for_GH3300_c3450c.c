@@ -1,4 +1,4 @@
-#ifndef Goodix_DSP_EXPORTS
+// #ifndef Goodix_DSP_EXPORTS
 #include "goodix_type.h"
 #define NET_VERSION "GH3300_c3450c"
 #define NET_SIZE 3924
@@ -508,4 +508,4 @@ void get_Spo2WRWeights_version(char* ver, uint8_t len)
 {
     memcpy(ver, NET_VERSION, len);
 }
-#endif //#ifndef Goodix_DSP_EXPORTS
+// #endif //#ifndef Goodix_DSP_EXPORTS

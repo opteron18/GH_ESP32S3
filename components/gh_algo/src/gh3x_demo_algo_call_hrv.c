@@ -114,9 +114,9 @@ GS8 GH3XHrvAlgoExe(const STFrameInfo * const pstFrameInfo)
     stRawdataInput.cur_adj_flg = cur_adj_flg;
     stRawdataInput.gain_adj_flg = gain_adj_flg;
     stRawdataInput.bit_num = 24;
-    stRawdataInput.acc_x = pstFrameInfo->pstGsData->pusData[0];
-    stRawdataInput.acc_y = pstFrameInfo->pstGsData->pusData[1];
-    stRawdataInput.acc_z = pstFrameInfo->pstGsData->pusData[2];
+    // stRawdataInput.acc_x = pstFrameInfo->pstGsData->pusData[0];
+    // stRawdataInput.acc_y = pstFrameInfo->pstGsData->pusData[1];
+    // stRawdataInput.acc_z = pstFrameInfo->pstGsData->pusData[2];
     stRawdataInput.frame_id = GH3X_GET_BYTE0_FROM_DWORD(*(pstFrameInfo->punFrameCnt));
 
     stRawdataInput.hr = gunHrvLastHrResult;

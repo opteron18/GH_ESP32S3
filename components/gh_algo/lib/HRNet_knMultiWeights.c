@@ -1,4 +1,4 @@
-#ifndef Goodix_DSP_EXPORTS
+// #ifndef Goodix_DSP_EXPORTS
 #include "goodix_type.h"
 #define NET_VERSION " " //ep19_2262336_sha714d82
 #define NET_SIZE 1269
@@ -176,4 +176,4 @@ void get_knMultiWeightsArr_version(char* ver, uint8_t len)
 {
 	memcpy(ver, NET_VERSION, len);
 }
-#endif //#ifndef Goodix_DSP_EXPORTS
+// #endif //#ifndef Goodix_DSP_EXPORTS

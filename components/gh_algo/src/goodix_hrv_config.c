@@ -1,11 +1,11 @@
-#ifndef Goodix_DSP_EXPORTS
+// #ifndef Goodix_DSP_EXPORTS
 #include "goodix_sys_hrv.h"
 
 static const goodix_hrv_config external_hrv_cfg =
 {
-	.need_ipl = 1,			// ÊÇ·ñÐèÒª²åÖµµ½1KHz
-	.fs = 100,			    // ²ÉÑùÂÊ
-	.acc_thr[0] = 200000,   // acc Ïà¹ØãÐÖµ£¬Ä¬ÈÏÖµÎª£º20/10/3/3
+	.need_ipl = 1,			// ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½Öµï¿½ï¿½1KHz
+	.fs = 100,			    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	.acc_thr[0] = 200000,   // acc ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ä¬ï¿½ï¿½ÖµÎªï¿½ï¿½20/10/3/3
 	.acc_thr[1] = 100000,
 	.acc_thr[2] = 30000,
 	.acc_thr[3] = 30000,
@@ -25,7 +25,7 @@ void goodix_hrv_config_get_version(char* ver, uint8_t ver_len)
 {
 	uint32_t copy_num = ver_len < (strlen(HRV_INTERFACE_VERSION) + 1) ? ver_len : (strlen(HRV_INTERFACE_VERSION) + 1);
 	memcpy(ver, HRV_INTERFACE_VERSION, copy_num);
-	ver[copy_num - 1] = '\0'; //Èç¹ûNET_VERSIONµÄ³¤¶È´óÓÚsize£¬ÐèÒªÌí¼Ó½áÊø·û
+	ver[copy_num - 1] = '\0'; //ï¿½ï¿½ï¿½NET_VERSIONï¿½Ä³ï¿½ï¿½È´ï¿½ï¿½ï¿½sizeï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
-#endif //Goodix_DSP_EXPORTS
+// #endif //Goodix_DSP_EXPORTS

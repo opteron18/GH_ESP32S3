@@ -134,9 +134,9 @@ GS8 GH3XHrAlgoExe(const STFrameInfo * const pstFrameInfo)
     goodix_hba_ret emAlgoRet = GX_ALGO_HBA_SUCCESS;
     
     stRawdata.frameid = GH3X_GET_BYTE0_FROM_DWORD(*(pstFrameInfo->punFrameCnt));
-    stRawdata.acc_x = pstFrameInfo->pstGsData->pusData[0];
-    stRawdata.acc_y = pstFrameInfo->pstGsData->pusData[1];
-    stRawdata.acc_z = pstFrameInfo->pstGsData->pusData[2];
+    // stRawdata.acc_x = pstFrameInfo->pstGsData->pusData[0];
+    // stRawdata.acc_y = pstFrameInfo->pstGsData->pusData[1];
+    // stRawdata.acc_z = pstFrameInfo->pstGsData->pusData[2];
 	GH3X_ALGO_LOG_PARAM("[%s]acc_x = %d,acc_y = %d,acc_z = %d\r\n",__FUNCTION__,\
                 (int)stRawdata.acc_x,\
                 (int)stRawdata.acc_y,\

@@ -140,6 +140,15 @@ esp_err_t  ads1292r_read_data(ADS1292R_t *dev, float *ch_val) {
     int32_t raw_ch2 = (buf[6] << 16) | (buf[7] << 8) | buf[8];
     #endif
 
+    #if (USE_ADS1292R_TWO_CORE)
+    uint8_t buf[9] = {0};
+    uint8_t dummy[9] = {0};
+    spi_readwrite(dev, dummy, buf, 9);
+
+    int32_t raw_ch1 = (buf[3] << 16) | (buf[4] << 8) | buf[5];
+    int32_t raw_ch2 = (buf[6] << 16) | (buf[7] << 8) | buf[8];
+    #endif
+
     #if (USE_EVT_ADS1192)
     uint8_t buf[7];
     uint8_t dummy[7] = {0};
@@ -149,18 +158,42 @@ esp_err_t  ads1292r_read_data(ADS1292R_t *dev, float *ch_val) {
     int16_t raw_ch2 = (buf[5] << 8) | buf[6];
     #endif
 
-    // #if (USE_ADS1292R)
-    // // if (raw_ch1 & 0x800000) raw_ch1 |= 0xFF000000;
-    // // if (raw_ch2 & 0x800000) raw_ch2 |= 0xFF000000;
-    // #endif
+    #if (USE_ADS1292R)
+    if (raw_ch1 & 0x800000) raw_ch1 |= 0xFF000000;
+    if (raw_ch2 & 0x800000) raw_ch2 |= 0xFF000000;
+    #endif
 
-    // #if (USE_EVT_ADS1192)
-    // if (raw_ch1 & 0x8000) raw_ch1 |= 0xFFFF0000;
-    // if (raw_ch2 & 0x8000) raw_ch2 |= 0xFFFF0000;
-    // #endif
+    #if (USE_ADS1292R_TWO_CORE)
+    if (raw_ch1 & 0x800000) raw_ch1 |= 0xFF000000;
+    if (raw_ch2 & 0x800000) raw_ch2 |= 0xFF000000;
+    #endif
 
-    ch_val[0] = ((float)raw_ch1 / 256.0f) * 0.288486f / 12;
-    ch_val[1] = ((float)raw_ch2 / 256.0f) * 0.288486f / 12;
+    #if (USE_EVT_ADS1192)
+    if (raw_ch1 & 0x8000) raw_ch1 |= 0xFFFF0000;
+    if (raw_ch2 & 0x8000) raw_ch2 |= 0xFFFF0000;
+    #endif
+    ch_val[0] = ((float)raw_ch1) ;
+    ch_val[1] = ((float)raw_ch2 );
+
+    ch_val[0] = ((float)raw_ch1 / 256.0f) * 0.288486f/12;
+    ch_val[1] = ((float)raw_ch2 / 256.0f) * 0.288486f/12;
+
+    // uint8_t buf[4];
+    // uint8_t dummy[4] = {0};
+    // spi_readwrite(dev, dummy, buf, 7);
+
+    // int16_t raw_ch1 = (buf[0] << 8) | buf[1];
+    // int16_t raw_ch2 = (buf[2] << 8) | buf[2];
+    // ESP_LOGI(TAG,"ch1: %d",raw_ch1);
+    // float lsb_uV = 2.42 / 32767.0f;  // LSB 电压权重（VREF = 2.4V）
+
+    // ch_val[0] = (float)raw_ch1 * lsb_uV;   // 通道1电压（单位：V）
+    // ch_val[1] = (float)raw_ch2 * lsb_uV;
+
+    // ch_val[0] = ch_val[0] ;   // 如果用了增益为6
+    // ch_val[1] = ch_val[1] ;
+    // ch_val[0] = ((float)raw_ch1 ) / 6;
+    // ch_val[1] = ((float)raw_ch2 )  / 6;
 
     return ESP_OK;
 }

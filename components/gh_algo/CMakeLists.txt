@@ -21,43 +21,69 @@ idf_component_register(
         "src/goodix_spo2_net_for_GH3300_c3450c.c" 
         "src/goodix_sys_bia.c" 
         "src/heart_net_org_dll.c" 
-        "src/HRNet_knBasicWeights.c" 
-        "src/HRNet_knConfNetWeights.c" 
-        "src/HRNet_knMultiWeights.c" 
-        "src/HRNet_knSceneNetWeights.c" 
-        "src/HRNet_knSceneSwitchWeights.c" 
-        "src/HRNet_knSmallWeights.c" 
-        "src/HRNet_knTdfusionWeights.c" 
-        "src/HRNet_knWeights.c" 
+        # "lib/HRNet_knBasicWeights.c" 
+        # "lib/HRNet_knConfNetWeights.c" 
+        # "lib/HRNet_knMultiWeights.c" 
+        # "lib/HRNet_knSceneNetWeights.c" 
+        # "lib/HRNet_knSceneSwitchWeights.c" 
+        # "lib/HRNet_knSmallWeights.c" 
+        # "lib/HRNet_knTdfusionWeights.c" 
+        # "lib/HRNet_knWeights.c" 
         "src/iot_sys_common_lib.c"
+
+        "src_2/BiaSampleManager.c" 
+        "src_2/gh_gsr.c" 
+        "src_2/gh_multi_sen_pro.c" 
+        "src_2/gh_package.c" 
+        "src_2/gh_rpccore.c" 
+        "src_2/gh3x_bia_cali_processor.c" 
+        "src_2/gh3x_bia_impedance_fixer.c" 
+        "src_2/gh3x_bia_invalid_data_filter.c" 
+        "src_2/gh3x_bia_offset_processor.c" 
+        "src_2/gh3x_demo_hook.c" 
+        "src_2/gh3x_demo_protocol.c" 
+        "src_2/gh3x_demo_reg_array.c" 
+        "src_2/gh3x_demo_struct.c" 
+        "src_2/gh3x_demo_user.c" 
+        "src_2/gh3x_demo.c" 
+        "src_2/gh3x_drv_config.c" 
+        "src_2/gh3x_drv_control.c" 
+        "src_2/gh3x_drv_interface.c" 
+        "src_2/gh3x_gsensor_control.c" 
+        "src_2/gh3x_protocol_cmd.c" 
+        "src_2/gh3x_soft_adt.c" 
+        "src_2/gh3x_soft_led_agc.c" 
+        "src_2/impedance_algo.c" 
+        "src_2/slabmemory.c" 
+        "src_2/staticmapimp.c" 
+        "src_2/gh3x_drvlib.c" 
+        "src_2/gh3x_fifo_analyze.c"
     # INCLUDE_DIRS "include" "." "../gh_drv/include" "lib"
-    INCLUDE_DIRS  "."  "lib" "include"
-    REQUIRES "${public_requires}" "freertos"  gh_drv gh_algo 
+    INCLUDE_DIRS  "." "include" "include_2"
+    REQUIRES "${public_requires}" "freertos" "driver"  "uart" spi
 )
 
-# add_prebuilt_library(prebuilt 
-#     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a"
-#     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dsp.a"
-#     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_ecg.a"
-#     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_hr.a"
-#     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_hrv.a"
-#     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_nadt.a"
-#     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a"
-#     PRIV_REQUIRES gh_algo)
-set(GH_ALGO_LIBS
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dsp.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_ecg.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hr.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hrv.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_nadt.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a
-)
-target_link_libraries(${COMPONENT_LIB}
-    "-Wl,--start-group"
-    ${GH_ALGO_LIBS}
-    "-Wl,--end-group"
-)
+
+
+# set(GH_ALGO_LIBS
+#     ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a
+#     ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dsp.a
+#     ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hr.a
+#     ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hrv.a
+#     ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_ecg.a
+#     ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_nadt.a
+#     ${CMAKE_CURRENT_SOURCE_DIR}/lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a
+# )
+# set_target_properties(${COMPONENT_LIB} PROPERTIES
+#     INTERFACE_LINK_LIBRARIES "${GH_ALGO_LIBS}"
+# )
+# target_link_libraries(${COMPONENT_LIB}
+#     INTERFACE
+#     "-Wl,--start-group"
+#     ${GH_ALGO_LIBS}
+#     "-Wl,--end-group"
+# )
+
 # target_link_libraries(${COMPONENT_LIB} 
 #     -Wl,--start-group
 #     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a"
@@ -69,6 +95,7 @@ target_link_libraries(${COMPONENT_LIB}
 #     "lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a"
 #     -Wl,--end-group
 # )
+
 
 
 # 声明静态库

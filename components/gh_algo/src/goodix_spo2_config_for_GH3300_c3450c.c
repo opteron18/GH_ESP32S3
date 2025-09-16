@@ -1,4 +1,4 @@
-#ifndef Goodix_DSP_EXPORTS
+// #ifndef Goodix_DSP_EXPORTS
 
 #include "goodix_spo2.h"  
 static const goodix_spo2_config external_spo2_cfg =
@@ -58,4 +58,4 @@ void goodix_spo2_config_get_version(char* ver,uint8_t ver_len)
     memcpy(ver, SPO2_INTERFACE_VERSION, copy_num);
     ver[copy_num - 1] = '\0'; //如果NET_VERSION的长度大于size，需要添加结束符
 }
-#endif
+// #endif

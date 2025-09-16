@@ -1,19 +1,19 @@
 #ifndef __GOODIX_TYPE
 #define __GOODIX_TYPE
 
-// ÓëÁã±È½ÏµÄ¹«¹²ãÐÖµ
+// ï¿½ï¿½ï¿½ï¿½È½ÏµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 #ifndef EPS
 #define EPS            0.000001f
 #endif
 
-// Êä³ö lib ÓÃ
+// ï¿½ï¿½ï¿½ lib ï¿½ï¿½
 #if _WIN32 || _WIN64
 #define  DRVDLL_API    extern  _declspec(dllexport)
 #else
 #define  DRVDLL_API
 #endif
 
-// ÀàÐÍÖØ¶¨Òå
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
 #if _WIN32 || _WIN64
 typedef signed char			int8_t;
 typedef short				int16_t;
@@ -53,21 +53,21 @@ typedef enum {
 	True = 1,
 }goodix_flag_e;
 
-// µ±Ç°µãËù´¦µÄ×´Ì¬£ºËã·¨ÄÚ²¿¼ì²â¡¾Ä¿Ç°Êä³ö R µã¡¿
+// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ã·¨ï¿½Ú²ï¿½ï¿½ï¿½â¡¾Ä¿Ç°ï¿½ï¿½ï¿½ R ï¿½ã¡¿
 typedef enum {
-	// Êä³öÖµÊÇ·ñÓÐÐ§
+	// ï¿½ï¿½ï¿½Öµï¿½Ç·ï¿½ï¿½ï¿½Ð§
 	stage_noneffect_out = 0,
 
-	// Ä¬ÈÏÖµ
+	// Ä¬ï¿½ï¿½Öµ
 	stage_default,
 	
 
-	// ¿ìËÙ»Ö¸´Ïà¹Ø
+	// ï¿½ï¿½ï¿½Ù»Ö¸ï¿½ï¿½ï¿½ï¿½
 	//stage_former_begin,
 	//stage_former_top,
 	//stage_former_downing,
 
-	// ²¨ÐÎÌØÕ÷µã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	stage_pqrst_p,
 	stage_pqrst_q,
 	stage_pqrst_r,
@@ -80,12 +80,12 @@ typedef enum {
 	stage_pqrst_u,
 }goodix_stage;
 
-// ECGÐÅºÅ²¡Àý·ÖÀà±êÖ¾
+// ECGï¿½ÅºÅ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
 typedef enum {
-	FLAG_NORMAL,				// ECGÐÅºÅ¼ì²âÎªÕý³£
-	FLAG_ATRIAL_FIBRILLATION,	// ECGÐÅºÅ¼ì²âÎª·¿²ü
-	FLAG_OTHER,					// ECGÐÅºÅ¼ì²âÎªÆäËü
-	FLAG_NOISE,					// ECGÐÅºÅ¼ì²âÎªÔëÉù
+	FLAG_NORMAL,				// ECGï¿½ÅºÅ¼ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
+	FLAG_ATRIAL_FIBRILLATION,	// ECGï¿½ÅºÅ¼ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
+	FLAG_OTHER,					// ECGï¿½ÅºÅ¼ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
+	FLAG_NOISE,					// ECGï¿½ÅºÅ¼ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
 }goodix_classification_flag;
 
 #endif // !__GOODIX_TYPE
