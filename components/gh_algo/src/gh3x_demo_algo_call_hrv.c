@@ -28,7 +28,7 @@ goodix_hrv_ret goodix_hrv_init_func(GU32 fs)
     GH3X_Memcpy(&stHrvConfig,goodix_hrv_config_get_arr(),goodix_hrv_config_get_size());
     stHrvConfig.fs = fs; 
 		
-    GH3X_ALGO_LOG_PARAM("[%s]:params = %d,%d,%d,%d,%d,%d,\r\n", __FUNCTION__,
+    GH3X_ALGO_LOG_PARAM("[%s]:params = %ld,%ld,%ld,%ld,%ld,%ld,\r\n", __FUNCTION__,
                                                                 stHrvConfig.need_ipl,
                                                                 stHrvConfig.fs,
                                                                 stHrvConfig.acc_thr[0],

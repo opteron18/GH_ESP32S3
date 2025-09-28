@@ -106,7 +106,7 @@
 // #define __EXAMPLE_LOG_TYPE__                    (__EXAMPLE_LOG_METHOD_0__) /**< example log config */
 
 #if (USE_GH3300_LOG)
-    #define __EXAMPLE_LOG_LEVEL__                   (__EXAMPLE_LOG_LV_1__ ) /**< example log config */
+    #define __EXAMPLE_LOG_LEVEL__                   (__EXAMPLE_LOG_LV_2__ ) /**< example log config */
 #else
     #define __EXAMPLE_LOG_LEVEL__                   (__EXAMPLE_LOG_LV_0__ ) /**< example log config */
 #endif

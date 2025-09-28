@@ -26,6 +26,7 @@ STImpedanceAglo stImpedanceAglo;
 #if __BIA_IMPEDANCE_FIXER__
 
 #define BIA_ZOPEN_NUM 4
+#define GR5526_SK 1
 complex_double gstZopen[BIA_ZOPEN_NUM];
     #ifdef  GR5526_SK  ////EVK platform 
     const complex_double gstZopenDefault[BIA_ZOPEN_NUM]={ // EVK Collection of sub-board without resistor (inserted sub-board but without resistor) 250K excitation

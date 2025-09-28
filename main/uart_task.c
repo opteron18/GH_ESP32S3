@@ -61,7 +61,7 @@ void create_uart_tasks(void) {
         .uart_num = UART_NUM_0,
         .tx_pin = 43,  // 自定义TX引脚
         .rx_pin = 44,  // 自定义RX引脚
-        .baud_rate = 1152000,
+        .baud_rate = 256000,
         .rx_queue = NULL, // 在驱动中创建
         .tx_queue = NULL  // 在驱动中创建
         #endif
@@ -82,8 +82,8 @@ void create_uart_tasks(void) {
 
         #if (USE_UART2)
         .uart_num = UART_NUM_2,
-        .tx_pin = 4,  // 自定义TX引脚
-        .rx_pin = 5,  // 自定义RX引脚
+        .tx_pin = 42,  // 自定义TX引脚
+        .rx_pin = 45,  // 自定义RX引脚
         .baud_rate = 1152000,
         .rx_queue = NULL, // 在驱动中创建
         .tx_queue = NULL  // 在驱动中创建

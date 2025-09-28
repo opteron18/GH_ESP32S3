@@ -8,6 +8,7 @@
  * @version ref gh3x_demo_algo_config.h
  *
  */
+
 #ifndef _GH3X_DEMO_ALGO_CONFIG_H_
 #define _GH3X_DEMO_ALGO_CONFIG_H_
 
@@ -23,7 +24,7 @@
 
 #define GH3X_ALGO_FUNCTION_GROUP_1 (GH3X_FUNCTION_SPO2)
 #define GH3X_ALGO_FUNCTION_GROUP_2 (GH3X_FUNCTION_ECG)
-#define GH3X_ALGO_FUNCTION_GROUP_3 (GH3X_NO_FUNCTION)
+#define GH3X_ALGO_FUNCTION_GROUP_3 (GH3X_FUNCTION_BIA)
 #define GH3X_ALGO_FUNCTION_GROUP_4 (GH3X_NO_FUNCTION)
 
 
@@ -38,7 +39,7 @@
 #define __USE_GOODIX_AF_ALGORITHM__            (0)
 #define __USE_GOODIX_BP_ALGORITHM__            (0)
 #define __USE_GOODIX_SOFT_ADT_ALGORITHM__      (0)
-#define __USE_GOODIX_BIA_ALGORITHM__           (0)
+#define __USE_GOODIX_BIA_ALGORITHM__           (1)
 #define __USE_GOODIX_GSR_ALGORITHM__           (0)
 
 // #define __USE_GOODIX_HR_ALGORITHM__            (0)
@@ -55,7 +56,11 @@
 // #define __USE_GOODIX_GSR_ALGORITHM__           (0)
 
 /* algorithm log */
-#define __ALGO_LOG_CONFIG__                    (0)
+// #if USE_ALGO_LOG
+#define __ALGO_LOG_CONFIG__                    (1)
+// #else 
+// #define __ALGO_LOG_CONFIG__                    (1)
+// #endif
 
 /* algorithm config max number */
 #define __GOODIX_ALGO_CFG_LIST_MAX_NUM__       (1)

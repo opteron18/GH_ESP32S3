@@ -291,7 +291,7 @@ EM_BIA_SAMPLE_STATE BiaImpedanceAlgoExe(STImpedanceAglo *pstImpedanceAglo, compl
     GU8 uchNetIndex;
 
     EM_BIA_SAMPLE_STATE emStateNext = pstImpedanceAglo->emState;
-//    EXAMPLE_LOG("[AlgoExeData] Falg0=%d,FrameCnt=%d,Waiting= %d,SlotId= %d,I = %d,Q = %d\r\n", pstFrameInfo->pstFlagInfo->punFlag[0],*(pstFrameInfo->punFrameCnt),pstImpedanceAglo->uchWaitingLastFrameInFifoStream,uchSlotId,pstIq->real,pstIq->imag);
+//    SlotId=,I = %d,Q = %d\r\n", pstFrameInfo->pstFlagInfo->punFlag[0],*(pstFrameInfo->punFrameCnt),pstImpedanceAglo->uchWaitingLastFrameInFifoStream,uchSlotId,pstIq->real,pstIq->imag);
 
     GH3X_Memset((void*)pstUpdataFlag, 0, sizeof(STUpdataFlag));
 

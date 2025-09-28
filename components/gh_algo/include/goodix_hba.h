@@ -4,9 +4,8 @@
 #include <stdint.h>
 #ifndef _ARM_MATH_H
 #include "goodix_type.h"
-#include "heart_net_org_export.h"
 #endif
-// HBA ??????
+// HBA ²ÉÑùÂÊ
 #ifndef HBA_FS
 #define HBA_FS 25
 #endif
@@ -16,129 +15,129 @@
 #define HBA_INTERFACE_VERSION_LEN_MAX (20)
 
 /**
-* @brief HBA ???????
+* @brief HBA Í¨µÀÀàĞÍ
 */
 typedef enum
 {
-    CH_ENABLE_DEFAULT=0,//???????????
-    //?????
+    CH_ENABLE_DEFAULT=0,//°´ÕÕÄ¬ÈÏÅäÖÃ
+    //µ¥Í¨µÀ
     CH1_ENABLE_1000 = 1000,	
     CH1_ENABLE_0100 = 100,
     CH1_ENABLE_0010 = 10,
     CH1_ENABLE_0001 = 1,
-    //????,???????
+    //Ë«Í¨µÀ,¶Ô²àÅäÖÃ
     CH2_ENABLE_1010 = 1010,
     CH2_ENABLE_0101 = 101,
-    //?????
+    //ÈıÍ¨µÀ
     CH3_ENABLE_0111 = 111,
     CH3_ENABLE_1011 = 1011,
     CH3_ENABLE_1101 = 1101,
     CH3_ENABLE_1110 = 1110,
-    //?????
+    //ËÄÍ¨µÀ
     CH4_ENABLE_1111 = 1111,
 }goodix_hba_ch_enable;
 
 /**
-* @brief HBA ?????????????
+* @brief HBA Ëã·¨º¯Êı·µ»Ø×´Ì¬Öµ
 */
 typedef enum
 {
-	GX_ALGO_HBA_SUCCESS = 0x00000000,			/**< ???     */
-	GX_ALGO_HBA_RWONG_INPUT = 0x00000001,		/**< ???????????????     */
-	GX_ALGO_HBA_NO_MEMORY = 0x00008000,			/**< ???????     */
+	GX_ALGO_HBA_SUCCESS = 0x00000000,			/**< ³É¹¦     */
+	GX_ALGO_HBA_RWONG_INPUT = 0x00000001,		/**< ÊäÈëÊı¾İ¸ñÊ½²»ºÏ·¨     */
+	GX_ALGO_HBA_NO_MEMORY = 0x00008000,			/**< ÄÚ´æ¿Õ¼ä²»¹»     */
 }goodix_hba_ret;
 
 typedef enum {
-	HBA_SCENES_DEFAULT = 0,				// ????????????????
+	HBA_SCENES_DEFAULT = 0,				// Ä¬ÈÏ£ºÓÉËã·¨ÄÚ²¿Ê¶±ğ´¦Àí
 
-	HBA_SCENES_DAILY_LIFE = 1,			// ???????
-	HBA_SCENES_RUNNING_INSIDE = 2,		// ?????????
-	HBA_SCENES_WALKING_INSIDE = 3,		// ???????
-	HBA_SCENES_STAIRS = 4,				// ???????
+	HBA_SCENES_DAILY_LIFE = 1,			// ÈÕ³£Éú»î
+	HBA_SCENES_RUNNING_INSIDE = 2,		// ÊÒÄÚÅÜ²½»ú
+	HBA_SCENES_WALKING_INSIDE = 3,		// ÊÒÄÚ²½ĞĞ
+	HBA_SCENES_STAIRS = 4,				// ÉÏÏÂÂ¥Ìİ
 
-	HBA_SCENES_RUNNING_OUTSIDE = 5,		// ???????
-	HBA_SCENES_WALKING_OUTSIDE = 6,		// ??????
+	HBA_SCENES_RUNNING_OUTSIDE = 5,		// ÊÒÍâÅÜ²½
+	HBA_SCENES_WALKING_OUTSIDE = 6,		// ÊÒÍâ²½ĞĞ
 
-	HBA_SCENES_STILL_REST = 7,			// ???
-	HBA_SCENES_REST = 8,				// ???
-	HBA_SCENES_STILLRADON = 9,			// ????
+	HBA_SCENES_STILL_REST = 7,			// ¾²Ï¢
+	HBA_SCENES_REST = 8,				// ĞİÏ¢
+	HBA_SCENES_STILLRADON = 9,			// ±ïÆø
 
-	HBA_SCENES_BIKING_INSIDE = 10,		//???????ï¿½ï¿½?
-	HBA_SCENES_BIKING_OUTSIDE = 11,		//???????ï¿½ï¿½?
-	HBA_SCENES_BIKING_MOUNTAIN= 12,		//???????ï¿½ï¿½???
-	HBA_SCENES_RUNNING_HIGH_HR = 13,	//?????????
+	HBA_SCENES_BIKING_INSIDE = 10,		//ÊÒÄÚ×ÔĞĞ³µ
+	HBA_SCENES_BIKING_OUTSIDE = 11,		//ÊÒÍâ×ÔĞĞ³µ
+	HBA_SCENES_BIKING_MOUNTAIN= 12,		//ÊÒÍâ×ÔĞĞ³µÔ½Ò°
+	HBA_SCENES_RUNNING_HIGH_HR = 13,	//¸ßĞÄÂÊÅÜ²½
 
-	HBA_SCENES_RUNNING_TREADMILL_CCOMBINE= 14,		// ??????????
+	HBA_SCENES_RUNNING_TREADMILL_CCOMBINE= 14,		// ÅÜ²½»ú×éºÏÅÜ
 
-	HBA_SCENES_HIGH_INTENSITY_COMBINE = 15,		// ???????????
-	HBA_SCENES_TRADITIONAL_STRENGTH_COMBINE = 16,		// ?????????????
-	HBA_SCENES_STEP_TEST = 17,		    // ??????
+	HBA_SCENES_HIGH_INTENSITY_COMBINE = 15,		// ¸ßÇ¿¶ÈÔË¶¯×éºÏ
+	HBA_SCENES_TRADITIONAL_STRENGTH_COMBINE = 16,		// ´«Í³Á¦Á¿ÑµÁ·×éºÏ
+	HBA_SCENES_STEP_TEST = 17,		    // Ì¨½×²âÊÔ
 
-	HBA_SCENES_BALL_SPORTS = 18,		// ???????
-	HBA_SCENES_AEROBICS = 19,		    // ??????
+	HBA_SCENES_BALL_SPORTS = 18,		// ÇòÀàÔË¶¯
+	HBA_SCENES_AEROBICS = 19,		    // ½¡Éí²Ù
 
-    HBA_SCENES_SLEEP = 20,              // ??????
-    HBA_SCENES_JUMP = 21,               //??????????LS ROMA??
-    HBA_SCENES_CORDLESS_JUMP = 22,	    // ???????????????
-	HBA_SCENES_SWIMMING = 23,           // ???????
-    HBA_SCENES_SIZE = 24,               // ???????
+    HBA_SCENES_SLEEP = 20,              // Ë¯Ãß³¡¾°
+    HBA_SCENES_JUMP = 21,               //ÊÖÍóÌøÉş£¨LS ROMA£©
+    HBA_SCENES_CORDLESS_JUMP = 22,	    // Íò»úÎŞÉşÌøÉş²âÊÔ
+	HBA_SCENES_SWIMMING = 23,           // ÓÎÓ¾³¡¾°
+    HBA_SCENES_SIZE = 24,               // ³¡¾°ÊıÄ¿
 }hba_scenes_e;
 
 typedef enum {
-    HBA_TEST_DYNAMIC = 0,		// ???????????
-    HBA_TEST_DOT = 1,			// ???
-    HBA_TEST_SENSELESS = 2,		// ?????
+    HBA_TEST_DYNAMIC = 0,		// Ä¬ÈÏ£º¶¯Ì¬²âÊÔ
+    HBA_TEST_DOT = 1,			// µã²â
+    HBA_TEST_SENSELESS = 2,		// ÎŞ¸ĞÄ£Ê½
 }hba_test_mode;
 
 typedef struct {
-    hba_test_mode mode;                             // ??????
-	hba_scenes_e scence;							// ????
-	uint32_t fs;									// ??????
-	int32_t valid_channel_num;						// ??ï¿½ï¿½?????
-	// ??????????????????????
-    uint32_t back_track_len;                       // ????????,???30s,???????????120s?????????????30s
-	int32_t hba_latest_output_time;					// ??????????
-	int32_t hba_earliest_output_time;				// ?????????
-    uint32_t hba_lowerest_confidence;				// ??????????
-	uint32_t hba_out_step_second;					// ??????
-    uint32_t hba_convergence_rate;					// ???????ï¿½ï¿½?????????
-    uint32_t senseless_mode_step;                   // ??ï¿½ï¿½????????????0???ï¿½ï¿½?
-    uint32_t senseless_mode_duration;               // ??ï¿½ï¿½?????????????0???ï¿½ï¿½?
+    hba_test_mode mode;                             // ²âÊÔÄ£Ê½
+	hba_scenes_e scence;							// ³¡¾°
+	uint32_t fs;									// ²ÉÑùÂÊ
+	int32_t valid_channel_num;						// ÓĞĞ§Í¨µÀÊı
+	// ÓÃÓÚÍâ²¿¿ØÖÆËã·¨ÇãÏòĞÔµÄ²ÎÊı
+    uint32_t back_track_len;                       // »ØËİµÄÊ±³¤,Ä¬ÈÏ30s,×î´óÊ±³¤ÏŞÖÆÎª120s£¬×î¶ÌÊ±³¤ÏŞÖÆÎª30s
+	int32_t hba_latest_output_time;					// ×îÍí³öÖµÊ±¼ä
+	int32_t hba_earliest_output_time;				// ×îÔç³öÖµÊ±¼ä
+    uint32_t hba_lowerest_confidence;				// ×îµÍ³öÖµÖÃĞÅ¶È
+	uint32_t hba_out_step_second;					// ³öÖµ¼ä¸ô
+    uint32_t hba_convergence_rate;					// ×·×Ù¹ı³ÌÖĞµÄÊÕÁ²ËÙÂÊ
+    uint32_t senseless_mode_step;                   // ÎŞ¸Ğ¼ä¸ôÊ±¼äÃëÊı£¬Îª0±íÊ¾Î´Öª
+    uint32_t senseless_mode_duration;               // ÎŞ¸Ğ³ÖĞøÊ±¼äÃëÊı£¬Îª0±íÊ¾Î´Öª
 }goodix_hba_config;
 
 typedef struct
 {
-	uint32_t frameid;								// ????
-	uint32_t total_channel_num;                     // ???????
-	int32_t *ppg_rawdata;		// PPG??????????????1234-????1234-???1234
-	int32_t *cur_adj_flg;		// ??????????ï¿½ï¿½
-	int32_t *gain_adj_flg;		// ?????????ï¿½ï¿½
-	int32_t *enable_flg;		// ????????ï¿½ï¿½
+	uint32_t frameid;								// Ö¡ĞòºÅ
+	uint32_t total_channel_num;                     // Í¨µÀ×ÜÊı
+	int32_t *ppg_rawdata;		// PPGÔ­Ê¼Êı¾İ£¬ÒÀ´ÎÂÌ¹â1234-ºìÍâ1234-ºì¹â1234
+	int32_t *cur_adj_flg;		// µçÁ÷µ÷¹â±êÖ¾Î»
+	int32_t *gain_adj_flg;		// ÔöÒæµ÷¹â±êÖ¾Î»
+	int32_t *enable_flg;		// Í¨µÀÊ¹ÄÜ±êÖ¾Î»
 
-	int32_t acc_x;									// ??????x??
-	int32_t acc_y;									// ??????y??
-	int32_t acc_z;									// ??????z??
+	int32_t acc_x;									// ¼ÓËÙ¶È¼ÆxÖá
+	int32_t acc_y;									// ¼ÓËÙ¶È¼ÆyÖá
+	int32_t acc_z;									// ¼ÓËÙ¶È¼ÆzÖá
 
-    uint32_t sleep_flg;                             //???flg
+    uint32_t sleep_flg;                             //Ë¯Ãßflg
 }goodix_hba_input_rawdata;
 
 typedef struct
 {
-	uint32_t hba_out_flag;				// ???????? 1 ??ï¿½ï¿½
-	int32_t hba_out;					// ?????
-	float32_t hba_confi;				// ?????
-	float32_t hba_snr;					// ?????   : ????????????????????????????????
-    uint32_t valid_level;			    // ?????? : 0 -> 1 -> 2 ?????????
-    uint32_t valid_score;				// ??????? : 0->100 ???????
-    uint32_t hba_acc_info;              // ????? : 0-?????ï¿½ï¿½?????1-????-???????2-???-???????
-    hba_scenes_e hba_acc_scence;            // ??????? : ?ï¿½ï¿½? hba_scenes_e ???????
-	// ??ï¿½ï¿½????????????????
-	uint32_t *hba_out_flag_channel;				// ???????? 1 ??ï¿½ï¿½
-	uint32_t *hba_out_channel;					// ?????
-	float32_t *hba_confi_channel;				// ?????
-	float32_t *hba_snr_channel;					// ?????
-	float32_t **p_hba_td_filter;				// ????????????????
-	float32_t **p_hba_fd_filter;			// ???(???)????????????ï¿½4ï¿½ï¿½??1ï¿½ï¿½????
+	uint32_t hba_out_flag;				// ³öÖµ±ê¼Ç£ºÎª 1 ÓĞĞ§
+	int32_t hba_out;					// ĞÄÂÊÖµ
+	float32_t hba_confi;				// ÖÃĞÅ¶È
+	float32_t hba_snr;					// ĞÅÔë±È   : ÂË²¨È¥³ı¸ÉÈÅºó£¬ÆµÆ×Ö÷·åÄÜÁ¿´¦ÓÚ×ÜÄÜÁ¿
+    uint32_t valid_level;			    // ÖÃĞÅµÈ¼¶ : 0 -> 1 -> 2 £¬Ô½´óÔ½¿É¿¿
+    uint32_t valid_score;				// ÖÃĞÅ·ÖÊı : 0->100 Ô½´óÔ½¿É¿¿
+    uint32_t hba_acc_info;              // ÔË¶¯×´Ì¬ : 0-¾²Ï¢£¬Ğ¡ÔË¶¯£»1-²½ĞĞ-ÖĞÔË¶¯£»2-ÅÜ²½-´óÔË¶¯£»
+    hba_scenes_e hba_acc_scence;            // ÔË¶¯³¡¾° : ²Î¿¼ hba_scenes_e Ã¶¾ÙÀàĞÍ
+	// Ã¿Ò»Â·µÄĞÄÂÊÖµ£¬ÓÃÓÚµ÷ÊÔ
+	uint32_t *hba_out_flag_channel;				// ³öÖµ±ê¼Ç£ºÎª 1 ÓĞĞ§
+	uint32_t *hba_out_channel;					// ĞÄÂÊÖµ
+	float32_t *hba_confi_channel;				// ÖÃĞÅ¶È
+	float32_t *hba_snr_channel;					// ĞÅÔë±È
+	float32_t **p_hba_td_filter;				// Ê±ÓòÂË²¨½á¹ûÖ¸ÕëÊı×é
+	float32_t **p_hba_fd_filter;			// ÆµÓò(Î¬ÄÉ)ÂË²¨½á¹ûÖ¸ÕëÊı×é£¬4Â·¼Ó1Â·×îÓÅ
 }goodix_hba_result;
 
 #ifdef __cplusplus
@@ -147,64 +146,64 @@ extern "C" {
 
 
 /**
-* @brief HBA ???????ï¿½ï¿½??
-* @param[in]  version     ??????ï¿½ï¿½????????20???
-* @param[out] ??
-* @return     ??????????
+* @brief HBA ´¦ÀíËã·¨°æ±¾ºÅ
+* @param[in]  version     Íâ²¿´¢´æ°æ±¾ºÅ¿Õ¼ä£¬·ÖÅä20×Ö½Ú
+* @param[out] ÎŞ
+* @return     º¯ÊıÖ´ĞĞÇé¿ö
 */
 DRVDLL_API goodix_hba_ret goodix_hba_version(uint8_t version[120]);
 
 
 /**
-* @brief HBA ???????????
-* @param[in]  scence     ??ï¿½ï¿½???
-* @param[in]  fs         HBA ?? ACC ??????????????????????
-* @param[out] ??
-* @return     ??????????
+* @brief HBA ´¦ÀíËã·¨³õÊ¼»¯
+* @param[in]  scence     Ê¹ÓÃ³¡¾°
+* @param[in]  fs         HBA ºÍ ACC µÄ²ÉÑùÂÊ¡¾×¢£ºÁ½ÕßĞèÒªÍ¬Æµ¡¿
+* @param[out] ÎŞ
+* @return     º¯ÊıÖ´ĞĞÇé¿ö
 */
 DRVDLL_API goodix_hba_ret  goodix_hba_init(const void *cfg_instance, uint32_t cfg_size, const char *interface_ver);
 
 
 /**
-* @brief HBA ??????
-* @param[in] raw    ????????
-* @param[out] res   ??????????
-* @return     ??????????
+* @brief HBA Ëã·¨¸üĞÂ
+* @param[in] raw    ĞÄÂÊÊı¾İ
+* @param[out] res   ĞÄÂÊÊä³ö½á¹û
+* @return     º¯ÊıÖ´ĞĞÇé¿ö
 */
 DRVDLL_API goodix_hba_ret goodix_hba_update(goodix_hba_input_rawdata* raw, goodix_hba_result *res);
 
 /**
-* @brief HBA ?????????????????????????????????????
-* @param[out] ??
-* @return     ??????????
+* @brief HBA Ëã·¨Ïú»Ù£¬ÊÍ·ÅÄÚ²¿µÄÄÚ´æ¿Õ¼ä£¬µ÷ÓÃÆäËûÄ£¿éËã·¨Ê±Ê¹ÓÃ
+* @param[out] ÎŞ
+* @return     º¯ÊıÖ´ĞĞÇé¿ö
 */
 DRVDLL_API goodix_hba_ret goodix_hba_deinit(void);
 
 /**
-* @brief ???hba????????ï¿½ï¿½???
-* @return     hba????????ï¿½ï¿½???
+* @brief »ñÈ¡hbaµÄÄ¬ÈÏÅäÖÃ²ÎÊı
+* @return     hbaµÄÄ¬ÈÏÅäÖÃ²ÎÊı
 */
 DRVDLL_API const void *goodix_hba_config_get_arr(void);
 
 /**
-* @brief ???hba??????size
-* @return     hba??????size
+* @brief »ñÈ¡hbaµÄÅäÖÃsize
+* @return     hbaµÄÅäÖÃsize
 */
 DRVDLL_API int32_t  goodix_hba_config_get_size(void);
 
 /**
-* @brief ???HBA?????????ï¿½ï¿½??
-* @param[in/out]  ver       ?ï¿½ï¿½?????????
-* @param[in] 	  ver_len   ?ï¿½ï¿½?????????????HBA_INTERFACE_VERSION_LEN_MAX
-* @return     	  ??
+* @brief »ñÈ¡HBAÅäÖÃÎÄ¼şµÄ°æ±¾ºÅ
+* @param[in/out]  ver       °æ±¾ºÅ±£´æÊı×é
+* @param[in] 	  ver_len   °æ±¾ºÅ³¤¶È£¬½¨ÒéÊ¹ÓÃHBA_INTERFACE_VERSION_LEN_MAX
+* @return     	  ÎŞ
 */
 DRVDLL_API void goodix_hba_config_get_version(char* ver, uint8_t ver_len);
 
 
 /**
-* @brief ?????????HBA??????????????????????????
-* @param[in]  raw    ?????????????NULL == raw????????????
-* @return     	  ??
+* @brief ÓÃ»§µ÷ÓÃ´òÓ¡HBAÖØÒªĞÅÏ¢£¬ĞèÒªÌáÇ°³õÊ¼»¯´òÓ¡º¯Êı
+* @param[in]  raw    ĞÄÂÊÊäÈëÊı¾İ£¬NULL == rawÊ±£¬²»´òÓ¡Êı¾İ
+* @return     	  ÎŞ
 */
 DRVDLL_API void hba_essential_info_print(goodix_hba_input_rawdata* raw);
 

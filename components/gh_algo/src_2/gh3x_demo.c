@@ -235,6 +235,7 @@ int GH3X_DemoInit(void)
     GH3X_DelayMs(7);
 #if __SUPPORT_HARD_RESET_CONFIG__
     ia_valid = gh_ia_filter();
+    EXAMPLE_LOG("gh_ia_filter!!!\r\n");
     if(GH3X_RET_OK != ia_valid)
     {
         EXAMPLE_LOG("ECG, BIA, GSR is not valid in low temperatrue!!!\r\n");
@@ -334,7 +335,7 @@ void GH3X_DemoInterruptProcess(void)
         }
         GH3X_EnterLowPowerMode();
         STSensorRawdata stSensorRawdata = 
-        {
+            {
             #if __GSENSOR_ENABLE__
             gpuchReadRawdataBuffer,&gusReadRawdataLen,gsensor_soft_fifo_buffer,&gsensor_soft_fifo_buffer_index
             #else

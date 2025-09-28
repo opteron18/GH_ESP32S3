@@ -1,0 +1,61 @@
+diff a/components/spi/src/spi.c b/components/spi/src/spi.c	(rejected hunks)
+@@ -4,23 +4,35 @@
+ #define TAG "SPI_DRIVER"
+ 
+ #include "driver/gpio.h"
++#include "global_config.h"
+ 
+ // 默认引脚占位，可在初始化函数中修改
+-// #define PIN_NUM_MISO 7
+-// #define PIN_NUM_MOSI 8
+-// #define PIN_NUM_CLK  6
+-// #define PIN_NUM_CS   13
+-// #define PIN_NUM_RSN   18
+-
+-#define PIN_NUM_MISO 9
+-#define PIN_NUM_MOSI 10
+-#define PIN_NUM_CLK  8
+-#define PIN_NUM_CS   11
+-#define PIN_NUM_RSN  17
+-
+-#define GH3X_INT_GPIO      15
+-
+-// #define GH3X_INT_GPIO      4
++#if (USE_GH3300_EVK)
++    #define PIN_NUM_MISO        7
++    #define PIN_NUM_MOSI        8
++    #define PIN_NUM_CLK         6
++    #define PIN_NUM_CS          13
++    #define PIN_NUM_RSN         18
++    #define GH3X_INT_GPIO       4
++#endif
++
++#if (USE_GH3300_EVT)
++    #define PIN_NUM_MISO        9
++    #define PIN_NUM_MOSI        10
++    #define PIN_NUM_CLK         8
++    #define PIN_NUM_CS          11
++    #define PIN_NUM_RSN         17
++    #define GH3X_INT_GPIO       15
++#endif
++
++#if (USE_GH3300_TWO_ESP32S3)
++    #define PIN_NUM_MISO        11
++    #define PIN_NUM_MOSI        13
++    #define PIN_NUM_CLK         12
++    #define PIN_NUM_CS          10
++    #define PIN_NUM_RSN         8
++    #define GH3X_INT_GPIO       7
++#endif
+ #define GH3X_INT_NAME      "GH3X_INT"
+ 
+ 
+@@ -210,7 +222,7 @@
+ void IRAM_ATTR gh3x_isr_handler(void* arg)
+ {
+     // 示例中断处理逻辑（可以发送事件通知任务等）
+-    ESP_EARLY_LOGI(TAG, "Interrupt triggered on GPIO4");
++    // ESP_EARLY_LOGI(TAG, "Interrupt triggered on GPIO4");
+ }
+ 
+ void gh3_int_init(void)

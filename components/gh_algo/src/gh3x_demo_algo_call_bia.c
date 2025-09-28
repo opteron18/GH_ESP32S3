@@ -311,7 +311,7 @@ GS8 GH3XBiaAlgoExe(const STFrameInfo * const pstFrameInfo)
         usChMap[uchChMapIndex] = pstFrameInfo->pstGh3xData->pusChnlMap[uchChMapIndex];
         if(usChMap[uchChMapIndex] & BIA_IQ_DATA_MASK)
         {
-              stIq.imag = pstFrameInfo->pstGh3xData->punRawdata[uchChMapIndex];
+            stIq.imag = pstFrameInfo->pstGh3xData->punRawdata[uchChMapIndex];
         }
         else
         {

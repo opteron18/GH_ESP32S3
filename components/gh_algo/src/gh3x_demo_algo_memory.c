@@ -16,7 +16,7 @@
 #include "goodix_mem.h"
 
 #if (__GOODIX_ALGO_CALL_MODE__)
-GU32 gpunAlgoMemBuffer[GH3X_ALGORITHMS_MEMORY_SIZE_FINAL/4] = {0};
+GU32 gpunAlgoMemBuffer[ (GH3X_ALGORITHMS_MEMORY_SIZE_FINAL ? ((GH3X_ALGORITHMS_MEMORY_SIZE_FINAL + 3) / 4) : 1) ] = {0};
 GU32 *gpunAlgoMemBufferPointer = gpunAlgoMemBuffer;
 #else  //without algorithm
 GU32 *gpunAlgoMemBufferPointer = 0;

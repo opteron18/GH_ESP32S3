@@ -44,7 +44,7 @@ goodix_hba_ret goodix_hba_init_func(GU32 fs)
     stHbCfg.hba_earliest_output_time = gunHrParamsArr[4];
 	
     GH3XSleepFlagSet((stHbCfg.scence == HBA_SCENES_SLEEP) ? 1 : 0);
-    GH3X_ALGO_LOG_PARAM("[%s]:params = %d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n", __FUNCTION__,
+    GH3X_ALGO_LOG_PARAM("[%s]:params = %u,%u,%ld,%ld,%ld,%ld,%ld,%ld,%ld,%ld,%ld,%ld\r\n", __FUNCTION__,
                                     stHbCfg.mode,
                                     stHbCfg.scence,
                                     stHbCfg.fs,

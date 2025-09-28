@@ -26,12 +26,12 @@
 #endif
 
 #if (USE_GH3300_TWO_ESP32S3)
-    #define PIN_NUM_MISO        11
-    #define PIN_NUM_MOSI        13
-    #define PIN_NUM_CLK         12
+    #define PIN_NUM_MISO        12
+    #define PIN_NUM_MOSI        14
+    #define PIN_NUM_CLK         13
     #define PIN_NUM_CS          10
-    #define PIN_NUM_RSN         8
-    #define GH3X_INT_GPIO       7
+    #define PIN_NUM_RSN         9
+    #define GH3X_INT_GPIO       11
 #endif
 #define GH3X_INT_NAME      "GH3X_INT"
 

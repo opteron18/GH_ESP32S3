@@ -29,6 +29,7 @@ static void IqAvaCalculatorAccumulate(STIqAvaCalculator *pstIqAvaCalculator, com
 
 static GU8 IqAvaCalculatorAverage(STIqAvaCalculator *pstIqAvaCalculator, complex_S32* pstOutputIq)
 {
+    EXAMPLE_LOG("IqAvaCalculatorAverage:%d",pstIqAvaCalculator->uchSampleCntInOneFrame);
     if(pstIqAvaCalculator->uchSampleCntInOneFrame)
     {
         pstOutputIq->real = pstIqAvaCalculator->stIQSumInOneFrame.real/pstIqAvaCalculator->uchSampleCntInOneFrame;
@@ -176,7 +177,7 @@ void BiaImpedanceAlgoSelfTest(void)
         
         if(emStateNext != emState)
         {
-            BiaImpedanceAlgoExe(&g_stSelfTestAlgo, &stRawdata.stIqRawdata, stRawdata.FrameId, stRawdata.SlotId,1, &stUpdataFlag);
+            BiaImpedanceAlgoExe(&g_stSelfTestAlgo, &stRawdata.stIqRawdata, stRawdata.FrameId, stRawdata.SlotId,(const STFrameInfo * const)1, &stUpdataFlag);
             emState = emStateNext;
         }
         usFrameCnt ++;
@@ -201,7 +202,7 @@ void BiaImpedanceAlgoInit(STImpedanceAglo *pstImpedanceAglo)
     BiaOffsetProcessorInit(&pstImpedanceAglo->stBiaOffsetPro);
     BiaCaliProcessorInit(&pstImpedanceAglo->stBiaCaliPro);
     IqAvaCalculatorInit(&pstImpedanceAglo->stIqAvaCalculator);
-    
+    EXAMPLE_LOG("uchSampleCntInOneFrame:%d",pstImpedanceAglo->stIqAvaCalculator.uchSampleCntInOneFrame);
     //this class init
     GH3X_Memset((void*)(pstImpedanceAglo->pstImpedanceNetChnlMap), BIA_INVALID_IMP_CHNL_MAP_VALUE, sizeof(pstImpedanceAglo->pstImpedanceNetChnlMap));
     pstImpedanceAglo->emState = BIA_SAMPLE_STATE_OFFSET;
@@ -291,7 +292,7 @@ EM_BIA_SAMPLE_STATE BiaImpedanceAlgoExe(STImpedanceAglo *pstImpedanceAglo, compl
     GU8 uchNetIndex;
 
     EM_BIA_SAMPLE_STATE emStateNext = pstImpedanceAglo->emState;
-//    EXAMPLE_LOG("[AlgoExeData] Falg0=%d,FrameCnt=%d,Waiting= %d,SlotId= %d,I = %d,Q = %d\r\n", pstFrameInfo->pstFlagInfo->punFlag[0],*(pstFrameInfo->punFrameCnt),pstImpedanceAglo->uchWaitingLastFrameInFifoStream,uchSlotId,pstIq->real,pstIq->imag);
+   EXAMPLE_LOG("[AlgoExeData] Falg0=%d,FrameCnt=%d,Waiting= %d,SlotId= %d,I = %d,Q = %d\r\n", pstFrameInfo->pstFlagInfo->punFlag[0],*(pstFrameInfo->punFrameCnt),pstImpedanceAglo->uchWaitingLastFrameInFifoStream,uchSlotId,pstIq->real,pstIq->imag);
 
     GH3X_Memset((void*)pstUpdataFlag, 0, sizeof(STUpdataFlag));
 
@@ -338,6 +339,7 @@ EM_BIA_SAMPLE_STATE BiaImpedanceAlgoExe(STImpedanceAglo *pstImpedanceAglo, compl
         BiaOffsetProcessorDeoffset(&pstImpedanceAglo->stBiaOffsetPro, pstIq, uchFrqIndex, &stDeoffsetIq);
         if(BIA_CALI_STATE_SUCCESSED == BiaCaliProcessorStandardResisIqRecord(&pstImpedanceAglo->stBiaCaliPro, &stDeoffsetIq, uchFrqIndex))
         {
+            EXAMPLE_LOG("[BIA_CALI_STATE_SUCCESSED]");
             pstImpedanceAglo->uchSuccessedFlag |= (1 << (uchFrqIndex));
             if((pstImpedanceAglo->uchSuccessedFlag >= ((1 << pstImpedanceAglo->stFrqInfo.uchFrqPointNum) - 1)))
             {
@@ -348,11 +350,16 @@ EM_BIA_SAMPLE_STATE BiaImpedanceAlgoExe(STImpedanceAglo *pstImpedanceAglo, compl
     }
     else if(BIA_SAMPLE_STATE_NET_IMEDANCE == pstImpedanceAglo->emState)
     {
+        // EXAMPLE_LOG("BIA_SAMPLE_STATE_NET_IMEDANCE");
+        // EXAMPLE_LOG("DEBUG_BIA_SAMPLE_STATE_NET_IMEDANCE:%d,%d,%d,",pstImpedanceAglo->uchLastFrqIndex,pstImpedanceAglo->uchLastNetIndex,uchFrqIndex);
         if((pstImpedanceAglo->uchLastFrqIndex != uchFrqIndex)||(pstImpedanceAglo->uchLastNetIndex != uchNetIndex))  //frq index or net index has changed, we need ouput average of IQ, and use this IQ to calculate impedance
         {
+            EXAMPLE_LOG("Debug1");
             complex_S32 stAvgIq;
+            // EXAMPLE_LOG("uchSampleCntInOneFrame111111111111111111111:%d",pstImpedanceAglo->stIqAvaCalculator.uchSampleCntInOneFrame);
             if(IqAvaCalculatorAverage(&pstImpedanceAglo->stIqAvaCalculator,&stAvgIq))
             {
+                // EXAMPLE_LOG("IqAvaCalculatorAverage");
                 BiaOffsetProcessorDeoffset(&pstImpedanceAglo->stBiaOffsetPro, &stAvgIq, pstImpedanceAglo->uchLastFrqIndex, &stAvgIq);
                 BiaCaliProcessorCalibrate(&pstImpedanceAglo->stBiaCaliPro, &stAvgIq, pstImpedanceAglo->uchLastFrqIndex,\
                    &(pstImpedanceAglo->pstImpedanceNetValue[pstImpedanceAglo->uchLastFrqIndex][pstImpedanceAglo->uchLastNetIndex]));
@@ -363,6 +370,7 @@ EM_BIA_SAMPLE_STATE BiaImpedanceAlgoExe(STImpedanceAglo *pstImpedanceAglo, compl
             
                 if(pstImpedanceAglo->uchLastNetIndex < BIA_IMP_Z_BODY_NET_INDEX)  //this iq is from contact net
                 {
+                    EXAMPLE_LOG("this iq is from contact net");
                     //call contact fix algo
 #if __BIA_IMPEDANCE_FIXER__                    
                     BiaImpedanceFixerContactFixViaOpenParam( 
@@ -405,6 +413,8 @@ EM_BIA_SAMPLE_STATE BiaImpedanceAlgoExe(STImpedanceAglo *pstImpedanceAglo, compl
             IqAvaCalculatorInit(&pstImpedanceAglo->stIqAvaCalculator);
         }
         IqAvaCalculatorAccumulate(&pstImpedanceAglo->stIqAvaCalculator,pstIq);
+        // EXAMPLE_LOG("uchSampleCntInOneFrame2222222222222222222:%d",pstImpedanceAglo->stIqAvaCalculator.uchSampleCntInOneFrame);
+        // EXAMPLE_LOG("uchSampleCntInOneFrame:%d",pstImpedanceAglo->stIqAvaCalculator.uchSampleCntInOneFrame);
         goto STATE_SWITCH_POST_PRO;
     }
 
@@ -457,9 +467,11 @@ void BiaImpedanceAlgoResult2Protocol(STUpdataFlag *pstUpdataFlag, STImpedanceAgl
 {
     
     pstFrameInfo->pstGh3xData->uchAgcNum = 0;
-    pstFrameInfo->pstAlgoData->uchResultNum =  0;       
+    pstFrameInfo->pstAlgoData->uchResultNum =  0;    
+    EXAMPLE_LOG("[uchZbodyFlag] =%d\r\n",pstUpdataFlag->uchZbodyFlag);    
     if(pstUpdataFlag->uchGlobalFlag)
     {
+    EXAMPLE_LOG("[uchGlobalFlag] =%d\r\n",pstUpdataFlag->uchGlobalFlag); 
       pstImpedanceAglo->uchUpNetIndex =  pstUpdataFlag->puchNetIndex;
       pstImpedanceAglo->uchUpFrqIndex = pstUpdataFlag->uchFrqIndex;
       ///// Algoresult                           
@@ -512,9 +524,9 @@ void BiaImpedanceAlgoResult2Protocol(STUpdataFlag *pstUpdataFlag, STImpedanceAgl
        cap_value_off = BiaImpedanceAlgoCapCalculate(gstZopenOff[3].imag);
        pstFrameInfo->pstGh3xData->punAgcInfo[13] = ((cap_value << 16) + cap_value_off);
 
-//       EXAMPLE_LOG("[BiaUploadRaw] Updata=%d,FrqIndex=%d,F3=%d,I5=%.3f,Q5=%.3f\r\n",
-//                    pstUpdataFlag->uchZbodyFlag,pstImpedanceAglo->uchUpFrqIndex, pstFrameInfo->pstFlagInfo->punFlag[3],
-//              (double)pstImpedanceAglo->pstImpedanceZbodyFixed[0].real,(double)pstImpedanceAglo->pstImpedanceZbodyFixed[0].imag); 
+      EXAMPLE_LOG("[BiaUploadRaw] Updata=%d,FrqIndex=%d,F3=%d,I5=%.3f,Q5=%.3f\r\n",
+                   pstUpdataFlag->uchZbodyFlag,pstImpedanceAglo->uchUpFrqIndex, pstFrameInfo->pstFlagInfo->punFlag[3],
+             (double)pstImpedanceAglo->pstImpedanceZbodyFixed[0].real,(double)pstImpedanceAglo->pstImpedanceZbodyFixed[0].imag); 
         
     }
     
@@ -536,14 +548,15 @@ void BiaImpedanceAlgoResult2Protocol(STUpdataFlag *pstUpdataFlag, STImpedanceAgl
     
 //    EXAMPLE_LOG("[FreIndexCompare] guchFreIndex=%d,upFreIndex=%d\r\n", pstImpedanceAglo->uchUpFrqIndex, pstUpdataFlag->uchFrqIndex);
 //    EXAMPLE_LOG("[NetIndexCompare] guchNetIndex=%d,upNetIndex=%d\r\n", guchNetIndex, pstUpdataFlag->puchNetIndex);
-   
-    EXAMPLE_LOG("[BiaUpload] Updata=%d,FrqIndex=%d,F3=%d,I1=%d,Q1=%d,I2=%d,Q2=%d,I3=%d,Q3=%d,I4=%d,Q4=%d,I5=%d,Q5=%d\r\n", 
-    (GS32)pstUpdataFlag->uchZbodyFlag,pstImpedanceAglo->uchUpFrqIndex,(GS32)pstFrameInfo->pstFlagInfo->punFlag[3],\
-    (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[0],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[1],\
-    (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[2],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[3],\
-    (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[4],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[5],\
-    (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[6],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[7],\
-    (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[8],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[9]);  
+
+        EXAMPLE_LOG("[BiaUpload] Updata=%d,FrqIndex=%d,F3=%d,I1=%d,Q1=%d,I2=%d,Q2=%d,I3=%d,Q3=%d,I4=%d,Q4=%d,I5=%d,Q5=%d\r\n", 
+        (GS32)pstUpdataFlag->uchZbodyFlag,pstImpedanceAglo->uchUpFrqIndex,(GS32)pstFrameInfo->pstFlagInfo->punFlag[3],
+        (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[0],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[1],
+        (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[2],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[3],
+        (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[4],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[5],
+        (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[6],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[7],
+        (GS32)pstFrameInfo->pstGh3xData->punAgcInfo[8],(GS32)pstFrameInfo->pstGh3xData->punAgcInfo[9]);  
+
 
 }
 #endif

@@ -1515,7 +1515,6 @@ GS8 gh_ia_filter(void)
     //1. reset
 #if __SUPPORT_HARD_RESET_CONFIG__
     GH3X_HardReset();
-
     GH3X_DelayMs(7);
     GU16 usEvent[7] = {0xFFFF,0xFFFF};
     GH3X_WriteRegs(0x060A, usEvent,2); //clear INT

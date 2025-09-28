@@ -979,11 +979,11 @@ uint32_t* get_knTdfusionWeightsArr_addr()
 
 void app_main(void)
 {
-    // create_uart_tasks();
+    create_uart_tasks();
     // GhCommInit();
     // configure_led();
     // uart_init();
-    // vTaskDelay(pdMS_TO_TICKS(10));
+    vTaskDelay(pdMS_TO_TICKS(20));
     // gh_ESP_LOG("System initialization complete\n");
     // FRT_UI_TaskCreate();
     // FRT_adc_buttom_TaskCreate();
@@ -992,9 +992,9 @@ void app_main(void)
     // ads1192_init();
     ///////////////////////////////////////////////////////////////////////////////////////
     // create_EMG_tasks();
-    sdcard_test();
-    // FRT_GH3300_TaskCreate();
-    ///////////////////////////////////////////////////////////////////////////////////////
+    // sdcard_test();
+    FRT_GH3300_TaskCreate();
+    /////////////////////////////////////////////////////////////////////////////////////
     // FRT_LED_TaskCreate();
     // FRT_adc_buttom_TaskCreate();
     // create_uart_tasks();

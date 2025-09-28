@@ -1367,7 +1367,7 @@ extern int (*gpSnprintfUser)(char *str, size_t size, const char *format, ...);
 extern void GH3X_Log(GCHAR *chLogString);
 
 //sample log enable flag
-#define SAMPLE_DEBUG_ENABLE (0)
+#define SAMPLE_DEBUG_ENABLE (1)
 #if SAMPLE_DEBUG_ENABLE
 //sample log open
 /// log support len
@@ -1384,7 +1384,7 @@ extern void GH3X_Log(GCHAR *chLogString);
                                                     if(gpPrintfUser)gpPrintfUser("[gh3x_drv]: "__VA_ARGS__);\
                                             } while (0)
 #endif
-#define   GH3X_SAMPLE_LOG_PARAM(...)
+// #define   GH3X_SAMPLE_LOG_PARAM(...)
 #define DRVLIB_GOODIX_DEMO_PLATFORM_DEBUG  0
 #ifdef GOODIX_DEMO_PLATFORM
 #ifdef GH3X_LOG_DEBUG
@@ -1407,7 +1407,16 @@ extern void GH3X_Log(GCHAR *chLogString);
                                                 if(gpPrintfUser)gpPrintfUser("[gh3x_drv]: "__VA_ARGS__);\
                                             } while (0)
 #else   // debug level <= 0
-#define   GH3X_DEBUG_LOG_PARAM(...)         
+#define   GH3X_DEBUG_LOG_PARAM(...)       do {\
+                                                if(gpSnprintfUser)\
+                                                {\
+                                                    GCHAR chDebugStr[128] = {0};\
+                                                    gpSnprintfUser(chDebugStr, 128, \
+                                                            "[gh3x_drv]: "__VA_ARGS__);\
+                                                    GH3X_Log(chDebugStr);\
+                                                }\
+                                                if(gpPrintfUser)gpPrintfUser("[gh3x_drv]: "__VA_ARGS__);\
+                                            } while (0)      
 #endif
 
 /**< reg addr size */

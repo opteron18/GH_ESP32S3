@@ -396,17 +396,17 @@ BID_OFFSET_IMP_FIXED_E BiaImpedanceFixerZbodyFix(complex_double *pstImpedanceNet
     STGHxBIAInfo stghBIAInfo;
     stghBIAInfo.stBIAW = BiaGetZbodyImpedanceFixerWeight(uchFreq);
     ////  The daughter board hardware connections of EVK and demo are different, and contact impedance input calibration model is different
-    #ifdef  GR5526_SK   //The contact impedance of the EVK input calibration model is measured
+    // #ifdef  GR5526_SK   //The contact impedance of the EVK input calibration model is measured
     stghBIAInfo.stBIAMeasure.ZEL2A = pstImpedanceNetValue[ZNewValueTxpZ4Index];
     stghBIAInfo.stBIAMeasure.ZEL1B = pstImpedanceNetValue[ZNewValueRxnZ3Index];
     stghBIAInfo.stBIAMeasure.ZEL2B = pstImpedanceNetValue[ZNewValueTxnZ2Index];
     stghBIAInfo.stBIAMeasure.ZEL1A = pstImpedanceNetValue[ZNewValueRxpZ1Index];
-    #else //// The demo exchanges the measured 1A and 2A and then inputs them into the calibration model
-    stghBIAInfo.stBIAMeasure.ZEL2A = pstImpedanceNetValue[ZNewValueRxpZ1Index];
-    stghBIAInfo.stBIAMeasure.ZEL1B = pstImpedanceNetValue[ZNewValueTxnZ2Index];
-    stghBIAInfo.stBIAMeasure.ZEL2B = pstImpedanceNetValue[ZNewValueRxnZ3Index];
-    stghBIAInfo.stBIAMeasure.ZEL1A = pstImpedanceNetValue[ZNewValueTxpZ4Index];
-    #endif
+    // #else //// The demo exchanges the measured 1A and 2A and then inputs them into the calibration model
+    // stghBIAInfo.stBIAMeasure.ZEL2A = pstImpedanceNetValue[ZNewValueRxpZ1Index];
+    // stghBIAInfo.stBIAMeasure.ZEL1B = pstImpedanceNetValue[ZNewValueTxnZ2Index];
+    // stghBIAInfo.stBIAMeasure.ZEL2B = pstImpedanceNetValue[ZNewValueRxnZ3Index];
+    // stghBIAInfo.stBIAMeasure.ZEL1A = pstImpedanceNetValue[ZNewValueTxpZ4Index];
+    // #endif
     stghBIAInfo.stBIAMeasure.V1B2A = pstImpedanceNetValue[ZNewValueZbodyIndex];
     
     STBIAParameter stBIAZbodyFixParameter = BiaGetZbodyImpedanceFixerParameter(uchFreq);

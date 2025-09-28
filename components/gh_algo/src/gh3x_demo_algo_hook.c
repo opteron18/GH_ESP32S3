@@ -20,9 +20,11 @@
  *
  * @return  None
  */
+extern esp_err_t gh_ESP_LOG(char *string);
 
 void GH3X_AlgoLog(GCHAR *log_string)
 {
+    gh_ESP_LOG(log_string);
     GOODIX_PLATFROM_LOG_ENTITY();
 }
 
@@ -129,9 +131,7 @@ void GH3X_HrvAlgorithmResultReport(STAlgoData * pstAlgoResult, GU32 lubFrameId)
 {
 #if (__USE_GOODIX_HRV_ALGORITHM__)
     /* code implement by user */
-    //SLAVER_LOG("snHrvOut0=%d,snHrvOut1=%d,snHrvOut2=%d,snHrvOut3=%d,snHrvNum=%d,snHrvConfi=%d\r\n",
-    //          stHrvAlgoRes[0].snHrvOut0,stHrvAlgoRes[0].snHrvOut1,stHrvAlgoRes[0].snHrvOut2,stHrvAlgoRes[0].snHrvOut3,stHrvAlgoRes[0].snHrvNum,stHrvAlgoRes[0].snHrvNum);
-//    GOODIX_PLATFROM_HRV_RESULT_REPORT_ENTITY();
+    GOODIX_PLATFROM_HRV_RESULT_REPORT_ENTITY();
 #endif
 }
 

@@ -1,8 +1,8 @@
 //EMG-----------------------------------------------
-// #define USE_ADS1292R 1
-#define USE_ADS1292R_TWO_CORE 1
+#define USE_ADS1292R 1
+// #define USE_ADS1292R_TWO_CORE 1
 // #define USE_EVT_ADS1192 1
-// #define USE_HOST_DEBUGER 1
+#define USE_HOST_DEBUGER 1
 //EMG REGS CONFIG-----------------------------------------------
 extern uint8_t ads1192_default_config[11];
 extern uint8_t ads1292r_default_config[11];
@@ -15,8 +15,8 @@ extern uint8_t ads1292r_default_config[11];
 //UART-----------------------------------------------
 
 //GH3300-----------------------------------------------
-// #define USE_GH3300_LOG 1
-
+#define USE_GH3300_LOG 1
+// #define USE_ALGO_LOG 1
 // #define USE_GH3300_EVK 1
 // #define USE_GH3300_EVT 1
 #define USE_GH3300_TWO_ESP32S3 1

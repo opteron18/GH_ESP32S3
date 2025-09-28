@@ -14,6 +14,7 @@
 #include "gh3x_demo_config.h"
 
 #include "esp_err.h"
+#include <stdio.h>
 
 // extern void spi_driver_init();
 // extern esp_err_t spi_cs_set_level(uint32_t level);
@@ -58,8 +59,42 @@
 #define GOODIX_PLATFROM_WEAR_OFF_EVENT()
 #define GOODIX_PLATFROM_LEAD_ON_EVENT()
 #define GOODIX_PLATFROM_LEAD_OFF_EVENT()
-#define GOODIX_PLATFROM_HR_RESULT_REPORT_ENTITY()
-#define GOODIX_PLATFROM_SPO2_RESULT_REPORT_ENTITY()
+
+/* UART log bridge */
+extern int GH3X_HalSerialSendData(char* uchTxDataBuf, int usBufLen);
+#ifndef SLAVER_LOG
+#define SLAVER_LOG(...) do { \
+    char __slaver_log_buf[128] = {0}; \
+    int __n = snprintf(__slaver_log_buf, sizeof(__slaver_log_buf), __VA_ARGS__); \
+    if (__n > 0) { GH3X_HalSerialSendData(__slaver_log_buf, __n); } \
+} while(0)
+#endif
+
+/* Result report entities (Option C: print like vendor macros over UART) */
+#define GOODIX_PLATFROM_HR_RESULT_REPORT_ENTITY()           SLAVER_LOG("HR  "); \
+                                                            for(int i = 0; i < pstAlgoResult->uchResultNum; i++){ \
+                                                                SLAVER_LOG("Result[%d] = %d,", i, pstAlgoResult->pnResults[i]); \
+                                                            } \
+                                                            SLAVER_LOG("\r\n");
+
+#define GOODIX_PLATFROM_SPO2_RESULT_REPORT_ENTITY()         SLAVER_LOG("SPO2  "); \
+                                                            for(int i = 0; i < pstAlgoResult->uchResultNum; i++){ \
+                                                                SLAVER_LOG("Result[%d] = %d,", i, pstAlgoResult->pnResults[i]); \
+                                                            } \
+                                                            SLAVER_LOG("\r\n");
+
+#define GOODIX_PLATFROM_HRV_RESULT_REPORT_ENTITY()          SLAVER_LOG("HRV  "); \
+                                                            for(int i = 0; i < pstAlgoResult->uchResultNum; i++){ \
+                                                                SLAVER_LOG("Result[%d] = %d,", i, pstAlgoResult->pnResults[i]); \
+                                                            } \
+                                                            SLAVER_LOG("\r\n");
+
+#define GOODIX_PLATFROM_ECG_RESULT_REPORT_ENTITY()          SLAVER_LOG("ECG  "); \
+                                                            for(int i = 0; i < pstAlgoResult->uchResultNum; i++){ \
+                                                                SLAVER_LOG("Result[%d] = %d,", i, pstAlgoResult->pnResults[i]); \
+                                                            } \
+                                                            SLAVER_LOG("\r\n");
+
 #define GOODIX_PLATFROM_SERIAL_TIMER_INIT_ENTITY()
 #define GOODIX_PLATFROM_SERIAL_TIMER_STOP_ENTITY()
 #define GOODIX_PLATFROM_SERIAL_TIMER_START_ENTITY()
@@ -87,9 +122,6 @@
 #define GOODIX_PLATFROM_GOODIX_ALGO_CALL_ENTITY()
 #define GOODIX_PLATFROM_TIMEOUT_HOOK_ENTITY()
 #define GOODIX_PLATFROM_TIMEOUT_HOOK_ENTITY()
-#define GOODIX_PLATFROM_ECG_RESULT_REPORT_ENTITY()
-#define GOODIX_PLATFROM_HR_RESULT_REPORT_ENTITY()
-#define GOODIX_PLATFROM_SPO2_RESULT_REPORT_ENTITY()
 
 #endif
 
