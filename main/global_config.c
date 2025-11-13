@@ -31,13 +31,54 @@ uint8_t ads1292r_default_config[11] = {
     // 0x02, //0Ah MISC2: CALIB_ON使能
     // 0x0C  //0Bh GPIO: 开启 GPIOD1 和 GPIOD2
     
-    0x02, //01h CONFIG1: 250SPS (DR2=1 DR1=0 DR0=0)
-    0xE0, //02h CONFIG2: PDB_REFBUF = 1
+    // 0x02, //01h CONFIG1: 250SPS (DR2=1 DR1=0 DR0=0)
+    // 0xE0, //02h CONFIG2: PDB_REFBUF = 1
+    // 0xF0, //03h LOFF: 仅保留COMP_EN = 1，其它为0（或根据需要）
+    // 0x60, //04h CH1SET: GAIN=6, MUX=Normal
+    // 0x80, //05h CH2SET: 同上
+    // 0x00, //06h RLD_SENS: RLD相关配置，根据需要启用/禁用
+    // 0x0F, //07h LOFF_SENS: 默认
+    // 0x00, //08h LOFF_STAT: 只读，写入无效
+    // 0x02, //09h MISC1: 默认0
+    // 0x03, //0Ah MISC2: CALIB_ON使能
+    // 0x0C  //0Bh GPIO: 开启 GPIOD1 和 GPIOD2
+
+    0x06, //01h CONFIG1: 250SPS (DR2=1 DR1=0 DR0=0)
+    0x8B, //02h CONFIG2: PDB_REFBUF = 1
     0xF0, //03h LOFF: 仅保留COMP_EN = 1，其它为0（或根据需要）
-    0x60, //04h CH1SET: GAIN=6, MUX=Normal
-    0x80, //05h CH2SET: 同上
+    0x05, //04h CH1SET: GAIN=6, MUX=Normal
+    0x05, //05h CH2SET: 同上
     0x00, //06h RLD_SENS: RLD相关配置，根据需要启用/禁用
-    0x0F, //07h LOFF_SENS: 默认
+    0x00, //07h LOFF_SENS: 默认
+    0x00, //08h LOFF_STAT: 只读，写入无效
+    0x02, //09h MISC1: 默认0
+    0x03, //0Ah MISC2: CALIB_ON使能
+    0x0C  //0Bh GPIO: 开启 GPIOD1 和 GPIOD2
+};
+#endif
+
+
+#if (USE_DVT_ADS1292R)
+uint8_t ads1292r_default_config[11] = {
+    // 0x02, //01h CONFIG1: 250SPS (DR2=1 DR1=0 DR0=0)
+    // 0x80, //02h CONFIG2: PDB_REFBUF = 1
+    // 0x10, //03h LOFF: 仅保留COMP_EN = 1，其它为0（或根据需要）
+    // 0x10, //04h CH1SET: GAIN=6, MUX=Normal
+    // 0x10, //05h CH2SET: 同上
+    // 0x00, //06h RLD_SENS: RLD相关配置，根据需要启用/禁用
+    // 0x00, //07h LOFF_SENS: 默认
+    // 0x00, //08h LOFF_STAT: 只读，写入无效
+    // 0x00, //09h MISC1: 默认0
+    // 0x02, //0Ah MISC2: CALIB_ON使能
+    // 0x0C  //0Bh GPIO: 开启 GPIOD1 和 GPIOD2
+    
+    0x02, //01h CONFIG1: 250SPS (DR2=1 DR1=0 DR0=0)
+    0xAB, //02h CONFIG2: PDB_REFBUF = 1
+    0xF0, //03h LOFF: 仅保留COMP_EN = 1，其它为0（或根据需要）
+    0x05, //04h CH1SET: GAIN=6, MUX=Normal
+    0x05, //05h CH2SET: 同上
+    0x00, //06h RLD_SENS: RLD相关配置，根据需要启用/禁用
+    0x00, //07h LOFF_SENS: 默认
     0x00, //08h LOFF_STAT: 只读，写入无效
     0x02, //09h MISC1: 默认0
     0x03, //0Ah MISC2: CALIB_ON使能

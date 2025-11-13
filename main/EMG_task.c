@@ -64,10 +64,12 @@ void FRT_EMG_Task() {
         .sclk_io_num = GPIO_NUM_17,
         //-------------------------------
         #endif
-        //spi3
-        // .mosi_io_num = GPIO_NUM_19,
-        // .miso_io_num = GPIO_NUM_13,
-        // .sclk_io_num = GPIO_NUM_14,
+
+        #if (USE_DVT_ADS1292R)
+        .mosi_io_num = GPIO_NUM_4,
+        .miso_io_num = GPIO_NUM_2,
+        .sclk_io_num = GPIO_NUM_3,
+        #endif
         //-------------------------------
 
         #if (USE_ADS1292R_TWO_CORE)
@@ -123,17 +125,18 @@ void FRT_EMG_Task() {
     //spi3 PWDN START DRDY Pin
     ads.cs_pin = GPIO_NUM_12;
     ads.pwdn_pin = GPIO_NUM_40;
-    // ads.pwdn_pin = GPIO_NUM_30;
     ads.start_pin = GPIO_NUM_20;
     ads.drdy_pin = GPIO_NUM_39;
-    //spi2 PWDN START DRDY Pin
-    // ads.cs_pin = GPIO_NUM_12;
-    // ads.pwdn_pin = GPIO_NUM_40;
-    // ads.start_pin = GPIO_NUM_20;
-    // ads.drdy_pin = GPIO_NUM_39;
     //-------------------------------
     #endif
 
+    #if (USE_DVT_ADS1292R)
+    //origin test module
+    ads.cs_pin = GPIO_NUM_7;
+    ads.pwdn_pin = GPIO_NUM_9;
+    ads.start_pin = GPIO_NUM_8;
+    ads.drdy_pin = GPIO_NUM_1;
+    #endif
     //spi2
     // ads1292r_init(&ads, SPI2_HOST);
     //-------------------------------
@@ -150,12 +153,23 @@ void FRT_EMG_Task() {
     vTaskDelay(pdMS_TO_TICKS(1000));
     while (1) {
         // 等待 DRDY 通知，最多阻塞 100ms
-        ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(100));
+        ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(10));
 
          // 读取数据并写入环形缓冲区
 
         float data[2];  // 改为 float 类型
         
+    // gpio_set_level(ads.cs_pin, 1);
+    // gpio_set_level(ads.start_pin, 1);
+    // gpio_set_level(ads.pwdn_pin, 1);
+    // gpio_set_level(ads.drdy_pin, 1);
+    // vTaskDelay(pdMS_TO_TICKS(50));
+    // gpio_set_level(ads.cs_pin, 0);
+    // gpio_set_level(ads.start_pin, 0);
+    // gpio_set_level(ads.pwdn_pin, 0);
+    // gpio_set_level(ads.drdy_pin, 0);
+    // vTaskDelay(pdMS_TO_TICKS(50));
+
         // uint8_t id_val = 0;
         // ads1292r_read_regs(&ads, 0x3, &id_val, 1);
         // ESP_LOGE(TAG, "DEVICE ID: 0x%02X", id_val);
@@ -163,26 +177,31 @@ void FRT_EMG_Task() {
         if (ads1292r_read_data(&ads, data) == ESP_OK) {
             // ESP_LOGI(TAG,"CH1: %f",data[0]);
             // ESP_LOGI(TAG,"CH2: %f",data[1]);
-            circular_buffer_write(&circ, (uint8_t *)data, sizeof(data));
+            // circular_buffer_write(&circ, (uint8_t *)data, sizeof(data));
         }
-        
+        // vTaskDelay(pdMS_TO_TICKS(1));
         // vTaskDelay(pdMS_TO_TICKS(1));
         // 如果缓冲区有足够数据，打包发送
-        if (circular_buffer_count(&circ) >= BUF_LEN) {
-            circular_buffer_read(&circ, read_buf, BUF_LEN);
-            uint8_t len = ack_data_pack(SAMPLE_ADDR, read_buf, BUF_LEN, tx_buf);
-            #if(USE_ADS1292R)
-                #if(USE_HOST_DEBUGER)
-                    uart_write_bytes(UART_NUM_0,tx_buf,len);
-                #endif
-            #endif
-            #if(USE_EVT_ADS1192)
-                #if(USE_HOST_DEBUGER)
-                    uart_write_bytes(UART_NUM_0,tx_buf,len);
-                #endif
-            #endif
-            // fwrite(tx_buf, 1, len, stdout);
-        }
+        // if (circular_buffer_count(&circ) >= BUF_LEN) {
+        //     circular_buffer_read(&circ, read_buf, BUF_LEN);
+        //     uint8_t len = ack_data_pack(SAMPLE_ADDR, read_buf, BUF_LEN, tx_buf);
+        //     #if(USE_DVT_ADS1292R)
+        //         #if(USE_HOST_DEBUGER)
+        //             uart_write_bytes(UART_NUM_0,tx_buf,len);
+        //         #endif
+        //     #endif
+        //     #if(USE_ADS1292R)
+        //         #if(USE_HOST_DEBUGER)
+        //             uart_write_bytes(UART_NUM_0,tx_buf,len);
+        //         #endif
+        //     #endif
+        //     #if(USE_EVT_ADS1192)
+        //         #if(USE_HOST_DEBUGER)
+        //             uart_write_bytes(UART_NUM_0,tx_buf,len);
+        //         #endif
+        //     #endif
+        //     // fwrite(tx_buf, 1, len, stdout);
+        // }
 
     }
 }

@@ -1,5 +1,9 @@
 idf_component_register(
-    SRCS 
+    # SRC_DIRS 
+    #     "./src"
+    #     "./src_2"
+    #     "./lib"
+    SRCS
         "src/gh3x_demo_algo_call_adt.c" 
         "src/gh3x_demo_algo_call_bia.c" 
         "src/gh3x_demo_algo_call_ecg.c" 
@@ -21,14 +25,14 @@ idf_component_register(
         "src/goodix_spo2_net_for_GH3300_c3450c.c" 
         "src/goodix_sys_bia.c" 
         "src/heart_net_org_dll.c" 
-        # "lib/HRNet_knBasicWeights.c" 
-        # "lib/HRNet_knConfNetWeights.c" 
-        # "lib/HRNet_knMultiWeights.c" 
-        # "lib/HRNet_knSceneNetWeights.c" 
-        # "lib/HRNet_knSceneSwitchWeights.c" 
-        # "lib/HRNet_knSmallWeights.c" 
-        # "lib/HRNet_knTdfusionWeights.c" 
-        # "lib/HRNet_knWeights.c" 
+        "lib/HRNet_knBasicWeights.c" 
+        "lib/HRNet_knConfNetWeights.c" 
+        "lib/HRNet_knMultiWeights.c" 
+        "lib/HRNet_knSceneNetWeights.c" 
+        "lib/HRNet_knSceneSwitchWeights.c" 
+        "lib/HRNet_knSmallWeights.c" 
+        "lib/HRNet_knTdfusionWeights.c" 
+        "lib/HRNet_knWeights.c" 
         "src/iot_sys_common_lib.c"
 
         "src_2/BiaSampleManager.c" 
@@ -60,9 +64,20 @@ idf_component_register(
         "src_2/gh3x_fifo_analyze.c"
     # INCLUDE_DIRS "include" "." "../gh_drv/include" "lib"
     INCLUDE_DIRS  "." "include" "include_2"
-    REQUIRES "${public_requires}" "freertos" "driver"  "uart" spi
+    REQUIRES "freertos" "driver"  "uart" spi
 )
 
+# add_prebuilt_library(prebuilt 
+#                             "./lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a"
+#                             "./lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dsp.a"
+#                             "./lib/esp32_xtensa-esp32-gcc-14.2.0_os_hr.a"
+#                             "./lib/esp32_xtensa-esp32-gcc-14.2.0_os_hrv.a"
+#                             "./lib/esp32_xtensa-esp32-gcc-14.2.0_os_ecg.a"
+#                             "./lib/esp32_xtensa-esp32-gcc-14.2.0_os_nadt.a"
+#                             "./lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a"
+# )
+
+# target_link_libraries(${COMPONENT_LIB} PRIVATE prebuilt)
 
 
 # set(GH_ALGO_LIBS

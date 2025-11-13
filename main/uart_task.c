@@ -1,9 +1,19 @@
 #include "uart.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/queue.h"
 #include <string.h>
 #include "esp_log.h"
 #include "global_config.h"
+
+// UART 发送队列
+static QueueHandle_t uart_tx_queue = NULL;
+
+// 队列消息结构
+typedef struct {
+    uint8_t *data;
+    size_t len;
+} uart_queue_msg_t;
 
 // 接收回调示例
 static void rx_callback(uart_packet_t *packet) {
@@ -61,7 +71,7 @@ void create_uart_tasks(void) {
         .uart_num = UART_NUM_0,
         .tx_pin = 43,  // 自定义TX引脚
         .rx_pin = 44,  // 自定义RX引脚
-        .baud_rate = 256000,
+        .baud_rate = 115200,
         .rx_queue = NULL, // 在驱动中创建
         .tx_queue = NULL  // 在驱动中创建
         #endif

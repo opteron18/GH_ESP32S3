@@ -601,14 +601,14 @@ void FRT_adc_buttom_TaskCreate(void)
     }
     
     // 创建按键扫描任务
-    xTaskCreate(key_scan_task, "key_scan", 4096, NULL, 5, NULL);
+    xTaskCreate(key_scan_task, "key_scan", 1024, NULL, 5, NULL);
     
     // 创建按键事件处理任务
-    xTaskCreate(key_event_task, "key_event", 4096, NULL, 4, NULL);
+    xTaskCreate(key_event_task, "key_event", 1024, NULL, 4, NULL);
     
     // 创建ADC监测任务（可选，用于调试）
     // 注释掉下面这行可以减少日志输出
-    xTaskCreate(adc_monitor_task, "adc_monitor", 4096, NULL, 2, NULL);
+    xTaskCreate(adc_monitor_task, "adc_monitor", 1024, NULL, 2, NULL);
     
     ESP_LOGI(TAG, "All tasks created successfully");
 }

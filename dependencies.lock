@@ -1,17 +1,16 @@
 dependencies:
-  espressif/led_strip:
-    dependencies: []
-    source:
-      path: F:\ESP32_GH3300\components\espressif__led_strip
-      type: local
-    version: 2.5.5
   idf:
     source:
       type: idf
     version: 5.4.2
+  protocol_examples_common:
+    dependencies: []
+    source:
+      path: D:\ESPIDFv5\v5.4.2\esp-idf\examples\common_components\protocol_examples_common
+      type: local
+    version: '*'
 direct_dependencies:
-- espressif/led_strip
-- idf
-manifest_hash: 3c5328f884f0887acf935556292e6e1c07f2d7527fe1bbb8eed2f412da6e49db
+- protocol_examples_common
+manifest_hash: 9a9520c926aa0a3e6ab6efa4fb14c3591e654d3887543776c1f730f359b02661
 target: esp32s3
 version: 2.0.0

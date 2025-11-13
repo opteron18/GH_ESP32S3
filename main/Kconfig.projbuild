@@ -1,6 +1,6 @@
 menu "Example Configuration"
 
-    orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+    # orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
 
     choice BLINK_LED
         prompt "Blink LED type"
@@ -33,4 +33,104 @@ menu "Example Configuration"
         help
             Define the blinking period in milliseconds.
 
+    config EXAMPLE_FIRMWARE_UPGRADE_URL
+        string "Firmware Upgrade URL"
+        default "https://192.168.2.106:8070/hello_world.bin"
+        help
+            URL of server which hosts the firmware image.
+
+    config EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
+        bool
+        default y if EXAMPLE_FIRMWARE_UPGRADE_URL = "FROM_STDIN"
+
+    config EXAMPLE_SKIP_COMMON_NAME_CHECK
+        bool "Skip server certificate CN fieldcheck"
+        default n
+        help
+            This allows you to skip the validation of OTA server certificate CN field.
+
+    config EXAMPLE_SKIP_VERSION_CHECK
+        bool "Skip firmware version check"
+        default n
+        help
+            This allows you to skip the firmware version check.
+
+    config EXAMPLE_OTA_RECV_TIMEOUT
+        int "OTA Receive Timeout"
+        default 5000
+        help
+            Maximum time for reception
+
+    config EXAMPLE_ENABLE_PARTIAL_HTTP_DOWNLOAD
+        bool "Enable partial HTTP download"
+        default n
+        help
+            This enables use of Range header in esp_https_ota component.
+            Firmware image will be downloaded over multiple HTTP requests.
+
+    config EXAMPLE_HTTP_REQUEST_SIZE
+        int "HTTP request size"
+        default MBEDTLS_SSL_IN_CONTENT_LEN
+        depends on EXAMPLE_ENABLE_PARTIAL_HTTP_DOWNLOAD
+        help
+            This options specifies HTTP request size. Number of bytes specified
+            in this option will be downloaded in single HTTP request.
+
+    choice EXAMPLE_SPP_SERVER
+        prompt "SPP TRANSPORT mode"
+        default EXAMPLE_SPP_THROUGHPUT
+        help
+            Define SPP TRANSPORT mode
+
+        config EXAMPLE_SPP_THROUGHPUT
+            bool "Throughput"
+        config EXAMPLE_SPP_RELIABLE
+            bool "Reliable"
+    endchoice
+
+    config EXAMPLE_ENABLE_RF_EMC_TEST_MODE
+        bool
+        prompt "Enable BLE EMC test mode for RF"
+        default n
+        help
+            Use this option to enable BLE EMC test mode for RF.
+
+    config EXAMPLE_ENABLE_RF_TESTING_CONFIGURATION_COMMAND
+        bool
+        prompt "Enable Configuration command during RF testing"
+        default n
+        help
+            Use this option to enable configuration command when this example is used for RF testing.
+    config EXAMPLE_WIFI_CONNECTION_MAXIMUM_RETRY
+        int "WiFi connection maximum retry"
+        range 0 255
+        default 2
+        help
+            WiFi connection maximum retry, from 0 to 255.
+
+    # choice EXAMPLE_WIFI_SCAN_AUTH_MODE_THRESHOLD2
+    #     prompt "WiFi Scan auth mode threshold2"
+    #     default ESP_WIFI_AUTH_WPA2_PSK
+    #     help
+    #         The weakest authmode to accept in the scan mode.
+    #         This value defaults to ESP_WIFI_AUTH_WPA2_PSK in case password is present and ESP_WIFI_AUTH_OPEN is used.
+    #         Please select ESP_WIFI_AUTH_WEP/ESP_WIFI_AUTH_WPA_PSK in case AP is operating in WEP/WPA mode.
+
+    #     config ESP_WIFI_AUTH_OPEN
+    #         bool "OPEN"
+    #     config ESP_WIFI_AUTH_WEP
+    #         bool "WEP"
+    #     config ESP_WIFI_AUTH_WPA_PSK
+    #         bool "WPA PSK"
+    #     config ESP_WIFI_AUTH_WPA2_PSK
+    #         bool "WPA2 PSK"
+    #     config ESP_WIFI_AUTH_WPA_WPA2_PSK
+    #         bool "WPA/WPA2 PSK"
+    #     config ESP_WIFI_AUTH_WPA3_PSK
+    #         bool "WPA3 PSK"
+    #     config ESP_WIFI_AUTH_WPA2_WPA3_PSK
+    #         bool "WPA2/WPA3 PSK"
+    #     config ESP_WIFI_AUTH_WAPI_PSK
+    #         bool "WAPI PSK"
+    # endchoice
 endmenu

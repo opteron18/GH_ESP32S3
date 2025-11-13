@@ -23,6 +23,8 @@
 #include "esp_timer.h"
 #include "esp_log.h"
 #include "esp_task_wdt.h"
+#include <math.h>
+
 #if SOC_SDMMC_IO_POWER_EXTERNAL
 #include "sd_pwr_ctrl_by_on_chip_ldo.h"
 #endif
@@ -698,19 +700,37 @@ void sdcard_advanced_performance_test(const char* mount_point)
     ESP_LOGI(TAG, "Advanced performance analysis completed!");
 }
 
-void sdcard_test(void)
-{
-    esp_err_t ret;
 
-    // Options for mounting the filesystem.
-    // If format_if_mount_failed is set to true, SD card will be partitioned and
-    // formatted in case when mounting fails.
+#define NUM_CHANNELS 12
+#define SAMPLE_RATE_HZ 1000
+#define RECORD_DURATION_SEC 10   // 采样时间 10 秒
+
+typedef struct __attribute__((packed)) {
+    uint32_t timestamp_us;     // 时间戳（微秒）
+    uint16_t adc[NUM_CHANNELS]; // 12 路 ADC
+} SampleFrame;
+
+static FILE *data_file = NULL;
+
+// 模拟 ADC 采样函数
+static uint16_t read_adc_channel(int ch, uint32_t t_us)
+{
+    // 模拟信号：不同通道不同频率的正弦波 + 随机噪声
+    float t = t_us / 1e6f;
+    float value = (sinf(2 * M_PI * (1.0f + ch * 0.1f) * t) + 1.0f) * 8192 + (rand() % 100);
+    if (value > 16383) value = 16383;
+    if (value < 0) value = 0;
+    return (uint16_t)value;
+}
+
+void record_adc_task(void *arg)
+{
+
+    esp_err_t ret;
     esp_vfs_fat_sdmmc_mount_config_t mount_config = {
-#ifdef CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
+
         .format_if_mount_failed = true,
-#else
-        .format_if_mount_failed = false,
-#endif // EXAMPLE_FORMAT_IF_MOUNT_FAILED
+        // .format_if_mount_failed = false,
         .max_files = 5,
         .allocation_unit_size = 16 * 1024
     };
@@ -718,75 +738,24 @@ void sdcard_test(void)
     const char mount_point[] = MOUNT_POINT;
     ESP_LOGI(TAG, "Initializing SD card");
 
-    // Use settings defined above to initialize SD card and mount FAT filesystem.
-    // Note: esp_vfs_fat_sdmmc/sdspi_mount is all-in-one convenience functions.
-    // Please check its source code and implement error recovery when developing
-    // production applications.
-
     ESP_LOGI(TAG, "Using SDMMC peripheral");
 
-    // By default, SD card frequency is initialized to SDMMC_FREQ_DEFAULT (20MHz)
-    // For setting a specific frequency, use host.max_freq_khz (range 400kHz - 40MHz for SDMMC)
-    // Example: for fixed frequency of 10MHz, use host.max_freq_khz = 10000;
     sdmmc_host_t host = SDMMC_HOST_DEFAULT();
-#if CONFIG_EXAMPLE_SDMMC_SPEED_HS
-    host.max_freq_khz = SDMMC_FREQ_HIGHSPEED;
-#elif CONFIG_EXAMPLE_SDMMC_SPEED_UHS_I_SDR50
-    host.slot = SDMMC_HOST_SLOT_0;
-    host.max_freq_khz = SDMMC_FREQ_SDR50;
-    host.flags &= ~SDMMC_HOST_FLAG_DDR;
-#elif CONFIG_EXAMPLE_SDMMC_SPEED_UHS_I_DDR50
-    host.slot = SDMMC_HOST_SLOT_0;
-    host.max_freq_khz = SDMMC_FREQ_DDR50;
-#endif
 
-    // For SoCs where the SD power can be supplied both via an internal or external (e.g. on-board LDO) power supply.
-    // When using specific IO pins (which can be used for ultra high-speed SDMMC) to connect to the SD card
-    // and the internal LDO power supply, we need to initialize the power supply first.
-#if CONFIG_EXAMPLE_SD_PWR_CTRL_LDO_INTERNAL_IO
-    sd_pwr_ctrl_ldo_config_t ldo_config = {
-        .ldo_chan_id = CONFIG_EXAMPLE_SD_PWR_CTRL_LDO_IO_ID,
-    };
-    sd_pwr_ctrl_handle_t pwr_ctrl_handle = NULL;
+    host.max_freq_khz = 10000;
 
-    ret = sd_pwr_ctrl_new_on_chip_ldo(&ldo_config, &pwr_ctrl_handle);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to create a new on-chip LDO power control driver");
-        return;
-    }
-    host.pwr_ctrl_handle = pwr_ctrl_handle;
-#endif
-
-    // This initializes the slot without card detect (CD) and write protect (WP) signals.
-    // Modify slot_config.gpio_cd and slot_config.gpio_wp if your board has these signals.
     sdmmc_slot_config_t slot_config = SDMMC_SLOT_CONFIG_DEFAULT();
-#if EXAMPLE_IS_UHS1
-    slot_config.flags |= SDMMC_SLOT_FLAG_UHS1;
-#endif
 
-    // Set bus width to use:
-#ifdef CONFIG_EXAMPLE_SDMMC_BUS_WIDTH_4
     slot_config.width = 4;
-#else
-    slot_config.width = 1;
-#endif
 
-    // On chips where the GPIOs used for SD card can be configured, set them in
-    // the slot_config structure:
-#ifdef CONFIG_SOC_SDMMC_USE_GPIO_MATRIX
     slot_config.clk = CONFIG_EXAMPLE_PIN_CLK;
     slot_config.cmd = CONFIG_EXAMPLE_PIN_CMD;
     slot_config.d0 = CONFIG_EXAMPLE_PIN_D0;
-#ifdef CONFIG_EXAMPLE_SDMMC_BUS_WIDTH_4
+
     slot_config.d1 = CONFIG_EXAMPLE_PIN_D1;
     slot_config.d2 = CONFIG_EXAMPLE_PIN_D2;
     slot_config.d3 = CONFIG_EXAMPLE_PIN_D3;
-#endif  // CONFIG_EXAMPLE_SDMMC_BUS_WIDTH_4
-#endif  // CONFIG_SOC_SDMMC_USE_GPIO_MATRIX
 
-    // Enable internal pullups on enabled pins. The internal pullups
-    // are insufficient however, please make sure 10k external pullups are
-    // connected on the bus. This is for debug / example purpose only.
     slot_config.flags |= SDMMC_SLOT_FLAG_INTERNAL_PULLUP;
 
     ESP_LOGI(TAG, "Mounting filesystem");
@@ -810,76 +779,180 @@ void sdcard_test(void)
     // Card has been initialized, print its properties
     sdmmc_card_print_info(stdout, card);
 
+
+     // 打开文件（写入模式）
+    FILE *data_file = fopen("/sdcard/data.csv", "wb");
+    if (!data_file) {
+        ESP_LOGE(TAG, "Failed to open file for writing");
+        vTaskDelete(NULL);
+        return;
+    }
+
+    // 写入 CSV 表头
+    fprintf(data_file, "timestamp_us");
+    for (int ch = 0; ch < NUM_CHANNELS; ch++) {
+        fprintf(data_file, ",adc%d", ch);
+    }
+    fprintf(data_file, "\n");
+
+    // 预设缓冲区（可加快写入速度）
+    static char file_buffer[8192];
+    setvbuf(data_file, file_buffer, _IOFBF, sizeof(file_buffer));
+
+    uint64_t start_time = esp_timer_get_time();
+    uint32_t total_samples = SAMPLE_RATE_HZ * RECORD_DURATION_SEC * 120;
+    
+    int frame_counter = 0;
+    for (uint32_t i = 0; i < total_samples; i++) {
+        uint64_t timestamp_us = esp_timer_get_time();
+
+        // 写入一行数据
+        fprintf(data_file, "%llu", (unsigned long long)timestamp_us);
+        for (int ch = 0; ch < NUM_CHANNELS; ch++) {
+            int value = read_adc_channel(ch, timestamp_us);
+            fprintf(data_file, ",%d", value);
+        }
+        frame_counter++;
+        if(frame_counter == 1000){
+            ESP_LOGI(TAG, "wrtie one second data");
+            frame_counter = 0;
+        }
+        
+        fprintf(data_file, "\n");
+
+        // 控制采样速率（1kHz）
+        vTaskDelay(pdMS_TO_TICKS(1000 / SAMPLE_RATE_HZ));
+    }
+
+    fflush(data_file);
+    fclose(data_file);
+
+
+
+    // ESP_LOGI(TAG, "Starting ADC recording...");
+
+    // struct stat st;
+    // if (stat("/sdcard", &st) != 0) {
+    //     ESP_LOGE(TAG, "/sdcard not found!");
+    //     vTaskDelete(NULL);
+    //     return;
+    // }
+
+    // // 打开文件
+    // data_file = fopen("/sdcard/data.bin", "wb");
+    // if (!data_file) {
+    //     ESP_LOGE(TAG, "Failed to open file for writing");
+    //     vTaskDelete(NULL);
+    //     return;
+    // }
+
+    // // 启用缓冲区写入
+    // static uint8_t file_buffer[4096];
+    // setvbuf(data_file, (char*)file_buffer, _IOFBF, sizeof(file_buffer));
+
+    // SampleFrame frame;
+    // uint64_t start_time = esp_timer_get_time();
+
+    // uint32_t total_samples = SAMPLE_RATE_HZ * RECORD_DURATION_SEC;
+
+    // for (uint32_t i = 0; i < total_samples; i++) {
+    //     frame.timestamp_us = (uint32_t)esp_timer_get_time();
+
+    //     for (int ch = 0; ch < NUM_CHANNELS; ch++) {
+    //         frame.adc[ch] = read_adc_channel(ch, frame.timestamp_us);
+    //     }
+
+    //     fwrite(&frame, sizeof(frame), 1, data_file);
+
+    //     // 控制采样间隔 (1ms)
+    //     vTaskDelay(pdMS_TO_TICKS(1000 / SAMPLE_RATE_HZ));
+    // }
+
+    // fclose(data_file);
+    // ESP_LOGI(TAG, "Recording complete. Data saved to /sdcard/data.bin");
+
+    esp_vfs_fat_sdcard_unmount(mount_point, card);
+    ESP_LOGI(TAG, "Card unmounted");
+
+    vTaskDelete(NULL);
+}
+
+
+void sdcard_test(void)
+{
+
+    xTaskCreate(record_adc_task, "record_adc_task", 4096, NULL, 5, NULL);
+
     // Use POSIX and C standard library functions to work with files:
 
     // First create a file.
-    const char *file_hello = MOUNT_POINT"/hello.txt";
-    char data[EXAMPLE_MAX_CHAR_SIZE];
-    snprintf(data, EXAMPLE_MAX_CHAR_SIZE, "%s %s!\n", "Hello", card->cid.name);
-    ret = s_example_write_file(file_hello, data);
-    if (ret != ESP_OK) {
-        return;
-    }
+    // const char *file_hello = MOUNT_POINT"/hello.txt";
+    // char data[EXAMPLE_MAX_CHAR_SIZE];
+    // snprintf(data, EXAMPLE_MAX_CHAR_SIZE, "%s %s!\n", "Hello", card->cid.name);
+    // ret = s_example_write_file(file_hello, data);
+    // if (ret != ESP_OK) {
+    //     return;
+    // }
 
-    const char *file_foo = MOUNT_POINT"/foo.txt";
-    // Check if destination file exists before renaming
-    struct stat st;
-    if (stat(file_foo, &st) == 0) {
-        // Delete it if it exists
-        unlink(file_foo);
-    }
+    // const char *file_foo = MOUNT_POINT"/foo.txt";
+    // // Check if destination file exists before renaming
+    // struct stat st;
+    // if (stat(file_foo, &st) == 0) {
+    //     // Delete it if it exists
+    //     unlink(file_foo);
+    // }
 
     // Rename original file
-    ESP_LOGI(TAG, "Renaming file %s to %s", file_hello, file_foo);
-    if (rename(file_hello, file_foo) != 0) {
-        ESP_LOGE(TAG, "Rename failed");
-        return;
-    }
+    // ESP_LOGI(TAG, "Renaming file %s to %s", file_hello, file_foo);
+    // if (rename(file_hello, file_foo) != 0) {
+    //     ESP_LOGE(TAG, "Rename failed");
+    //     return;
+    // }
 
-    ret = s_example_read_file(file_foo);
-    if (ret != ESP_OK) {
-        return;
-    }
+    // ret = s_example_read_file(file_foo);
+    // if (ret != ESP_OK) {
+    //     return;
+    // }
 
     // Format FATFS
-#ifdef CONFIG_EXAMPLE_FORMAT_SD_CARD
-    ret = esp_vfs_fat_sdcard_format(mount_point, card);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to format FATFS (%s)", esp_err_to_name(ret));
-        return;
-    }
+// #ifdef CONFIG_EXAMPLE_FORMAT_SD_CARD
+    // ret = esp_vfs_fat_sdcard_format(mount_point, card);
+    // if (ret != ESP_OK) {
+    //     ESP_LOGE(TAG, "Failed to format FATFS (%s)", esp_err_to_name(ret));
+    //     return;
+    // }
 
-    if (stat(file_foo, &st) == 0) {
-        ESP_LOGI(TAG, "file still exists");
-        return;
-    } else {
-        ESP_LOGI(TAG, "file doesn't exist, formatting done");
-    }
-#endif // CONFIG_EXAMPLE_FORMAT_SD_CARD
+    // if (stat(file_foo, &st) == 0) {
+    //     ESP_LOGI(TAG, "file still exists");
+    //     return;
+    // } else {
+    //     ESP_LOGI(TAG, "file doesn't exist, formatting done");
+    // }
+// #endif // CONFIG_EXAMPLE_FORMAT_SD_CARD
 
-    const char *file_nihao = MOUNT_POINT"/nihao.txt";
-    memset(data, 0, EXAMPLE_MAX_CHAR_SIZE);
-    snprintf(data, EXAMPLE_MAX_CHAR_SIZE, "%s %s!\n", "Nihao", card->cid.name);
-    ret = s_example_write_file(file_nihao, data);
-    if (ret != ESP_OK) {
-        return;
-    }
+    // const char *file_nihao = MOUNT_POINT"/nihao.txt";
+    // memset(data, 0, EXAMPLE_MAX_CHAR_SIZE);
+    // snprintf(data, EXAMPLE_MAX_CHAR_SIZE, "%s %s!\n", "Nihao", card->cid.name);
+    // ret = s_example_write_file(file_nihao, data);
+    // if (ret != ESP_OK) {
+    //     return;
+    // }
 
-    //Open file for reading
-    ret = s_example_read_file(file_nihao);
-    if (ret != ESP_OK) {
-        return;
-    }
+    // //Open file for reading
+    // ret = s_example_read_file(file_nihao);
+    // if (ret != ESP_OK) {
+    //     return;
+    // }
 
     // 运行SD卡测速测试
-    sdcard_speed_test(mount_point);
+    // sdcard_speed_test(mount_point);
     
     // 运行高级性能分析
-    sdcard_advanced_performance_test(mount_point);
+    // sdcard_advanced_performance_test(mount_point);
 
     // All done, unmount partition and disable SDMMC peripheral
-    esp_vfs_fat_sdcard_unmount(mount_point, card);
-    ESP_LOGI(TAG, "Card unmounted");
+    // esp_vfs_fat_sdcard_unmount(mount_point, card);
+    // ESP_LOGI(TAG, "Card unmounted");
 
     // Deinitialize the power control driver if it was used
 #if CONFIG_EXAMPLE_SD_PWR_CTRL_LDO_INTERNAL_IO

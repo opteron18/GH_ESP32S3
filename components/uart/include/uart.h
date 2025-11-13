@@ -41,6 +41,9 @@ void uart_register_rx_callback(uart_rx_cb_t callback);
 // 发送数据（队列方式）
 esp_err_t uart_send_data(const uint8_t *data, size_t len, TickType_t timeout);
 
+// 队列发送接口（供其他任务调用）
+esp_err_t uart_send_data_queue(const uint8_t *data, size_t len, TickType_t timeout);
+
 // 任务函数
 void uart_transmit_task(void *arg);
 void uart_receive_task(void *arg);
