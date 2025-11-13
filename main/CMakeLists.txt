@@ -9,6 +9,7 @@ idf_component_register(
     SRCS   
         "main.c"
         "gh3300_task.c" 
+        "gh3300_knconfig.c"
         "led_task.c" 
         "uart_task.c" 
         "adc_buttom.c" 
@@ -67,29 +68,6 @@ idf_component_register(
     WHOLE_ARCHIVE
     EMBED_TXTFILES ${project_dir}/server_certs/ca_cert.pem
 )
-
-# add_prebuilt_library(prebuilt 
-#                             "./gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a"
-#                             "./gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dsp.a"
-#                             "./gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hr.a"
-#                             "./gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hrv.a"
-#                             "./gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_ecg.a"
-#                             "./gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_nadt.a"
-#                             "./gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a"
-# )
-
-# target_link_libraries(${COMPONENT_LIB} PRIVATE prebuilt)
-
-# set(GH_ALGO_LIBS
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dsp.a
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hr.a
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_hrv.a
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_ecg.a
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_nadt.a
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_spo2.a
-# )
-# add_prebuilt_library(gh_algo_lib GH_ALGO_LIBS) 
 
 set(GH_ALGO_LIBS
     ${CMAKE_CURRENT_SOURCE_DIR}/../components/gh_algo/lib/esp32_xtensa-esp32-gcc-14.2.0_os_common_dl.a
