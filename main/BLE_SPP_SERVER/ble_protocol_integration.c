@@ -201,6 +201,17 @@ int handle_protocol_data(const uint8_t *data, uint16_t len) {
             }
             break;
         }
+
+        case 0x56: { // 电流序列设置
+            ESP_LOGI(TAG, "正在处理0x56");
+            blufi_req_t out_req;
+            if (decode_start_blufi_wifi(data, len, &out_req)) {
+                ESP_LOGI(TAG, "电流序列设置成功");
+                // 这里可以添加实际的电流控制逻辑
+                return 0;
+            }
+            break;
+        }
         
         default:
             ESP_LOGE(TAG, "未知命令: 0x%02X", cmd);

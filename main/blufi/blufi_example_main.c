@@ -18,6 +18,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
+#include "freertos/timers.h"
 #include "esp_system.h"
 #include "esp_mac.h"
 #include "esp_wifi.h"
@@ -32,12 +33,19 @@
 #include "blufi_example.h"
 
 #include "esp_blufi.h"
+#include "nvs.h"
 
 #define EXAMPLE_WIFI_CONNECTION_MAXIMUM_RETRY CONFIG_EXAMPLE_WIFI_CONNECTION_MAXIMUM_RETRY
 #define EXAMPLE_INVALID_REASON                255
 #define EXAMPLE_INVALID_RSSI                  -128
 
+#define NVS_NAMESPACE "wifi_config"
+#define NVS_KEY_SSID "sta_ssid"
+#define NVS_KEY_PASSWORD "sta_password"
+
 #define CONFIG_ESP_WIFI_AUTH_WPA2_PSK 1
+
+#define BLUFI_PROVISION_TIMEOUT_MS   (180000) // 3分钟
 
 #if CONFIG_ESP_WIFI_AUTH_OPEN
 #define EXAMPLE_WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_OPEN
@@ -84,6 +92,9 @@ static int gl_sta_ssid_len;
 static wifi_sta_list_t gl_sta_list;
 static bool gl_sta_is_connecting = false;
 static esp_blufi_extra_info_t gl_sta_conn_info;
+static TimerHandle_t blufi_stop_timer = NULL;
+static bool blufi_is_active = false;
+static bool blufi_is_initialized = false;
 
 static void example_record_wifi_conn_info(int rssi, uint8_t reason)
 {
@@ -97,6 +108,158 @@ static void example_record_wifi_conn_info(int rssi, uint8_t reason)
         gl_sta_conn_info.sta_conn_end_reason_set = true;
         gl_sta_conn_info.sta_conn_end_reason = reason;
     }
+}
+
+static void blufi_stop_with_reason(const char *reason);
+
+static void blufi_timeout_callback(TimerHandle_t xTimer)
+{
+    (void) xTimer;
+    blufi_stop_with_reason("timeout");
+}
+
+static void schedule_blufi_timeout(void)
+{
+    if (blufi_stop_timer == NULL) {
+        blufi_stop_timer = xTimerCreate("blufi_timeout",
+                                        pdMS_TO_TICKS(BLUFI_PROVISION_TIMEOUT_MS),
+                                        pdFALSE,
+                                        NULL,
+                                        blufi_timeout_callback);
+        if (blufi_stop_timer == NULL) {
+            BLUFI_ERROR("Failed to create BLUFI timeout timer");
+            return;
+        }
+    }
+
+    if (xTimerIsTimerActive(blufi_stop_timer) != pdFALSE) {
+        xTimerStop(blufi_stop_timer, 0);
+    }
+
+    if (xTimerChangePeriod(blufi_stop_timer, pdMS_TO_TICKS(BLUFI_PROVISION_TIMEOUT_MS), 0) != pdPASS) {
+        BLUFI_ERROR("Failed to start BLUFI timeout timer");
+        return;
+    }
+
+    if (xTimerStart(blufi_stop_timer, 0) != pdPASS) {
+        BLUFI_ERROR("Failed to arm BLUFI timeout timer");
+    }
+}
+
+static void blufi_stop_with_reason(const char *reason)
+{
+    if (!blufi_is_active) {
+        return;
+    }
+
+    if (blufi_stop_timer != NULL) {
+        xTimerStop(blufi_stop_timer, 0);
+    }
+
+    BLUFI_INFO("Stopping BLUFI provisioning (%s)", reason ? reason : "no reason");
+    esp_blufi_disconnect();
+    esp_blufi_adv_stop();
+
+    if (blufi_is_initialized) {
+        esp_err_t deinit_ret = esp_blufi_host_deinit();
+        if (deinit_ret != ESP_OK) {
+            BLUFI_ERROR("Failed to deinit BLUFI host: %s", esp_err_to_name(deinit_ret));
+        } else {
+            blufi_is_initialized = false;
+            BLUFI_INFO("BLUFI host deinitialized");
+        }
+    }
+
+    blufi_is_active = false;
+}
+
+/**
+ * @brief 保存WiFi凭证到NVS
+ * @param ssid WiFi SSID
+ * @param password WiFi密码
+ * @return ESP_OK on success
+ */
+static esp_err_t save_wifi_credentials_to_nvs(const char *ssid, const char *password)
+{
+    nvs_handle_t nvs_handle;
+    esp_err_t err;
+
+    // 打开NVS命名空间
+    err = nvs_open(NVS_NAMESPACE, NVS_READWRITE, &nvs_handle);
+    if (err != ESP_OK) {
+        BLUFI_ERROR("Error opening NVS handle: %s", esp_err_to_name(err));
+        return err;
+    }
+
+    // 保存SSID
+    err = nvs_set_str(nvs_handle, NVS_KEY_SSID, ssid);
+    if (err != ESP_OK) {
+        BLUFI_ERROR("Error saving SSID: %s", esp_err_to_name(err));
+        nvs_close(nvs_handle);
+        return err;
+    }
+
+    // 保存密码
+    err = nvs_set_str(nvs_handle, NVS_KEY_PASSWORD, password);
+    if (err != ESP_OK) {
+        BLUFI_ERROR("Error saving password: %s", esp_err_to_name(err));
+        nvs_close(nvs_handle);
+        return err;
+    }
+
+    // 提交更改
+    err = nvs_commit(nvs_handle);
+    if (err != ESP_OK) {
+        BLUFI_ERROR("Error committing NVS: %s", esp_err_to_name(err));
+    } else {
+        BLUFI_INFO("WiFi credentials saved to NVS: SSID=%s", ssid);
+    }
+
+    nvs_close(nvs_handle);
+    return err;
+}
+
+/**
+ * @brief 从NVS读取WiFi凭证
+ * @param ssid 输出SSID缓冲区
+ * @param ssid_size SSID缓冲区大小
+ * @param password 输出密码缓冲区
+ * @param password_size 密码缓冲区大小
+ * @return ESP_OK on success, ESP_ERR_NOT_FOUND if not found
+ */
+static esp_err_t load_wifi_credentials_from_nvs(char *ssid, size_t ssid_size, char *password, size_t password_size)
+{
+    nvs_handle_t nvs_handle;
+    esp_err_t err;
+
+    // 打开NVS命名空间
+    err = nvs_open(NVS_NAMESPACE, NVS_READONLY, &nvs_handle);
+    if (err != ESP_OK) {
+        BLUFI_INFO("NVS namespace not found or cannot be opened: %s", esp_err_to_name(err));
+        return err;
+    }
+
+    // 读取SSID
+    size_t required_size = ssid_size;
+    err = nvs_get_str(nvs_handle, NVS_KEY_SSID, ssid, &required_size);
+    if (err != ESP_OK) {
+        BLUFI_INFO("SSID not found in NVS: %s", esp_err_to_name(err));
+        nvs_close(nvs_handle);
+        return err;
+    }
+
+    // 读取密码
+    required_size = password_size;
+    err = nvs_get_str(nvs_handle, NVS_KEY_PASSWORD, password, &required_size);
+    if (err != ESP_OK) {
+        BLUFI_INFO("Password not found in NVS: %s", esp_err_to_name(err));
+        nvs_close(nvs_handle);
+        return err;
+    }
+
+    BLUFI_INFO("WiFi credentials loaded from NVS: SSID=%s", ssid);
+    nvs_close(nvs_handle);
+    return ESP_OK;
 }
 
 static void example_wifi_connect(void)
@@ -188,6 +351,7 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
             gl_sta_is_connecting = false;
             disconnected_event = (wifi_event_sta_disconnected_t*) event_data;
             example_record_wifi_conn_info(disconnected_event->rssi, disconnected_event->reason);
+            blufi_stop_with_reason("wifi connect failed");
         }
         /* This is a workaround as ESP32 WiFi libs don't currently
            auto-reassociate. */
@@ -276,7 +440,7 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
     return;
 }
 
-static void initialise_wifi(void)
+void initialise_wifi(void)
 {
     ESP_ERROR_CHECK(esp_netif_init());
     wifi_event_group = xEventGroupCreate();
@@ -290,9 +454,37 @@ static void initialise_wifi(void)
 
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK( esp_wifi_init(&cfg) );
-    ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
+    
+    // 设置为APSTA模式以支持蓝牙和WiFi同时工作
+    ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_APSTA) );
+    
+    // 从NVS读取保存的WiFi凭证
+    char saved_ssid[33] = {0};
+    char saved_password[65] = {0};
+    esp_err_t nvs_err = load_wifi_credentials_from_nvs(saved_ssid, sizeof(saved_ssid), 
+                                                        saved_password, sizeof(saved_password));
+    
+    if (nvs_err == ESP_OK) {
+        // 如果找到保存的凭证，配置并连接
+        strncpy((char *)sta_config.sta.ssid, saved_ssid, sizeof(sta_config.sta.ssid) - 1);
+        strncpy((char *)sta_config.sta.password, saved_password, sizeof(sta_config.sta.password) - 1);
+        sta_config.sta.threshold.authmode = EXAMPLE_WIFI_SCAN_AUTH_MODE_THRESHOLD;
+        ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &sta_config));
+        BLUFI_INFO("Loaded WiFi credentials from NVS, will auto-connect on start");
+    } else {
+        // 如果没有保存的凭证，清空配置
+        memset(&sta_config, 0, sizeof(sta_config));
+        BLUFI_INFO("No saved WiFi credentials found in NVS");
+    }
+    
     example_record_wifi_conn_info(EXAMPLE_INVALID_RSSI, EXAMPLE_INVALID_REASON);
     ESP_ERROR_CHECK( esp_wifi_start() );
+    
+    // 如果有保存的凭证，启动后自动连接
+    if (nvs_err == ESP_OK && strlen(saved_ssid) > 0) {
+        // WiFi启动后会自动连接（WIFI_EVENT_STA_START事件会触发连接）
+        BLUFI_INFO("WiFi will auto-connect to: %s", saved_ssid);
+    }
 }
 
 static esp_blufi_callbacks_t example_callbacks = {
@@ -337,6 +529,10 @@ static void example_event_callback(esp_blufi_cb_event_t event, esp_blufi_cb_para
         /* there is no wifi callback when the device has already connected to this wifi
         so disconnect wifi before connection.
         */
+        // 在连接前保存WiFi凭证到NVS（此时SSID和密码应该都已设置）
+        if (strlen((char *)sta_config.sta.ssid) > 0 && strlen((char *)sta_config.sta.password) > 0) {
+            save_wifi_credentials_to_nvs((char *)sta_config.sta.ssid, (char *)sta_config.sta.password);
+        }
         esp_wifi_disconnect();
         example_wifi_connect();
         break;
@@ -393,6 +589,10 @@ static void example_event_callback(esp_blufi_cb_event_t event, esp_blufi_cb_para
         sta_config.sta.ssid[param->sta_ssid.ssid_len] = '\0';
         esp_wifi_set_config(WIFI_IF_STA, &sta_config);
         BLUFI_INFO("Recv STA SSID %s\n", sta_config.sta.ssid);
+        // 如果密码已经设置，则保存到NVS
+        if (strlen((char *)sta_config.sta.password) > 0) {
+            save_wifi_credentials_to_nvs((char *)sta_config.sta.ssid, (char *)sta_config.sta.password);
+        }
         break;
 	case ESP_BLUFI_EVENT_RECV_STA_PASSWD:
         if (param->sta_passwd.passwd_len >= sizeof(sta_config.sta.password)/sizeof(sta_config.sta.password[0])) {
@@ -405,6 +605,10 @@ static void example_event_callback(esp_blufi_cb_event_t event, esp_blufi_cb_para
         sta_config.sta.threshold.authmode = EXAMPLE_WIFI_SCAN_AUTH_MODE_THRESHOLD;
         esp_wifi_set_config(WIFI_IF_STA, &sta_config);
         BLUFI_INFO("Recv STA PASSWORD %s\n", sta_config.sta.password);
+        // 如果SSID已经设置，则保存到NVS
+        if (strlen((char *)sta_config.sta.ssid) > 0) {
+            save_wifi_credentials_to_nvs((char *)sta_config.sta.ssid, (char *)sta_config.sta.password);
+        }
         break;
 	case ESP_BLUFI_EVENT_RECV_SOFTAP_SSID:
         if (param->softap_ssid.ssid_len >= sizeof(ap_config.ap.ssid)/sizeof(ap_config.ap.ssid[0])) {
@@ -493,33 +697,44 @@ static void example_event_callback(esp_blufi_cb_event_t event, esp_blufi_cb_para
     }
 }
 
-void blufi_example(void)
+void blufi_start(void)
 {
     esp_err_t ret;
 
-    // Initialize NVS
-    ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-        ESP_ERROR_CHECK(nvs_flash_erase());
+    if (blufi_is_active) {
+        schedule_blufi_timeout();
+        BLUFI_INFO("BLUFI provisioning already active, timeout refreshed");
+        return;
+    }
+
+    if (!blufi_is_initialized) {
+        // Initialize NVS
         ret = nvs_flash_init();
+        if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+            ESP_ERROR_CHECK(nvs_flash_erase());
+            ret = nvs_flash_init();
+        }
+        ESP_ERROR_CHECK( ret );
+
+        ret = esp_blufi_host_and_cb_init(&example_callbacks);
+        if (ret) {
+            BLUFI_ERROR("%s initialise failed: %s\n", __func__, esp_err_to_name(ret));
+            return;
+        }
+        
+        BLUFI_INFO("BLUFI VERSION %04x\n", esp_blufi_get_version());
+        blufi_is_initialized = true;
+    } else {
+        esp_blufi_adv_start();
+        BLUFI_INFO("BLUFI advertising restarted");
     }
-    ESP_ERROR_CHECK( ret );
 
-    initialise_wifi();
+    blufi_is_active = true;
+    schedule_blufi_timeout();
+    BLUFI_INFO("BLUFI provisioning enabled, timeout %d ms", BLUFI_PROVISION_TIMEOUT_MS);
+}
 
-#if CONFIG_BT_CONTROLLER_ENABLED || !CONFIG_BT_NIMBLE_ENABLED
-    ret = esp_blufi_controller_init();
-    if (ret) {
-        BLUFI_ERROR("%s BLUFI controller init failed: %s\n", __func__, esp_err_to_name(ret));
-        return;
-    }
-#endif
-
-    ret = esp_blufi_host_and_cb_init(&example_callbacks);
-    if (ret) {
-        BLUFI_ERROR("%s initialise failed: %s\n", __func__, esp_err_to_name(ret));
-        return;
-    }
-
-    BLUFI_INFO("BLUFI VERSION %04x\n", esp_blufi_get_version());
+void blufi_stop(void)
+{
+    blufi_stop_with_reason("manual");
 }

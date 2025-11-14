@@ -38,6 +38,13 @@ typedef struct {
     uint16_t pattern;       // 11bit: 模式扩展
 } current_seq_t;
 
+// blufi配网结构体
+typedef struct {
+    uint8_t blufi_flag;           // 2bit: 0-4
+    uint8_t low_freq_wave;  // 8bit: 0-255
+    uint16_t low_freq;      // 10bit: 0-999
+} blufi_req_t;
+
 /**
  * @brief 编码开关控制命令
  * @param switch_state 开关状态 (0-关, 1-开)
@@ -129,6 +136,17 @@ bool encode_current_seq(const current_seq_t *current, uint8_t *out_frame, uint16
  * @return true-成功, false-失败
  */
 bool decode_current_seq(const uint8_t *data, uint16_t len, current_seq_t *out_current);
+
+
+/**
+ * @brief 解码电流序列命令
+ * @param data 输入数据
+ * @param len 数据长度
+ * @param out_req 输出电流序列结构体
+ * @return true-成功, false-失败
+ */
+
+bool decode_start_blufi_wifi(const uint8_t *data, uint16_t len, blufi_req_t *out_req);
 
 #ifdef __cplusplus
 }

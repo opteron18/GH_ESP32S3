@@ -9,6 +9,8 @@
 #include <stdbool.h>
 #include "esp_log.h"
 #include "protocol_handler.h"
+#include "esp_blufi_api.h"
+#include "blufi_example.h"
 
 #define TAG "PROTOCOL_HANDLER"
 
@@ -24,6 +26,7 @@
 #define CMD_DEVICE_STATUS   0x53
 #define CMD_BIO_DATA        0x54
 #define CMD_CURRENT_SEQ     0x55
+#define CMD_BLUFI_REQ       0x56
 #define FRAME_TAIL          0xFF
 
 // 位操作宏定义
@@ -415,5 +418,31 @@ bool decode_current_seq(const uint8_t *data, uint16_t len, current_seq_t *out_cu
              out_current->action_wave, out_current->action_freq,
              out_current->intensity, out_current->duty_cycle, out_current->rise_time, out_current->pattern);
     
+    return true;
+}
+
+bool decode_start_blufi_wifi(const uint8_t *data, uint16_t len, blufi_req_t *out_req) {
+    if (!data || !out_req || len < 3) return false;
+    
+    if (data[0] != CMD_BLUFI_REQ || data[2] != FRAME_TAIL) {
+        ESP_LOGE(TAG, "电流序列帧格式错误");
+        return false;
+    }
+    
+    // 与编码保持一致的按位解包
+    uint16_t bit_offset = 8;
+    out_req->blufi_flag = (uint8_t)read_bits(data, bit_offset, 8);           bit_offset += 8;
+    // 72-151 预留，忽略
+    print_hex("接收数据", data, len);
+
+    if(out_req->blufi_flag == 1){
+        ESP_LOGI(TAG,"配网请求成功=%d",out_req->blufi_flag );
+        blufi_start();
+    }
+    else{
+        ESP_LOGI(TAG,"取消配网请求=%d",out_req->blufi_flag );
+        blufi_stop();
+    }
+
     return true;
 }

@@ -2,7 +2,7 @@ dependencies:
   idf:
     source:
       type: idf
-    version: 5.4.2
+    version: 5.4.1
   protocol_examples_common:
     dependencies: []
     source:

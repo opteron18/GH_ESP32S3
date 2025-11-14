@@ -27,6 +27,10 @@
 #include "esp_timer.h"
 #include "protocol_demo.h"
 #include "ble_protocol_integration.h"
+
+#include "esp_blufi_api.h"
+#include "../blufi/blufi_example.h"
+
 #if (CONFIG_EXAMPLE_ENABLE_RF_TESTING_CONFIGURATION_COMMAND)
 #include "rf_tesing_configuration_cmd.h"
 #endif // CONFIG_EXAMPLE_ENABLE_RF_TESTING_CONFIGURATION_COMMAND
@@ -735,12 +739,19 @@ void send_data_pack_thread(void *pvParameters){
 
     while(1){
     // ESP_LOGI(GATTS_TABLE_TAG, "开始运行协议演示...");
-    run_protocol_demo();
+    // run_protocol_demo();
     // ESP_LOGI(GATTS_TABLE_TAG, "协议演示完成");
     vTaskDelay(5000 / portTICK_PERIOD_MS);
     }
 }
-void ble_spp_server(void)
+
+void ble_spp_task_creat(void){
+
+    xTaskCreate(send_data_pack_thread, "send_data_pack_thread", 4096, (void*)UART_NUM_0, 8, NULL);
+
+}
+
+void ble_spp_server_task(void)
 {
     esp_err_t ret;
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
@@ -791,7 +802,9 @@ void ble_spp_server(void)
         ESP_LOGE(GATTS_TABLE_TAG, "set local  MTU failed, error code = %x", local_mtu_ret);
     }
 
-    xTaskCreate(send_data_pack_thread, "send_data_pack_thread", 4096, (void*)UART_NUM_0, 8, NULL);
+    initialise_wifi();
+
+    ble_spp_task_creat();
 
     return;
 }

@@ -21,4 +21,7 @@ HR HRV ADT
 1.增加http_ota  wifi blufi blespp功能，占用内存会比较大
 2.1292r驱动修复，正常获取内置测试方波代码
 3.修复cmakelist里面对于gh3300算法静态库影响lvgl移植的问题
-4.
+
+251114
+1.同时运行BLE_SPP与BLUFI，重启也会自动连接wifi保存账号密码，可超时自动关闭BLUFI服务器或手动关闭，但ID名称会被修改成blufi，需修改修复，还有这个报错
+I (244817) wifi:bcn_timeout,ap_probe_send_start

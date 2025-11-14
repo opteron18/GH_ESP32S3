@@ -12,6 +12,8 @@
 #include "gh3x_demo.h"
 #include "ads1x9x.h"
 #include "lcd_init.h"
+#include "esp_blufi_api.h"
+#include "blufi_example.h"
 
 // #include "lvgl.h"
 // #include "lv_port_disp.h"
@@ -30,7 +32,7 @@ extern void create_EMG_tasks(void);
 extern void FRT_UI_TaskCreate(void);
 extern void sdcard_test(void);
 extern void https_ota(void);
-extern void ble_spp_server(void);
+extern void ble_spp_server_task(void);
 // extern void lv_port_disp_init(void);
 // extern void lv_init(void);
 
@@ -42,20 +44,25 @@ void app_main(void)
     // lv_init();          
     // lv_port_disp_init();
 
-    ble_spp_server();
+    // blufi_start();
 
-    https_ota();
+    ble_spp_server_task();
 
-    create_uart_tasks();//串口初始化线程
+    
 
-    FRT_adc_buttom_TaskCreate();//ADC复用按钮线程
 
-    create_EMG_tasks();//1292R EMG肌电线程
+    // https_ota();
 
-    sdcard_test();//sd卡线程
+    // create_uart_tasks();//串口初始化线程
 
-    FRT_GH3300_TaskCreate();//GH3300线程
+    // FRT_adc_buttom_TaskCreate();//ADC复用按钮线程
 
-    FRT_LED_TaskCreate();//单脚LED线程非2812
+    // create_EMG_tasks();//1292R EMG肌电线程
+
+    // sdcard_test();//sd卡线程
+
+    // FRT_GH3300_TaskCreate();//GH3300线程
+
+    // FRT_LED_TaskCreate();//单脚LED线程非2812
 }
 
